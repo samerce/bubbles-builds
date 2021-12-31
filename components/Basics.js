@@ -1,10 +1,12 @@
+import SIcon from 'supercons'
+
 export const Button = (p) => (
-  <button {...p} className={'m-2 rounded-3xl border-2 bg-white text-black ' + p.className}>
+  <button {...p} className={'m-2 rounded-3xl bg-accentLite bg-opacity-50 glass button text-accent ' + p.className}>
   </button>
 )
 
 export const Link = (p) => (
-  <a {...p} className={'m-2 rounded-3xl border-2 bg-white text-black ' + p.className}>
+  <a {...p} className={'m-2 rounded-3xl bg-accentLite bg-opacity-50 glass button text-accent ' + p.className}>
   </a>
 )
 
@@ -14,6 +16,10 @@ export const Header = (p) => (
 )
 
 export const PageTitle = (p) => (
-  <div {...p} className={'self-center text-white text-center text-10xl uppercase font-head ' + p.className} >
+  <div {...p} className={'self-center text-white text-center text-10xl uppercase font-head text-shadow-1 ' + p.className} >
   </div>
+)
+
+export const Icon = (p) => (
+  <SIcon {...p} glyph={p.name} />
 )

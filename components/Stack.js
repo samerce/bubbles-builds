@@ -1,3 +1,4 @@
+import VisibilitySensor from 'react-visibility-sensor'
 
 export const HSnapStack = (p) => (
   <div {...p} className={'snap-x snap-mandatory flex overflow-x-scroll overflow-y-hidden ' + p.className}>
@@ -5,8 +6,12 @@ export const HSnapStack = (p) => (
 )
 
 export const HSnapItem = (p) => (
-  <div {...p} className={'snap-start snap-always inline-flex ' + p.className}>
-  </div>
+  <VisibilitySensor onChange={isVisible => {
+    if (isVisible) p.onAppear()
+  }}>
+    <div {...p} className={'snap-start snap-always inline-flex ' + p.className}>
+    </div>
+  </VisibilitySensor>
 )
 
 export const VSnapStack = (p) => (
@@ -15,6 +20,10 @@ export const VSnapStack = (p) => (
 )
 
 export const VSnapItem = (p) => (
-  <div {...p} className={'snap-start snap-always ' + p.className}>
-  </div>
+  <VisibilitySensor onChange={isVisible => {
+    if (isVisible) p.onAppear()
+  }}>
+    <div {...p} className={'snap-start snap-always ' + p.className}>
+    </div>
+  </VisibilitySensor>
 )

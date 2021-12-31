@@ -29,9 +29,10 @@ module.exports = {
       fontFamily: {
         head: 'Monoton',
       },
-      textShadow: {
-        'text-shadow-1': '1px 1px black',
-      },
+      colors: ({ theme }) => ({
+        accent: theme.colors.purple[800],
+        accentLite: theme.colors.purple[200],
+      }),
     },
     
   },
