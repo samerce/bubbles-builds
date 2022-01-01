@@ -19,6 +19,7 @@
 
 .glass {
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .button {
@@ -37,4 +38,10 @@
 
 p {
   font-size: 21px;
+}
+
+@layer components {
+  .text-shadow-accent {
+    text-shadow: 1px 1px theme('colors.accent');
+  }
 }

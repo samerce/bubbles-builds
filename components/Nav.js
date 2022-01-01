@@ -9,8 +9,9 @@ export default (p) => {
   return (
   <div {...p} className={'fixed flex bottom-0 left-0 px-4 py-4 justify-between items-center w-full z-20 ' + p.className}>
     <div className='flex-1'>
-      <Button className='h-54 pl-2 pr-6 transition' style={{
-          transform: nav.left.action? 'none' : 'scale(0)'
+      <Button className='h-54 pl-2 pr-6 transition origin-left' style={{
+          transform: nav.left.action? 'none' : 'scale(0)',
+          opacity: nav.left.action? 1 : 0
         }}
        onClick={nav.left.action}>
         <Icon name='view-back' size='42' className='inline text-accent bg-opacity-100 drop-shadow-faded-white mt-[-2px]' />
@@ -34,13 +35,14 @@ export default (p) => {
       <Button className='px-3 h-54 flex items-center justify-center' onClick={() => {
         dispatch(setActiveMenu(NavMenu.Music))
       }}>
-        <Icon name='announcement' size='36' className='drop-shadow-faded-white' />
+        <Icon name='youtube' size='36' className='drop-shadow-faded-white' />
       </Button>
     </div>
 
     <div className='flex-1 flex justify-end'>
-      <Button className='h-54 pr-2 pl-6 transition' style={{
-        transform: nav.right.action? 'none' : 'scale(0)'
+      <Button className='h-54 pr-2 pl-6 transition origin-right' style={{
+        transform: nav.right.action? 'none' : 'scale(0)',
+        opacity: nav.right.action? 1 : 0
       }}
       onClick={nav.right.action}>
         {nav.right.text || ''}

@@ -16,7 +16,7 @@ export const Header = (p) => (
 )
 
 export const PageTitle = (p) => (
-  <div {...p} className={'self-center text-white text-center text-10xl uppercase font-head text-shadow-1 ' + p.className} >
+  <div {...p} className={'self-center text-white text-center text-10xl uppercase font-head text-shadow-accent ' + p.className} >
   </div>
 )
 

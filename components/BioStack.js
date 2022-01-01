@@ -14,7 +14,7 @@ export default () => {
     <HSnapItem id='home' className='flex-100 flex-col flex-wrap h-full justify-center items-center z-10 relative leading-none' onAppear={() => {
       dispatch(setNavLeft(null))
       dispatch(setNavRight({
-        text: 'Who is Bubbles?', 
+        text: "Bio", 
         action: () => scrollTo('bubbles-bio')
       }))
     }}>
@@ -27,7 +27,7 @@ export default () => {
         action: () => scrollTo('home')
       }))
       dispatch(setNavRight({
-        text: 'What are their goals?', 
+        text: "Goals", 
         action: () => scrollTo('bubbles-goals')
       }))
     }}>
@@ -38,7 +38,7 @@ export default () => {
 
     <HSnapItem id='bubbles-goals' className='flex-100 h-full flex-col justify-center bg-purple-500 relative text-white' onAppear={() => {
         dispatch(setNavLeft({
-          text: 'Who is Bubbles?', 
+          text: "Bio", 
           action: () => scrollTo('bubbles-bio')
         }))
         dispatch(setNavRight(null))
