@@ -7,7 +7,7 @@ export const HSnapStack = (p) => (
 
 export const HSnapItem = (p) => (
   <VisibilitySensor onChange={isVisible => {
-    if (isVisible) p.onAppear()
+    if (isVisible && p.onAppear) p.onAppear()
   }}>
     <div {...p} className={'snap-start snap-always inline-flex ' + p.className}>
     </div>
@@ -21,7 +21,7 @@ export const VSnapStack = (p) => (
 
 export const VSnapItem = (p) => (
   <VisibilitySensor onChange={isVisible => {
-    if (isVisible) p.onAppear()
+    if (isVisible && p.onAppear) p.onAppear()
   }}>
     <div {...p} className={'snap-start snap-always ' + p.className}>
     </div>

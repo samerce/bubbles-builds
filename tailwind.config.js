@@ -1,3 +1,5 @@
+const NavHeight = '81px'
+
 module.exports = {
   future: {
     // removeDeprecatedGapUtilities: true,
@@ -16,10 +18,13 @@ module.exports = {
       height: {
         54: '54px',
         108: '108px',
+        nav: NavHeight,
       },
       flex: {
         100: '0 0 100%',
-
+      },
+      padding: {
+        nav: NavHeight,
       },
       fontSize: {
         '8xl': '6rem',
@@ -29,9 +34,18 @@ module.exports = {
       fontFamily: {
         head: 'Monoton',
       },
+      dropShadow: ({ theme }) => ({
+        tpWhite: '1px 1px ' + theme('colors.tpWhite'),
+      }),
+      boxShadow: ({ theme }) => ({
+        asBorder: '0 0 0 1px ' + theme('colors.tpBlack'),
+      }),
       colors: ({ theme }) => ({
         accent: theme.colors.purple[800],
         accentLite: theme.colors.purple[200],
+        accentDark: theme.colors.purple[900],
+        tpWhite: 'rgba(255,255,255,.18)',
+        tpBlack: 'rgba(0,0,0,.27)',
       }),
     },
     

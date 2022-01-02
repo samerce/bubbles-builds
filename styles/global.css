@@ -2,9 +2,36 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@layer components {
+  p {
+    @apply text-xl;
+  }
+
+  .text-shadow-accent {
+    text-shadow: 1px 1px theme('colors.accent');
+  }
+  .text-shadow-tpWhite {
+    text-shadow: 1px 1px theme('colors.tpWhite');
+  }
+  .text-shadow-tpBlack {
+    text-shadow: 1px 1px theme('colors.tpBlack');
+  }
+
+  .glass {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    @apply bg-accentLite bg-opacity-50;
+  }
+
+  .glass-thick {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    @apply bg-accentLite bg-opacity-70;
+  }
+}
+
 :root {
   --neon-text-color: #0fa;
-  --faded-white: rgba(255,255,255,.18);
 }
 
 .neon {
@@ -15,33 +42,4 @@
     0 0 1rem var(--neon-text-color),
     0 0 2rem var(--neon-text-color),
     0 0 4rem var(--neon-text-color);
-}
-
-.glass {
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.button {
-  border: 1px solid var(--faded-white);
-  box-shadow: 0 0 0 1px rgba(0,0,0,.18);
-  text-shadow: 1px 1px var(--faded-white);
-}
-
-.drop-shadow-faded-white {
-  filter: drop-shadow(1px 1px var(--faded-white));
-}
-
-.text-shadow-1 {
-  text-shadow: 1px 1px black;
-}
-
-p {
-  font-size: 21px;
-}
-
-@layer components {
-  .text-shadow-accent {
-    text-shadow: 1px 1px theme('colors.accent');
-  }
 }
