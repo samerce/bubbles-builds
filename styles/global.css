@@ -5,6 +5,15 @@
 @layer components {
   p {
     @apply text-xl;
+    font-family: theme('fontFamily.body');
+    /* text-transform: lowercase; */
+    max-width: 864px;
+  }
+
+  .flex-center {
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
   }
 
   .text-shadow-accent {
@@ -16,6 +25,10 @@
   .text-shadow-tpBlack {
     text-shadow: 1px 1px theme('colors.tpBlack');
   }
+  .text-shadow-6 {
+    text-shadow: 
+      1px 1px #18082e, 2px 2px #18082e, 3px 3px #18082e;
+  }
 
   .glass {
     backdrop-filter: blur(6px);
@@ -23,10 +36,14 @@
     @apply bg-accentLite bg-opacity-50;
   }
 
-  .glass-thick {
+  .glass-dark {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    @apply bg-accentLite bg-opacity-70;
+    @apply bg-accentDark bg-opacity-80;
+  }
+
+  .shadow-asBorder {
+    box-shadow: 0 0 0 1px theme('colors.tpBlack');
   }
 }
 

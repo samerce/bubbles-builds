@@ -1,4 +1,41 @@
-const NavHeight = '81px'
+const NavHeight = '108px'
+
+const extensions = {
+  width: {
+    54: '54px',
+    108: '108px',
+  },
+  height: {
+    54: '54px',
+    108: '108px',
+    nav: NavHeight,
+  },
+  flex: {
+    100: '0 0 100%',
+  },
+  padding: {
+    nav: NavHeight,
+  },
+  fontSize: {
+    '8xl': '6rem',
+    '9xl': '7rem',
+    '10xl': '8rem',
+  },
+  fontFamily: {
+    head: 'bungee shade',
+    body: 'bentham',
+  },
+  dropShadow: ({ theme }) => ({
+    tpWhite: '1px 1px ' + theme('colors.tpWhite'),
+  }),
+  colors: ({ theme }) => ({
+    accent: '#4f1a99',
+    accentLite: '#f4ebff',
+    accentDark: '#18082e', 
+    tpWhite: 'rgba(244, 235, 255,.18)',
+    tpBlack: 'rgba(24, 8, 46,.27)',
+  }),
+}
 
 module.exports = {
   future: {
@@ -10,45 +47,7 @@ module.exports = {
     './components/**/*.js'
   ],
   theme: {
-    extend: {
-      width: {
-        54: '54px',
-        108: '108px',
-      },
-      height: {
-        54: '54px',
-        108: '108px',
-        nav: NavHeight,
-      },
-      flex: {
-        100: '0 0 100%',
-      },
-      padding: {
-        nav: NavHeight,
-      },
-      fontSize: {
-        '8xl': '6rem',
-        '9xl': '7rem',
-        '10xl': '8rem',
-      },
-      fontFamily: {
-        head: 'Monoton',
-      },
-      dropShadow: ({ theme }) => ({
-        tpWhite: '1px 1px ' + theme('colors.tpWhite'),
-      }),
-      boxShadow: ({ theme }) => ({
-        asBorder: '0 0 0 1px ' + theme('colors.tpBlack'),
-      }),
-      colors: ({ theme }) => ({
-        accent: theme.colors.purple[800],
-        accentLite: theme.colors.purple[200],
-        accentDark: theme.colors.purple[900],
-        tpWhite: 'rgba(255,255,255,.18)',
-        tpBlack: 'rgba(0,0,0,.27)',
-      }),
-    },
-    
+    extend: extensions,
   },
   variants: {},
   plugins: [],

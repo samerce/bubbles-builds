@@ -1,8 +1,9 @@
 import SIcon from 'supercons'
+import { animated } from 'react-spring'
 
 export const Button = (p) => (
-  <button {...p} className={ButtonClasses + p.className}>
-  </button>
+  <animated.button {...p} className={ButtonClasses + p.className}>
+  </animated.button>
 )
 
 export const Link = (p) => (
@@ -11,12 +12,13 @@ export const Link = (p) => (
 )
 
 export const Header = (p) => (
-  <h1 {...p} 
-  className={'font-head mx-auto my-16 text-5xl text-shadow-tpBlack ' + p.className}></h1>
+  <h1 {...p}
+  className={'font-head mx-auto my-16 text-5xl text-shadow-6 drop-shadow-2xl uppercase ' + p.className}>
+  </h1>
 )
 
 export const PageTitle = (p) => (
-  <div {...p} className={'self-center text-white text-center text-10xl uppercase font-head text-shadow-accent ' + p.className}>
+  <div {...p} className={'self-center text-white text-center text-10xl uppercase font-head text-shadow-6 drop-shadow-2xl ' + p.className}>
   </div>
 )
 
@@ -24,4 +26,4 @@ export const Icon = (p) => (
   <SIcon {...p} glyph={p.name} />
 )
 
-var ButtonClasses = ' m-2 rounded-3xl glass text-accent border-width-1 border-tpWhite shadow-asBorder '
+var ButtonClasses = ' rounded-3xl glass text-accent border-width-1 border-tpWhite shadow-asBorder text-shadow-tpWhite font-head lowercase '

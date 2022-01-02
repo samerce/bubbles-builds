@@ -11,10 +11,10 @@ export default () => {
     <Head>
       <title>bubbles builds</title>
       <link rel="icon" href="/favicon.ico" />
-      <link href='/smoothscroll.polyfill.js' rel='preload' as='script' />
+      <link href='/smoothscroll.polyfill.js' />
       <link rel="preconnect" href="https://fonts.googleapis.com" /> 
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin /> 
-      <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Bentham&family=Bungee+Shade&display=swap" rel="stylesheet" />
     </Head>
 
     <BioStack />
