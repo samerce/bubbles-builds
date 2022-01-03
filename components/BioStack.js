@@ -1,35 +1,9 @@
 import { HSnapStack, HSnapItem } from './Stack'
 import { PageTitle, Header } from './Basics'
-
-import { useDispatch } from 'react-redux'
-import { setNavLeft, setNavRight } from '../redux/navSlice'
+import useNav from '../model/useNav'
 
 export default () => {
-  const dispatch = useDispatch()
-  function onAppearHome() {
-    dispatch(setNavLeft(null))
-    dispatch(setNavRight({
-      text: 'Bio', 
-      target: 'bubbles-bio'
-    }))
-  }
-  function onAppearBio() {
-    dispatch(setNavLeft({
-      text: 'Home',
-      target: 'home'
-    }))
-    dispatch(setNavRight({
-      text: 'Goals', 
-      target: 'bubbles-goals'
-    }))
-  }
-  function onAppearGoals() {
-    dispatch(setNavLeft({
-      text: 'Bio',
-      target: 'bubbles-bio'
-    }))
-    dispatch(setNavRight(null))
-  }
+  const {setNavLeft, setNavRight} = useNav()
 
   return (
     <div className='snap-start snap-always h-full w-full relative'>
@@ -37,39 +11,80 @@ export default () => {
       </iframe>
 
       <HSnapStack className='h-full snap-start snap-always relative'>
-        <HSnapItemBio id='home' onAppear={onAppearHome}>
-          <PageTitle className='rotate-6 leading-none'>Bubbles<br/>Builds</PageTitle>
-        </HSnapItemBio>
-        
-        <HSnapItemBio id='bubbles-bio' className='pb-nav' onAppear={onAppearBio}>
-          <HeaderBio>Who is Bubbles?</HeaderBio>
 
-          <div className='grow mx-auto flex items-center'>
-            <BodyBio>
-              Bubbles (they/them) is a former software engineer for corporate giants. After leaving the inhumane conditions of corporate life, they traveled the world and began developing new skills. Now, Bubbles produces music, writes, and is developing their skills in graphic design.
-            </BodyBio>
-          </div>
-        </HSnapItemBio>
+      {StackItems.map(({id, Content, left, right}, index) => (
+        <HSnapItem id={id} className='flex-100 h-full flex-col justify-center relative pb-nav'
+        onAppear={() => {
+          const itemLeft = (index > 0)? StackItems[index - 1] : null
+          setNavLeft(left || {
+            text: itemLeft.title,
+            target: itemLeft.id,
+          })
 
-        <HSnapItemBio id='bubbles-goals' className='pb-nav' onAppear={onAppearGoals}>
-          <HeaderBio>Goals & Philosophy</HeaderBio>
-
-          <div className='grow mx-auto flex items-center'>
-            <BodyBio>
-              aRt. Love. Community. Growth. Diversity.
-            </BodyBio>
-          </div>
+          const itemRight = (index < StackItems.length - 1)? StackItems[index + 1] : null
+          setNavRight(right || {
+            text: itemRight.title,
+            target: itemRight.id,
+          })
+        }}>
+          <Content />
+        </HSnapItem>
+      ))}
           
-        </HSnapItemBio>
       </HSnapStack>  
     </div>
   )
 }
 
-var HSnapItemBio = (p) => (
-  <HSnapItem {...p} 
-  className={'flex-100 h-full flex-col justify-center relative ' + p.className} />
-)
+var StackItems = [
+  {
+    id: 'home',
+    title: 'Home',
+    Content: () => (
+      <PageTitle className='rotate-6 leading-none'>Bubbles<br/>Builds</PageTitle>
+    ),
+    left: {
+      text: 'Magic',
+      target: 'egg',
+      icon: 'rep'
+    },
+  },
+  {
+    id: 'bubbles-bio',
+    title: 'Bio',
+    Content: () => (
+      <>
+        <HeaderBio>Who is Bubbles?</HeaderBio>
+
+        <div className='grow mx-auto flex items-center'>
+          <BodyBio>
+            Bubbles (they/them) is a former software engineer for corporate giants. After leaving the inhumane conditions of corporate life, they traveled the world and began developing new skills. Now, Bubbles produces music, writes, and is developing their skills in graphic design.
+          </BodyBio>
+        </div>
+      </>
+    ),
+  },
+  {
+    id: 'bubbles-goals',
+    title: 'Goals & Philosophy',
+    Content: () => (
+      <>
+        <HeaderBio>Goals & Philosophy</HeaderBio>
+
+        <div className='grow mx-auto flex items-center'>
+          <BodyBio>
+            aRt. Love. Community. Growth. Diversity.
+          </BodyBio>
+        </div>
+      </>
+    ),
+    right: {
+      text: 'Magic',
+      target: 'egg',
+      icon: 'rep'
+    },
+  }
+]
 
 var HeaderBio = (p) => (
   <Header {...p} className={'text-white mb-0 ' + p.className} />

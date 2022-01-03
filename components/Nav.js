@@ -1,48 +1,46 @@
-import { Button, Link, Icon } from "./Basics"
-import { useSelector, useDispatch } from 'react-redux'
-import { setActiveMenu, NavMenu } from '../redux/navSlice'
-import { useSpring, animated, config } from 'react-spring'
+import { Button, Icon } from "./Basics"
+import useNav, { NavMenu } from '../model/useNav'
+import { useSpring, config } from 'react-spring'
 import { scrollTo } from "../utils/scroll"
 
 export default (p) => {
-  const dispatch = useDispatch()
-  const nav = useSelector(state => state.nav)
+  const {nav, setActiveMenu} = useNav()
 
   return (
   <div className='fixed flex bottom-0 left-0 px-7 px- h-nav justify-between items-center w-full z-20'>
-    <div className='flex-1'>
-      <Button onClick={() => scrollTo(nav.left.target)} className='h-54 pl-2 pr-6 origin-left' 
+    <div className='flex-1 flex justify-end mx-2'>
+      <Button onClick={() => scrollTo(nav.left.target)} className='h-54 pl-2 pr-6 origin-right text-2xl' 
       style={styleFor(nav.left)}>
-        <NavIcon name='view-back' />
+        <NavIcon name={nav.left.icon || 'view-back'} />
         {nav.left.text || ''}
       </Button>
     </div>
 
-    <div className='flex-1 flex-center'>
-      <Button className='mx-2 h-54 px-3 flex-center' onClick={() => {
-        dispatch(setActiveMenu(NavMenu.Email))
+    <div className='flex-center'>
+      <NavButton className='px-3' onClick={() => {
+        setActiveMenu(NavMenu.Email)
       }}>
         <NavIcon name='email' />
-      </Button>
+      </NavButton>
 
-      <Button className='mx-2 px-6 h-54 flex-center' onClick={() => {
-        dispatch(setActiveMenu(NavMenu.SiteMap))
+      <NavButton className='px-6' onClick={() => {
+        setActiveMenu(NavMenu.SiteMap)
       }}>
         <NavIcon name='sam' />
-      </Button>
+      </NavButton>
 
-      <Button className='mx-2 px-3 h-54 flex-center' onClick={() => {
-        dispatch(setActiveMenu(NavMenu.Music))
+      <NavButton className='px-3' onClick={() => {
+        setActiveMenu(NavMenu.Music)
       }}>
         <NavIcon name='youtube' />
-      </Button>
+      </NavButton>
     </div>
 
-    <div className='flex-1 flex justify-end'>
-      <Button onClick={() => scrollTo(nav.right.target)} className='h-54 pr-2 pl-6 origin-right' 
+    <div className='flex-1 flex mx-2'>
+      <Button onClick={() => scrollTo(nav.right.target)} className='h-54 pr-2 pl-6 origin-left text-2xl' 
       style={styleFor(nav.right)}>
         {nav.right.text || ''}
-        <NavIcon name='view-forward' />
+        <NavIcon name={nav.right.icon || 'view-forward'} />
       </Button>
     </div>
   </div>
@@ -50,7 +48,11 @@ export default (p) => {
 
 var NavIcon = (p) => (
   <Icon size='42' {...p} 
-  className={'inline text-accent drop-shadow-tpWhite mt-[-2px] ' + p.className} />
+  className={'inline text-accent drop-shadow-tpWhite ' + p.className} />
+)
+
+var NavButton = (p) => (
+  <Button {...p} className={'mx-2 px-6 h-54 flex-center ' + p.className} />
 )
 
 function styleFor(navBtn) {
@@ -61,7 +63,7 @@ function styleFor(navBtn) {
     },
     config: {
       ...config.wobbly,
-      mass: .54,
+      mass: .36,
     }
   })
   return anim

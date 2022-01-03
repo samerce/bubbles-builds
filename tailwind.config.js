@@ -24,6 +24,7 @@ const extensions = {
   fontFamily: {
     head: 'bungee shade',
     body: 'bentham',
+    button: 'bayon',
   },
   dropShadow: ({ theme }) => ({
     tpWhite: '1px 1px ' + theme('colors.tpWhite'),

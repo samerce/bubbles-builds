@@ -7,7 +7,7 @@
     @apply text-xl;
     font-family: theme('fontFamily.body');
     /* text-transform: lowercase; */
-    max-width: 864px;
+    max-width: 756px;
   }
 
   .flex-center {

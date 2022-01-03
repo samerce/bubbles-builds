@@ -1,5 +1,8 @@
 import SIcon from 'supercons'
+import NImage from 'next/image'
 import { animated } from 'react-spring'
+
+var ButtonClasses = ' rounded-3xl glass text-accent border-width-1 border-tpWhite shadow-asBorder text-shadow-tpWhite font-button uppercase leading-none '
 
 export const Button = (p) => (
   <animated.button {...p} className={ButtonClasses + p.className}>
@@ -7,13 +10,13 @@ export const Button = (p) => (
 )
 
 export const Link = (p) => (
-  <a {...p} className={ButtonClasses + p.className}>
+  <a {...p} className={ButtonClasses + p.className} target={p.ext? '_blank' : null}>
   </a>
 )
 
 export const Header = (p) => (
   <h1 {...p}
-  className={'font-head mx-auto my-16 text-5xl text-shadow-6 drop-shadow-2xl uppercase ' + p.className}>
+  className={'font-head mx-auto mt-11 mb-8 text-5xl text-center text-shadow-6 drop-shadow-2xl uppercase ' + p.className}>
   </h1>
 )
 
@@ -26,4 +29,8 @@ export const Icon = (p) => (
   <SIcon {...p} glyph={p.name} />
 )
 
-var ButtonClasses = ' rounded-3xl glass text-accent border-width-1 border-tpWhite shadow-asBorder text-shadow-tpWhite font-head lowercase '
+export const Image = (p) => (
+  <div className={p.className}>
+    <NImage layout='responsive' objectFit='contain' quality='90' {...p} className={p.imgClass} />
+  </div>
+)
