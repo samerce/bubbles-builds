@@ -17,7 +17,7 @@ export default () => {
       <HSnapStack className='flex-100 h-full relative snap-start snap-always'>
        
         {StackItems.map(({id, Content, className, left, right}, index) => (
-          <HSnapItem id={id} 
+          <HSnapItem id={id} key={id}
           className={'flex-100 h-full flex-col relative items-center pb-nav ' + className}
           onAppear={() => {
             const itemLeft = (index > 0)? StackItems[index - 1] : null
@@ -31,6 +31,8 @@ export default () => {
               text: itemRight.title,
               target: itemRight.id,
             })
+
+            window.location = '#' + id
           }}>
             <Content />
           </HSnapItem>
@@ -64,7 +66,7 @@ var StackItems = [
         <PortfolioImage src={rickyforhouse} />
         <div className='flex-center'>
           <PortfolioButton>See The Story</PortfolioButton>
-          <PortfolioLink href='https://ricky301.wixsite.com/rickyforhouse' ext>
+          <PortfolioLink href='https://ricky301.wixsite.com/rickyforhouse' newTab>
             Check It Out
           </PortfolioLink>
         </div>
@@ -80,7 +82,7 @@ var StackItems = [
         <PortfolioImage src={flitandland} />
         <div className='flex-center'>
           <PortfolioButton>See The Story</PortfolioButton>
-          <PortfolioLink href='https://flitandland-beta.herokuapp.com' ext>
+          <PortfolioLink href='https://flitandland-beta.herokuapp.com' newTab>
             Go There
           </PortfolioLink>
         </div>
@@ -89,14 +91,14 @@ var StackItems = [
   },
   {
     id: 'portfolio-dqitwh',
-    title: 'Drag Queen in the White House',
+    title: 'DQITWH',
     Content: () => (
       <>
         <Header className='text-white'>Drag Queen in the White House</Header>
         <PortfolioImage src={dqitwh} />
         <div className='flex-center'>
           <PortfolioButton>See The Story</PortfolioButton>
-          <PortfolioLink href='https://dragqueeninthewhitehouse.com' ext>
+          <PortfolioLink href='https://dragqueeninthewhitehouse.com' newTab>
             See It
           </PortfolioLink>
         </div>

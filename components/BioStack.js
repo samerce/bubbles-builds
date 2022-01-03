@@ -13,7 +13,8 @@ export default () => {
       <HSnapStack className='h-full snap-start snap-always relative'>
 
       {StackItems.map(({id, Content, left, right}, index) => (
-        <HSnapItem id={id} className='flex-100 h-full flex-col justify-center relative pb-nav'
+        <HSnapItem id={id} key={id}
+        className='flex-100 h-full flex-col justify-center relative pb-nav'
         onAppear={() => {
           const itemLeft = (index > 0)? StackItems[index - 1] : null
           setNavLeft(left || {
@@ -26,6 +27,8 @@ export default () => {
             text: itemRight.title,
             target: itemRight.id,
           })
+
+          window.location = '#' + id
         }}>
           <Content />
         </HSnapItem>

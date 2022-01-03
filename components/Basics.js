@@ -10,7 +10,7 @@ export const Button = (p) => (
 )
 
 export const Link = (p) => (
-  <a {...p} className={ButtonClasses + p.className} target={p.ext? '_blank' : null}>
+  <a {...p} className={ButtonClasses + p.className} target={p.newTab? '_blank' : null}>
   </a>
 )
 
