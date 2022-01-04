@@ -2,7 +2,7 @@ import SIcon from 'supercons'
 import NImage from 'next/image'
 import { animated } from 'react-spring'
 
-var ButtonClasses = ' rounded-3xl glass text-accent border-width-1 border-tpWhite shadow-asBorder text-shadow-tpWhite font-button uppercase leading-none '
+var ButtonClasses = ' rounded-3xl glass text-accent border-sexy text-shadow-tpWhite font-button uppercase leading-none '
 
 export const Button = (p) => (
   <animated.button {...p} className={ButtonClasses + p.className}>
@@ -33,4 +33,8 @@ export const Image = (p) => (
   <div className={p.className}>
     <NImage layout='responsive' objectFit='contain' quality='90' {...p} className={p.imgClass} />
   </div>
+)
+
+export const Body = (p) => (
+  <p {...p} className={'glass-dark px-8 py-7 text-accentLite text-shadow-tpBlack rounded-2xl border-sexy ' + p.className}></p>
 )

@@ -1,5 +1,5 @@
 import { HSnapStack, HSnapItem } from './Stack'
-import { PageTitle, Header } from './Basics'
+import { PageTitle, Header, Body } from './Basics'
 import useNav from '../model/useNav'
 
 export default () => {
@@ -60,9 +60,9 @@ var StackItems = [
         <HeaderBio>Who is Bubbles?</HeaderBio>
 
         <div className='grow mx-auto flex items-center'>
-          <BodyBio>
+          <Body>
             Bubbles (they/them) is a former software engineer for corporate giants. After leaving the inhumane conditions of corporate life, they traveled the world and began developing new skills. Now, Bubbles produces music, writes, and is developing their skills in graphic design.
-          </BodyBio>
+          </Body>
         </div>
       </>
     ),
@@ -75,9 +75,9 @@ var StackItems = [
         <HeaderBio>Goals & Philosophy</HeaderBio>
 
         <div className='grow mx-auto flex items-center'>
-          <BodyBio>
+          <Body>
             aRt. Love. Community. Growth. Diversity.
-          </BodyBio>
+          </Body>
         </div>
       </>
     ),
@@ -91,8 +91,4 @@ var StackItems = [
 
 var HeaderBio = (p) => (
   <Header {...p} className={'text-white mb-0 ' + p.className} />
-)
-
-var BodyBio = (p) => (
-  <p {...p} className={'glass-dark p-5 text-accentLite text-shadow-tpBlack rounded-2xl shadow-asBorder border-width-1 border-tpWhite ' + p.className}></p>
 )
