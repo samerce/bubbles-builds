@@ -19,11 +19,17 @@ export default (p) => {
   function onClickWhy() {
     isWhyVisible? hidePopup() : showPopup(Popups.Why)
   }
+  function onClickBackdrop() {
+    setActiveMenu(null)
+    hidePopup()
+  }
 
   return (
   <div className='fixed flex bottom-0 left-0 px-7 px- h-nav justify-between items-center w-full z-20'>
+    <div className='absolute-full' onClick={onClickBackdrop} />
     <div className='flex-1 flex justify-end mx-2'>
-      <Button onClick={onClickHow} className='h-54 pl-2 pr-6 origin-right text-2xl'>
+      <Button onClick={onClickHow} className='h-54 pl-2 pr-6 origin-right text-2xl'
+      style={{filter: isHowVisible? 'invert()' : 'none'}}>
         <NavIcon name={isHowVisible? 'view-close' : 'bolt-circle'} className='mx-1' />
         How
       </Button>
@@ -50,7 +56,8 @@ export default (p) => {
     </div>
 
     <div className='flex-1 flex mx-2'>
-      <Button onClick={onClickWhy} className='h-54 pl-2 pr-6 origin-left text-2xl'>
+      <Button onClick={onClickWhy} className='h-54 pl-2 pr-6 origin-left text-2xl'
+      style={{filter: isWhyVisible? 'invert()' : 'none'}}>
         <NavIcon name={isWhyVisible? 'view-close' : 'compass'} className='mx-1' />
         Why
       </Button>

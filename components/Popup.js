@@ -18,7 +18,7 @@ export default p => {
     )
       Background
 
-      .h-full.w-full.relative.flex.justify-center
+      .h-full.w-full.relative.flex.justify-center.pointer-events-none
         PopupContent.origin-bottom-left(id=Popups.How)
           How
 
@@ -34,7 +34,7 @@ var Background = p => {
   const opacity = AnimOpacity(visible)
   const style = {
     opacity: opacity.opacity.to(o => o),
-    pointerEvents: popupId? 'all' : 'none',
+    pointerEvents: visible? 'all' : 'none',
   }
 
   return pug`
@@ -59,7 +59,7 @@ var PopupContent = p => {
   })
 
   return pug`
-    Anim.absolute.h-full(
+    Anim.absolute.h-full.pointer-events-all(
       ...p
       className=p.className
       style=${{...opacity, ...scale}}
