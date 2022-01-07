@@ -5,19 +5,19 @@ import { useSpring, config } from 'react-spring'
 import { scrollTo } from "../utils/scroll"
 
 import useNav, { NavMenu } from '../model/useNav'
-import usePopup from '../model/usePopup'
+import usePopup, { Popups } from '../model/usePopup'
 
 export default (p) => {
   const {nav, setActiveMenu} = useNav()
-  const {Content, showAsPopup, hidePopup} = usePopup()
-  const isHowVisible = Content === How
-  const isWhyVisible = Content === Why
+  const {popupId, showPopup, hidePopup} = usePopup()
+  const isHowVisible = popupId === Popups.How
+  const isWhyVisible = popupId === Popups.Why
   
   function onClickHow() {
-    isHowVisible? hidePopup() : showAsPopup(How)
+    isHowVisible? hidePopup() : showPopup(Popups.How)
   }
   function onClickWhy() {
-    isWhyVisible? hidePopup() : showAsPopup(Why)
+    isWhyVisible? hidePopup() : showPopup(Popups.Why)
   }
 
   return (
@@ -51,7 +51,7 @@ export default (p) => {
 
     <div className='flex-1 flex mx-2'>
       <Button onClick={onClickWhy} className='h-54 pl-2 pr-6 origin-left text-2xl'>
-        <NavIcon name={'compass'} className='mx-1' />
+        <NavIcon name={isWhyVisible? 'view-close' : 'compass'} className='mx-1' />
         Why
       </Button>
     </div>

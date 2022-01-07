@@ -23,7 +23,10 @@ export default p => {
   `
 }
 
-var HowConfig = []
+var HowConfig = [
+  'Javascript', 'HTML', 'CSS', 'Pug', 'TailwindCSS', 'Webpack',
+  'React', 'Redux', 'Node.js', 'Next.js', 'Git', 'VSCode', 'AWS S3', 'Iodine', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'B.S.E. Computer Science, University of Michigan',
+]
 
 var WhyConfig = {
 
