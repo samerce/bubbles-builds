@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import { VSnapStack } from '../components/Stack'
-import Bio from '../components/Bio'
-import ExpressYourYes from '../components/ExpressYourYes'
 import Nav from '../components/Nav'
 import Popup from '../components/Popup'
+import Bio from '../components/Bio'
+import ExpressYourYes from '../components/ExpressYourYes'
+import RickyForHouse from '../components/RickyForHouse'
+import Dqitwh from '../components/Dqitwh'
 
-export default () => pug`
+export default p => pug`
   VSnapStack.w-screen.h-screen(id='root-stack')
     Head
       title bubbles builds
@@ -16,6 +18,9 @@ export default () => pug`
 
     Bio
     ExpressYourYes
+    RickyForHouse
+    Dqitwh
+
     Popup
     Nav
 `

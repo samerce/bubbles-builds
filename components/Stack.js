@@ -34,14 +34,12 @@ export const HSnapStack = p => {
       {p.items?.map(({id, Content, className}, index) => (
         <HSnapItem id={id} key={id} onAppear={() => onAppearItem(id, index)}
           className={'flex-100 h-full flex-col relative items-center ' + className}>
-            <div className='w-full max-w-[800px]'>
-              <Content />
-            </div>
+            <Content />
           </HSnapItem>
       ))}
     </div>
 
-    <div className='flex-center w-full pointer-events-none z-10'>
+    <div className='flex-center w-full pointer-events-none z-10 py-2'>
       <Button onClick={() => onClickNav(nav.left)} className='transition' style={{
         opacity: nav.left? 1 : 0.5,
         pointerEvents: nav.left? 'all' : 'none',
@@ -66,11 +64,9 @@ export const VSnapStack = (p) => (
   </div>
 )
 
-export const VSnapItem = (p) => (
-  <VisibilitySensor onChange={isVisible => {
-    if (isVisible && p.onAppear) p.onAppear()
-  }}>
-    <div {...p} className={'snap-start snap-always ' + p.className}>
-    </div>
-  </VisibilitySensor>
-)
+export const VSnapItem = p => pug`
+  VisibilitySensor(onChange = visible => {
+    if (visible && p.onAppear) p.onAppear()
+  })
+    .snap-start.snap-always.w-full.h-full.relative(...p)
+`

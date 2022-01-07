@@ -7,30 +7,29 @@ export const NavMenu = makeEnum('SiteMap', 'Email', 'Music')
 const slice = createSlice({
   name: 'nav',
   initialState: {
-    // { 
-    //    text: button string
-    //    target: element to scroll to
-    //    icon: button icon, defaults to back for left, forward for right
-    // }
-    left: {}, 
-    right: {},
+    how: null, 
+    why: null,
     activeMenu: null, // NavMenu
+    pageTitle: 'Bubbles Builds',
   },
   reducers: {
-    setNavLeft: (state, action) => {
-      state.left = action.payload || {}
+    setHow: (state, action) => {
+      state.how = action.payload || {}
     },
-    setNavRight: (state, action) => {
-      state.right = action.payload || {}
+    setWhy: (state, action) => {
+      state.why = action.payload || {}
     },
     setActiveMenu: (state, action) => {
       state.activeMenu = action.payload
+    },
+    setPageTitle: (state, action) => {
+      state.pageTitle = action.payload
     },
   },
 })
 
 export const navReducer = slice.reducer
-const {setNavLeft, setNavRight, setActiveMenu} = slice.actions
+const a = slice.actions
 
 export default () => {
   const dispatch = useDispatch()
@@ -38,8 +37,13 @@ export default () => {
 
   return { 
     nav, 
-    setNavLeft: (left) => dispatch(setNavLeft(left)),
-    setNavRight: (right) => dispatch(setNavRight(right)),
-    setActiveMenu: (menu) => dispatch(setActiveMenu(menu)),
+    setActiveMenu: (menu) => dispatch(a.setActiveMenu(menu)),
+    setPageTitle: (title) => dispatch(a.setPageTitle(title)),
+    onAppearPage: (id, pageTitle, howConfig, whyConfig) => {
+      dispatch(a.setPageTitle(pageTitle))
+      dispatch(a.setHow(howConfig))
+      dispatch(a.setWhy(whyConfig))
+      window.location = '#' + id
+    },
   }
 }

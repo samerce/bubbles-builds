@@ -1,5 +1,6 @@
+import useNav from "../model/useNav"
 import { Box, Subheader, Button, Icon } from "./Basics"
-import { random } from "../utils/lang"
+import React from "react"
 
 const highlighted = [
   'Javscript',
@@ -12,9 +13,10 @@ const highlighted = [
 ]
 
 export default function How(p) { return pug`
+  - const {nav} = useNav()
   Box.h-full.flex.flex-col.overflow-hidden(class='max-w-[777px]')
     Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
-      | The Nuts & Bolts of Bubbles Builds
+      | The Nuts & Bolts of #{nav.pageTitle}
     
     .w-full.grow.flex.flex-col.overflow-y-scroll
       Section
