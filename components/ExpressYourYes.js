@@ -1,6 +1,5 @@
-import { HSnapStack, HSnapItem } from './Stack'
+import { HSnapStack } from './Stack'
 import { PageTitle, Image, Link, Button, Header, Box } from './Basics'
-import useNav from '../model/useNav'
 
 import eyy from '../public/images/eyy-site.jpg'
 import flitandland from '../public/images/flitandland.jpg'
@@ -8,59 +7,22 @@ import rickyforhouse from '../public/images/rickyforhouse.jpg'
 import dqitwh from '../public/images/dqitwh.jpg'
 import eymCircle from '../public/images/eym-circle.png'
 
-export default () => {
-  const {setNavLeft, setNavRight} = useNav()
+export default () => pug`
+  .snap-start.snap-always.h-full.w-full.relative
+    iframe.pointer-events-none.absolute.brightness-90(
+      width="100%" height="100%" frameBorder="0" 
+      src="https://www.shadertoy.com/embed/NlKSzc?gui=false&paused=false&muted=true" 
+      allowFullScreen
+    )
 
-  return (
-    <div className='snap-start snap-always h-full w-full relative'>
-      <iframe className='pointer-events-none absolute brightness-90' width="100%" height="100%" frameBorder="0" src="https://www.shadertoy.com/embed/NlKSzc?gui=false&paused=false&muted=true" allowFullScreen>
-      </iframe>
+    HSnapStack.flex-100.h-full.relative.snap-start.snap-always(
+      items=Items
+    )
+`
 
-      <HSnapStack className='flex-100 h-full relative snap-start snap-always'>
-       
-        {StackItems.map(({id, Content, className, left, right}, index) => (
-          <HSnapItem id={id} key={id}
-          className={'flex-100 h-full flex-col relative items-center pb-nav ' + className}
-          onAppear={() => {
-            const itemLeft = (index > 0)? StackItems[index - 1] : null
-            setNavLeft(left || {
-              text: itemLeft.title,
-              target: itemLeft.id,
-            })
-
-            const itemRight = (index < StackItems.length - 1)? StackItems[index + 1] : null
-            setNavRight(right || {
-              text: itemRight.title,
-              target: itemRight.id,
-            })
-
-            window.location = '#' + id
-          }}>
-            <Content />
-          </HSnapItem>
-        ))}
-
-      </HSnapStack>
-    </div>
-  )
-}
-
-var StackItems = [
+var Items = [
   {
-    id: 'portfolio-home',
-    title: 'Portfolio',
-    className: 'pb-0 justify-center',
-    Content: () => (
-      <PageTitle className='z-10 relative -rotate-3'>Portfolio</PageTitle>  
-    ),
-    left: {
-      text: 'Magic',
-      target: 'egg',
-      icon: 'rep'
-    },
-  },
-  {
-    id: 'portfolio-expressyouryes',
+    id: 'expressyouryes-now',
     title: 'express your yes',
     Content: () => (
       <>

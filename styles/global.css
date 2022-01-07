@@ -16,6 +16,13 @@
     @apply justify-center;
     @apply items-center;
   }
+  .absolute-full {
+    @apply absolute;
+    @apply top-0;
+    @apply left-0;
+    @apply right-0;
+    @apply bottom-0;
+  }
 
   .text-shadow-accent {
     text-shadow: 1px 1px theme('colors.accent');
