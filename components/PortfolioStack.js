@@ -1,5 +1,5 @@
 import { HSnapStack, HSnapItem } from './Stack'
-import { PageTitle, Image, Link, Button, Header, Body } from './Basics'
+import { PageTitle, Image, Link, Button, Header, Box } from './Basics'
 import useNav from '../model/useNav'
 
 import eyy from '../public/images/eyy-site.jpg'
@@ -65,9 +65,9 @@ var StackItems = [
     Content: () => (
       <>
         <Header className='text-white'>express your yes</Header>
-        <Body className='mb-4'>
-          Since 2015, my partner and I have been refining our philosophical ideas into the mold of a non-profit organization. Our name, messaging, and style have changed many times over the years, and below is a selection of some of my favorite incarnations.
-        </Body>
+        <Box className='mb-4'>
+          <p>Since 2015, my partner and I have been molding our philosophical ideas into a non-profit organization. Our name, messaging, and style have changed many times over the years, and below is a selection of some of my favorite incarnations.</p>
+        </Box>
 
         <div className='flex-center'>
           <PortfolioImage src={eyy} className='w-[320px]' />
@@ -75,9 +75,9 @@ var StackItems = [
           <div className='flex-[20px]' />
 
           <div className='flex-center flex-col'>
-            <Body className='mb-4'>
+            <Box className='mb-4'>
               Our latest manifestation is a full technicolor wonderland creative studio in Ann Arbor, Michigan called NOW Studios.
-            </Body>
+            </Box>
             <PortfolioLink href='https://www.expressyouryes.com' newTab>
               Check It Out
             </PortfolioLink>
@@ -96,9 +96,9 @@ var StackItems = [
     Content: () => (
       <>
         <Header className='text-white'>Ricky for House</Header>
-        <Body className='mb-4'>
+        <Box className='mb-4'>
           My partner Ricky ran a last-minute campaign for U.S. House in Michigan's district 12 in 2020. This site was whipped up in a week's time to get the message out!
-        </Body>
+        </Box>
 
         <PortfolioImage src={rickyforhouse} className='w-[640px]' />
 

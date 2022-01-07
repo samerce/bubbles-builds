@@ -16,8 +16,13 @@ export const Link = (p) => (
 
 export const Header = (p) => (
   <h1 {...p}
-  className={'font-head mx-auto mt-11 mb-8 text-5xl text-center text-shadow-6 drop-shadow-2xl uppercase ' + p.className}>
+  className={'font-head mx-auto mt-11 mb-8 text-5xl text-center text-shadow-6 drop-shadow-2xl uppercase text-accentLite leading-tight ' + p.className}>
   </h1>
+)
+
+export const Subheader = (p) => (
+  <h2 {...p}
+  className={'font-head mx-autom pt-6 pb-6 text-2xl text-center text-shadow-6 drop-shadow-2xl uppercase text-accentLite leading-tight ' + p.className} />
 )
 
 export const PageTitle = (p) => (
@@ -35,6 +40,6 @@ export const Image = (p) => (
   </div>
 )
 
-export const Body = (p) => (
-  <p {...p} className={'glass-dark px-8 py-7 text-accentLite text-shadow-tpBlack rounded-2xl border-sexy ' + p.className}></p>
+export const Box = (p) => (
+  <div {...p} className={'glass-dark text-accentLite text-shadow-tpBlack rounded-2xl border-sexy ' + p.className}></div>
 )

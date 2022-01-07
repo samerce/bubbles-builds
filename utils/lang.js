@@ -17,3 +17,7 @@ export function every(timeout, fn) {
 export function makeEnum(...valueArray) {
   return valueArray.reduce((modeMap, mode) => (modeMap[mode] = mode) && modeMap, {})
 }
+
+export function random(min, max) {
+  return Math.floor(Math.random() * (max - min) + min)
+}

@@ -16,6 +16,9 @@ const extensions = {
   padding: {
     nav: NavHeight,
   },
+  bottom: {
+    nav: NavHeight,
+  },
   fontSize: {
     '8xl': '6rem',
     '9xl': '7rem',
@@ -23,7 +26,7 @@ const extensions = {
   },
   fontFamily: {
     head: 'bungee shade',
-    body: 'bentham',
+    body: 'yanone kaffeesatz',
     button: 'bayon',
   },
   dropShadow: ({ theme }) => ({
@@ -32,7 +35,7 @@ const extensions = {
   colors: ({ theme }) => ({
     accent: '#4f1a99',
     accentLite: '#f4ebff',
-    accentDark: '#18082e', 
+    accentDark: '#0e0619', 
     tpWhite: 'rgba(244, 235, 255,.18)',
     tpBlack: 'rgba(24, 8, 46,.27)',
   }),
@@ -43,9 +46,11 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
-  purge: [
+  content: [
     './pages/**/*.js',
-    './components/**/*.js'
+    './components/**/*.js',
+    './hooks/**/*.js',
+    './model/**/*.js',
   ],
   theme: {
     extend: extensions,

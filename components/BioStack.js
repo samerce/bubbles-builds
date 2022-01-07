@@ -1,5 +1,5 @@
 import { HSnapStack, HSnapItem } from './Stack'
-import { PageTitle, Header, Body } from './Basics'
+import { PageTitle, Header, Box } from './Basics'
 import useNav from '../model/useNav'
 
 export default () => {
@@ -24,8 +24,8 @@ export default () => {
 
           const itemRight = (index < StackItems.length - 1)? StackItems[index + 1] : null
           setNavRight(right || {
-            text: itemRight.title,
-            target: itemRight.id,
+            text: itemRight?.title,
+            target: itemRight?.id,
           })
 
           window.location = '#' + id
@@ -52,41 +52,41 @@ var StackItems = [
       icon: 'rep'
     },
   },
-  {
-    id: 'bubbles-bio',
-    title: 'Bio',
-    Content: () => (
-      <>
-        <HeaderBio>Who is Bubbles?</HeaderBio>
+  // {
+  //   id: 'bubbles-bio',
+  //   title: 'Bio',
+  //   Content: () => (
+  //     <>
+  //       <HeaderBio>Who is Bubbles?</HeaderBio>
 
-        <div className='grow mx-auto flex items-center'>
-          <Body>
-            Bubbles (they/them) is a former software engineer for corporate giants. After leaving the inhumane conditions of corporate life, they traveled the world and began developing new skills. Now, Bubbles produces music, writes, and is developing their skills in graphic design.
-          </Body>
-        </div>
-      </>
-    ),
-  },
-  {
-    id: 'bubbles-goals',
-    title: 'Goals & Philosophy',
-    Content: () => (
-      <>
-        <HeaderBio>Goals & Philosophy</HeaderBio>
+  //       <div className='grow mx-auto flex items-center'>
+  //         <Box>
+  //           Bubbles (they/them) is a former software engineer for corporate giants. After leaving the inhumane conditions of corporate life, they traveled the world and began developing new skills. Now, Bubbles produces music, writes, and is developing their skills in graphic design.
+  //         </Box>
+  //       </div>
+  //     </>
+  //   ),
+  // },
+  // {
+  //   id: 'bubbles-goals',
+  //   title: 'Goals & Philosophy',
+  //   Content: () => (
+  //     <>
+  //       <HeaderBio>Goals & Philosophy</HeaderBio>
 
-        <div className='grow mx-auto flex items-center'>
-          <Body>
-            aRt. Love. Community. Growth. Diversity.
-          </Body>
-        </div>
-      </>
-    ),
-    right: {
-      text: 'Magic',
-      target: 'egg',
-      icon: 'rep'
-    },
-  }
+  //       <div className='grow mx-auto flex items-center'>
+  //         <Box>
+  //           aRt. Love. Community. Growth. Diversity.
+  //         </Box>
+  //       </div>
+  //     </>
+  //   ),
+  //   right: {
+  //     text: 'Magic',
+  //     target: 'egg',
+  //     icon: 'rep'
+  //   },
+  // }
 ]
 
 var HeaderBio = (p) => (

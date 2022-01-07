@@ -4,7 +4,7 @@ import { makeEnum } from '../utils/lang'
 
 export const NavMenu = makeEnum('SiteMap', 'Email', 'Music')
 
-const navSlice = createSlice({
+const slice = createSlice({
   name: 'nav',
   initialState: {
     // { 
@@ -29,8 +29,8 @@ const navSlice = createSlice({
   },
 })
 
-export const navReducer = navSlice.reducer
-const {setNavLeft, setNavRight, setActiveMenu} = navSlice.actions
+export const navReducer = slice.reducer
+const {setNavLeft, setNavRight, setActiveMenu} = slice.actions
 
 export default () => {
   const dispatch = useDispatch()

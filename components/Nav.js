@@ -1,18 +1,31 @@
 import { Button, Icon } from "./Basics"
-import useNav, { NavMenu } from '../model/useNav'
+import How from "./How"
+import Why from "./Why"
 import { useSpring, config } from 'react-spring'
 import { scrollTo } from "../utils/scroll"
 
+import useNav, { NavMenu } from '../model/useNav'
+import usePopup from '../model/usePopup'
+
 export default (p) => {
   const {nav, setActiveMenu} = useNav()
+  const {Content, showAsPopup, hidePopup} = usePopup()
+  const isHowVisible = Content === How
+  const isWhyVisible = Content === Why
+  
+  function onClickHow() {
+    isHowVisible? hidePopup() : showAsPopup(How)
+  }
+  function onClickWhy() {
+    isWhyVisible? hidePopup() : showAsPopup(Why)
+  }
 
   return (
   <div className='fixed flex bottom-0 left-0 px-7 px- h-nav justify-between items-center w-full z-20'>
     <div className='flex-1 flex justify-end mx-2'>
-      <Button onClick={() => scrollTo(nav.left.target)} className='h-54 pl-2 pr-6 origin-right text-2xl' 
-      style={styleFor(nav.left)}>
-        <NavIcon name={nav.left.icon || 'view-back'} />
-        {nav.left.text || ''}
+      <Button onClick={onClickHow} className='h-54 pl-2 pr-6 origin-right text-2xl'>
+        <NavIcon name={isHowVisible? 'view-close' : 'bolt-circle'} className='mx-1' />
+        How
       </Button>
     </div>
 
@@ -37,10 +50,9 @@ export default (p) => {
     </div>
 
     <div className='flex-1 flex mx-2'>
-      <Button onClick={() => scrollTo(nav.right.target)} className='h-54 pr-2 pl-6 origin-left text-2xl' 
-      style={styleFor(nav.right)}>
-        {nav.right.text || ''}
-        <NavIcon name={nav.right.icon || 'view-forward'} />
+      <Button onClick={onClickWhy} className='h-54 pl-2 pr-6 origin-left text-2xl'>
+        <NavIcon name={'compass'} className='mx-1' />
+        Why
       </Button>
     </div>
   </div>
