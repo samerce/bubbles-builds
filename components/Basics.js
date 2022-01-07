@@ -67,3 +67,10 @@ export const SectionTitle = p => pug`
     h3.font-button.text-2xl.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-white.leading-tight.pointer-events-none(...p className=p.className)
     SectionButton
 `
+
+export const PopupRoot = p => pug`
+  Box.h-full.flex.flex-col.overflow-hidden(
+    ...p 
+    className=${'max-w-[777px] ' + p.className}
+  )
+`

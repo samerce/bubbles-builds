@@ -59,7 +59,7 @@ var PopupContent = p => {
   })
 
   return pug`
-    Anim.absolute.h-full.pointer-events-all(
+    Anim.absolute.h-full.pointer-events-auto(
       ...p
       className=p.className
       style=${{...opacity, ...scale}}

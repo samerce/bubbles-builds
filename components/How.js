@@ -1,5 +1,5 @@
 import useNav from "../model/useNav"
-import { Box, Subheader, Section, SectionTitle, SectionButton } from "./Basics"
+import { PopupRoot, Subheader, Section, SectionTitle, SectionButton, Button } from "./Basics"
 import React from "react"
 
 const Highlighted = 'glass border-sexy text-accent text-shadow-tpWhite'
@@ -18,7 +18,7 @@ export default p => {
   }
   
   return pug`
-    Box.h-full.flex.flex-col.overflow-hidden(class='max-w-[777px]')
+    PopupRoot
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | The Nuts & Bolts of #{nav.pageTitle}
       
@@ -41,6 +41,7 @@ export default p => {
           SectionTitle.-rotate-6 Frameworks
           Item React
           Item TailwindCSS
+          Item Styled Components
           Item SASS
           Item Redux
           Item Node.js
@@ -77,5 +78,8 @@ export default p => {
         Section.border-none
           SectionTitle.-rotate-2 Education
           Item B.S.E. Computer Science, University of Michigan
+
+      Subheader.border-t.border-tpWhite.bg-accent.rounded-b-2xl.flex-center.p-4
+        Button.h-54.flex-center.p-6 See the code
   `
 }
