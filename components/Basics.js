@@ -1,9 +1,10 @@
 import SIcon from 'supercons'
 import NImage from 'next/image'
 import { animated } from 'react-spring'
-import React from 'react'
+import React, { useState, useLayoutEffect, useMemo } from 'react'
+import useResizeAware from 'react-resize-aware'
 
-var ButtonClasses = ' rounded-3xl glass text-accent border-sexy text-shadow-tpWhite font-button uppercase leading-none '
+const ButtonClasses = ' rounded-3xl glass text-accent border-sexy text-shadow-tpWhite font-button uppercase leading-none '
 
 export const Button = (p) => (
   <animated.button {...p} className={ButtonClasses + p.className}>
@@ -37,24 +38,52 @@ export const Icon = (p) => (
   <SIcon {...p} glyph={p.name} />
 )
 
-export const Image = p => pug`
-  div(className=p.className)
-    NImage(layout='responsive' objectFit='contain' quality='90' ...p className=p.imgClass)
-`
+export const Image = p => {
+  const baseWidth = p.width
+  const baseHeight = p.height
+
+  const BaseImage = pp => (
+    <NImage
+      layout='fill' objectFit='contain' quality='90'
+      {...pp}
+      className={'rounded-2xl ' + pp.className}
+    />
+  )
+
+  const DecoratedImage = p.framed? pp => (
+    <FramedImage {...pp}>
+      <BaseImage {...pp} />
+    </FramedImage>
+  ) : pp => <BaseImage {...pp} />
+
+  if (p.fillHeight) {
+    const [sizeListener, bounds] = useResizeAware()
+    const [imgWidth, setImgWidth] = useState(baseWidth)
+    const aspectRatio = useMemo(() => baseWidth / baseHeight, [baseWidth, baseHeight])
+
+    useLayoutEffect(() => {
+      setImgWidth(Math.floor(bounds.height * aspectRatio))
+    }, [bounds.height])
+
+    return (
+      <div className={`h-full relative ` + p.className} style={{width: imgWidth}}>
+        {sizeListener}
+        <DecoratedImage {...p} width={imgWidth} height={bounds.height} className='' />
+      </div>
+    )
+  }
+
+  return <DecoratedImage {...p} />
+}
 
 export const Box = (p) => (
   <div {...p} className={'glass-dark text-accentLite text-shadow-tpBlack rounded-2xl border-sexy ' + p.className}></div>
 )
 
-export const FramedImage = p => pug`
-  - const props = {...p, imgClass: 'rounded-lg ' + p.imgClass}
-  .p-2.rounded-2xl.border-sexy.glass(className=p.frameClass)
-    Image.overflow-hidden.max-h-full(...props className=p.className)
-`
-
 export const Section = p => pug`
   .flex-center.flex-wrap.px-3.py-6.w-full.border-b.border-b-tpWhite(...p className=p.className)
 `
+
 export const SectionButton = p => pug`
   .flex-center
     Button.h-9.text-xl.rounded-xl.flex-center.px-3.bg-transparent.border-none.text-accentLite(
@@ -62,6 +91,7 @@ export const SectionButton = p => pug`
     )
       Icon.inline.text-accentLite(name='down-caret' size='27')
 `
+
 export const SectionTitle = p => pug`
   .basis-full.flex.justify-between.items-center.ml-4
     h3.font-button.text-2xl.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-white.leading-tight.pointer-events-none(...p className=p.className)
@@ -74,3 +104,20 @@ export const PopupRoot = p => pug`
     className=${'max-w-[777px] ' + p.className}
   )
 `
+
+// Helpers 
+
+const FrameWidth = 9
+
+var FramedImage = p => (
+  <div className='relative h-full w-full'>
+    <div className='absolute rounded-2xl glass border-sexy' style={{
+      width: p.width + FrameWidth * 2,
+      height: p.height + FrameWidth * 2,
+      top: -FrameWidth,
+      left: -FrameWidth,
+    }} />
+
+    {p.children}
+  </div>
+)

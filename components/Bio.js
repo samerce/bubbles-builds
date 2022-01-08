@@ -2,9 +2,10 @@ import { PageTitle } from './Basics'
 import { VSnapItem } from './Stack'
 import useNav from '../model/useNav'
 
+const id = 'bio'
+
 export default p => {
   const {onAppearPage} = useNav()
-  const id = 'home'
   function onAppear() {
     onAppearPage(id, 'Bubbles Builds', HowConfig, WhyConfig)
   }
@@ -29,5 +30,7 @@ var HowConfig = [
 ]
 
 var WhyConfig = {
-
+  art: 'Art',
+  love: 'Love',
+  play: 'Play',
 }

@@ -1,11 +1,12 @@
-import { FramedImage, Header, PrimaryLink } from './Basics'
+import { Image, Header, PrimaryLink } from './Basics'
 import { VSnapItem } from './Stack'
 import dqitwh from '../public/images/dqitwh.jpg'
 import useNav from '../model/useNav'
 
+const id = 'dqitwh'
+
 export default p => {
   const {onAppearPage} = useNav()
-  const id = 'dqitwh'
   function onAppear() {
     onAppearPage(id, 'Drag Queen in the White House', HowConfig, WhyConfig)
   }
@@ -18,16 +19,20 @@ export default p => {
         allowFullScreen
       )
 
-      .flex-100.h-full.relative.snap-start.snap-always.flex.flex-col.items-center
+      .flex-100.h-full.relative.flex.flex-col.items-center.pb-nav
         Header.text-white Drag Queen in the White House
-        FramedImage(src=dqitwh class='w-[640px]')
+        Image(src=dqitwh width=1280 height=828 framed fillHeight)
         PrimaryLink(href='https://dragqueeninthewhitehouse.com' newTab)
           | See It
   `
 }
 
-var HowConfig = []
+var HowConfig = [
+  'React', 'Javascript', 'Express', 'HTML', 'CSS', 'Styled Components', 'Coffeescript', 'SASS', 'Square Payments', 'AWS S3', 'Redux', 'Git', 'Atom', 'Webpack', 'AWS Lambda', 'Express Your Yes Foundation', 'Iodine', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'B.S.E. Computer Science, University of Michigan',
+]
 
 var WhyConfig = {
-
+  art: 'Art',
+  love: 'Love',
+  play: 'Play',
 }

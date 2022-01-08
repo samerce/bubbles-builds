@@ -50,6 +50,7 @@ export default p => {
           Item SwiftUI
           Item Apple Core Data
           Item Ruby on Rails
+          Item Square Payments
 
         Section
           SectionTitle.rotate-2 Tools
@@ -70,7 +71,7 @@ export default p => {
         Section
           SectionTitle.rotate-3 Experience
           Item Express Your Yes Foundation
-          Item Iodine (now part of GoodRx)
+          Item Iodine
           Item Clover Labs
           Item Third & Loom
           Item Amazon.com

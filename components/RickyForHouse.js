@@ -1,11 +1,12 @@
-import { FramedImage, Header, PrimaryLink } from './Basics'
+import { Image, Header, PrimaryLink } from './Basics'
 import { VSnapItem } from './Stack'
 import rickyforhouse from '../public/images/rickyforhouse.jpg'
 import useNav from '../model/useNav'
 
+const id = 'rickyforhouse'
+
 export default p => {
   const {onAppearPage} = useNav()
-  const id = 'rickyforhouse'
   function onAppear() {
     onAppearPage(id, 'Ricky for House', HowConfig, WhyConfig)
   }
@@ -18,9 +19,9 @@ export default p => {
         allowFullScreen
       )
 
-      .flex-100.h-full.relative.snap-start.snap-always.flex.flex-col.items-center
+      .flex-100.h-full.relative.flex.flex-col.items-center.pb-nav
         Header.text-white Ricky for House
-        FramedImage(src=rickyforhouse class='w-[640px]')
+        Image(src=rickyforhouse width=1280 height=742 framed fillHeight)
         PrimaryLink.mt-7(href='https://ricky301.wixsite.com/rickyforhouse' newTab)
           | Go There
   `
@@ -29,5 +30,7 @@ export default p => {
 var HowConfig = []
 
 var WhyConfig = {
-
+  art: 'Art',
+  love: 'Love',
+  play: 'Play',
 }

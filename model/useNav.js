@@ -14,10 +14,10 @@ const slice = createSlice({
   },
   reducers: {
     setHow: (state, action) => {
-      state.how = action.payload || {}
+      state.how = action.payload
     },
     setWhy: (state, action) => {
-      state.why = action.payload || {}
+      state.why = action.payload
     },
     setActiveMenu: (state, action) => {
       state.activeMenu = action.payload

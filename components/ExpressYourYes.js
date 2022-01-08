@@ -1,5 +1,5 @@
 import { HSnapStack, VSnapItem } from './Stack'
-import { PageTitle, PrimaryLink, Button, Header, Box, FramedImage, Image } from './Basics'
+import { PageTitle, PrimaryLink, Button, Header, Box, Image } from './Basics'
 import { Fragment } from 'react'
 import useNav from '../model/useNav'
 
@@ -8,9 +8,11 @@ import eym from '../public/images/eym.jpg'
 import eymBubbles from '../public/images/eym-bubbles.jpg'
 import quark from '../public/images/quark.jpg'
 
+const id = 'expressyouryes'
+
 export default p => {
   const {onAppearPage} = useNav()
-  const id = 'expressyouryes'
+
   function onAppear() {
     onAppearPage(id, 'Express Your Yes', HowConfig, WhyConfig)
   }
@@ -23,7 +25,7 @@ export default p => {
         allowFullScreen
       )
 
-      HSnapStack.flex-100.h-full.relative.snap-start.snap-always(
+      HSnapStack.flex-100.h-full.relative(
         items=Items
       )
   `
@@ -35,7 +37,7 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your yes
-        FramedImage(src=eyy class='w-[800px]')
+        Image(src=eyy width=1280 height=808 framed fillHeight)
         PrimaryLink.mt-6(href='https://www.expressyouryes.com' newTab)
           | Check It Out
     `,
@@ -45,7 +47,7 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your mess
-        FramedImage(src=eym class='w-[800px]')
+        Image(src=eym width=1280 height=824 framed fillHeight)
         PrimaryLink.mt-6(href='https://eym-parchment.herokuapp.com' newTab)
           | Go There
     `,
@@ -55,7 +57,7 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your mess — bubbles
-        FramedImage(src=eymBubbles class='w-[800px]')
+        Image(src=eymBubbles width=1280 height=817 framed fillHeight)
         PrimaryLink.mt-6(href='https://eym-bubbleverse.herokuapp.com' newTab)
           | Experience It
     `,
@@ -65,15 +67,19 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your mess — quark
-        FramedImage(src=quark class='w-[800px]')
+        Image(src=quark width=1280 height=813 framed fillHeight)
         PrimaryLink.mt-6(href='https://purplerepublic-quark.herokuapp.com' newTab)
           | Hop on the Ride
     `,
   },
 ]
 
-var HowConfig = []
+var HowConfig = [
+  'Javascript', 'HTML', 'CSS', 'Webpack', 'Styled Components', 'React', 'Redux', 'Node.js', 'Coffeescript', 
+]
 
 var WhyConfig = {
-
+  art: 'Art',
+  love: 'Love',
+  play: 'Play',
 }
