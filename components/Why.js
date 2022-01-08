@@ -5,6 +5,7 @@ import useNav from "../model/useNav"
 export default p => pug`
   - const {page} = useNav()
   - const why = page.why
+  
   PopupRoot
     Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
       | The Inspiration for #{page.title}

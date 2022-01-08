@@ -31,10 +31,9 @@ var Background = p => {
   const {popupId, hidePopup} = usePopup()
   const visible = popupId !== null
 
-  const opacity = AnimOpacity(visible)
   const style = {
-    opacity: opacity.opacity.to(o => o),
-    pointerEvents: visible? 'all' : 'none',
+    ...opacityAnim(visible),
+    pointerEvents: visible? 'auto' : 'none',
   }
 
   return pug`
@@ -48,8 +47,6 @@ var Background = p => {
 var PopupContent = p => {
   const {popupId} = usePopup()
   const visible = popupId === p.id
-
-  const opacity = AnimOpacity(visible)
   const scale = useSpring({
     scale: visible? 1 : 0,
     config: {
@@ -62,12 +59,12 @@ var PopupContent = p => {
     Anim.absolute.h-full.pointer-events-auto(
       ...p
       className=p.className
-      style=${{...opacity, ...scale}}
+      style=${{...scale, ...opacityAnim(visible)}}
     )
   `
 }
 
-function AnimOpacity(visible) {
+function opacityAnim(visible) {
   return useSpring({
     opacity: visible? 1 : 0,
     config: {

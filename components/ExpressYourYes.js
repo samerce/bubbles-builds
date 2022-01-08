@@ -10,7 +10,7 @@ import quark from '../public/images/quark.jpg'
 
 export default p => pug`
   Page(
-    id='expressyouryes' index=p.index title='Express Your Yes' shaderId='NlKSzc'
+    id='expressyouryes' index=p.index title='Express Your Yes' shaderId='7sXyz8'
     how=HowConfig why=WhyConfig
   )
     HSnapStack.flex-100.h-full.relative(items=Items)

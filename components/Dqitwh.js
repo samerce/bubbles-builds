@@ -4,7 +4,7 @@ import dqitwh from '../public/images/dqitwh.jpg'
 
 export default p => pug`
   Page(...p
-    id='dqitwh' index=p.index title='Drag Queen in the White House' shaderId='NlKSzc'
+    id='dqitwh' index=p.index title='Drag Queen in the White House' shaderId='fsfczH'
     how=HowConfig why=WhyConfig
   )
     .flex-100.h-full.relative.flex.flex-col.items-center.pb-nav

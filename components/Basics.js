@@ -48,9 +48,7 @@ export const Section = p => pug`
 
 export const SectionButton = p => pug`
   .flex-center
-    Button.h-9.text-xl.rounded-xl.flex-center.px-3.bg-transparent.border-none.text-accentLite(
-      style={textShadow: 'none'}
-    )
+    .h-9.text-xl.rounded-xl.flex-center.px-3.bg-transparent.border-none.text-accentLite
       Icon.inline.text-accentLite(name='down-caret' size='27')
 `
 
