@@ -38,44 +38,6 @@ export const Icon = (p) => (
   <SIcon {...p} glyph={p.name} />
 )
 
-export const Image = p => {
-  const baseWidth = p.width
-  const baseHeight = p.height
-
-  const BaseImage = pp => (
-    <NImage
-      layout='fill' objectFit='contain' quality='90'
-      {...pp}
-      className={'rounded-2xl ' + pp.className}
-    />
-  )
-
-  const DecoratedImage = p.framed? pp => (
-    <FramedImage {...pp}>
-      <BaseImage {...pp} />
-    </FramedImage>
-  ) : pp => <BaseImage {...pp} />
-
-  if (p.fillHeight) {
-    const [sizeListener, bounds] = useResizeAware()
-    const [imgWidth, setImgWidth] = useState(baseWidth)
-    const aspectRatio = useMemo(() => baseWidth / baseHeight, [baseWidth, baseHeight])
-
-    useLayoutEffect(() => {
-      setImgWidth(Math.floor(bounds.height * aspectRatio))
-    }, [bounds.height])
-
-    return (
-      <div className={`h-full relative ` + p.className} style={{width: imgWidth}}>
-        {sizeListener}
-        <DecoratedImage {...p} width={imgWidth} height={bounds.height} className='' />
-      </div>
-    )
-  }
-
-  return <DecoratedImage {...p} />
-}
-
 export const Box = (p) => (
   <div {...p} className={'glass-dark text-accentLite text-shadow-tpBlack rounded-2xl border-sexy ' + p.className}></div>
 )
@@ -105,9 +67,42 @@ export const PopupRoot = p => pug`
   )
 `
 
+export const Image = p => {
+  const TheImage = p.framed? FramedImage : BaseImage
+  const baseWidth = p.width
+  const baseHeight = p.height
+
+  if (p.fillHeight) {
+    const [sizeListener, bounds] = useResizeAware()
+    const [imgWidth, setImgWidth] = useState(baseWidth)
+    const aspectRatio = useMemo(() => baseWidth / baseHeight, [baseWidth, baseHeight])
+
+    useLayoutEffect(() => {
+      setImgWidth(Math.floor(bounds.height * aspectRatio))
+    }, [bounds.height])
+
+    return (
+      <div className={`h-full relative ` + p.className} style={{width: imgWidth}}>
+        {sizeListener}
+        <TheImage {...p} width={imgWidth} height={bounds.height} className='' />
+      </div>
+    )
+  }
+
+  return <TheImage {...p} />
+}
+
 // Helpers 
 
 const FrameWidth = 9
+
+var BaseImage = pp => (
+  <NImage
+    layout='fill' objectFit='contain' quality='90'
+    {...pp}
+    className={'rounded-xl ' + pp.className}
+  />
+)
 
 var FramedImage = p => (
   <div className='relative h-full w-full'>
@@ -118,6 +113,6 @@ var FramedImage = p => (
       left: -FrameWidth,
     }} />
 
-    {p.children}
+    <BaseImage {...p} />
   </div>
 )

@@ -7,23 +7,21 @@ export const NavMenu = makeEnum('SiteMap', 'Email', 'Music')
 const slice = createSlice({
   name: 'nav',
   initialState: {
-    how: null, 
-    why: null,
     activeMenu: null, // NavMenu
-    pageTitle: 'Bubbles Builds',
+    page: {
+      id: 'bio',
+      title: 'Bubbles Builds',
+      index: 0,
+      how: null,
+      why: null,
+    },
   },
   reducers: {
-    setHow: (state, action) => {
-      state.how = action.payload
-    },
-    setWhy: (state, action) => {
-      state.why = action.payload
-    },
     setActiveMenu: (state, action) => {
       state.activeMenu = action.payload
     },
-    setPageTitle: (state, action) => {
-      state.pageTitle = action.payload
+    setPage: (state, action) => {
+      state.page = action.payload
     },
   },
 })
@@ -36,14 +34,12 @@ export default () => {
   const nav = useSelector(state => state.nav)
 
   return { 
-    nav, 
+    ...nav, 
     setActiveMenu: (menu) => dispatch(a.setActiveMenu(menu)),
-    setPageTitle: (title) => dispatch(a.setPageTitle(title)),
-    onAppearPage: (id, pageTitle, howConfig, whyConfig) => {
-      dispatch(a.setPageTitle(pageTitle))
-      dispatch(a.setHow(howConfig))
-      dispatch(a.setWhy(whyConfig))
-      window.location = '#' + id
+    setPage: (page) => dispatch(a.setPage(page)),
+    pageDidAppear: (page) => {
+      dispatch(a.setPage(page))
+      window.location = '#' + page.id
     },
   }
 }

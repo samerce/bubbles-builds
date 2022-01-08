@@ -6,13 +6,14 @@ const Highlighted = 'glass border-sexy text-accent text-shadow-tpWhite'
 const Dim = 'text-accentLite text-opacity-60'
 
 export default p => {
-  const {nav} = useNav()
+  const {page} = useNav()
+  
   const Item = p => {
-    const classes = nav.how?.includes(p.children) ? Highlighted : Dim
+    const classes = page.how?.includes(p.children) ? Highlighted : Dim
     return pug`
       span.flex-center.px-3.h-10.m-2.text-xl.font-body.rounded-2xl.leading-tight(
         ...p 
-        className = ${p.className + ' ' + classes}
+        className=${p.className + ' ' + classes}
       )
     `
   }
@@ -20,7 +21,7 @@ export default p => {
   return pug`
     PopupRoot
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
-        | The Nuts & Bolts of #{nav.pageTitle}
+        | The Nuts & Bolts of #{page.title}
       
       .w-full.grow.flex.flex-col.overflow-y-scroll
         Section

@@ -1,6 +1,7 @@
 import VisibilitySensor from 'react-visibility-sensor'
 import { Icon, Button } from './Basics'
 import { useState } from 'react'
+import { colorToRgba } from '@react-spring/shared'
 
 export const HSnapItem = (p) => (
   <VisibilitySensor onChange={isVisible => {
@@ -24,40 +25,23 @@ export const HSnapStack = p => {
     window.location = '#' + id
   }
 
-  function onClickNav(navId) {
-    window.location = '#' + navId
-  }
-
   return (
-  <div {...p} className={'flex flex-col pb-nav ' + p.className}>
-    <div className='grow w-full flex snap-x snap-mandatory overflow-x-scroll overflow-y-hidden'>
-      {p.items?.map(({id, Content, className}, index) => (
-        <HSnapItem id={id} key={id} onAppear={() => onAppearItem(id, index)}
-          className={'flex-100 h-full flex-col relative items-center ' + className}>
+    <div className={'flex flex-col pb-nav ' + p.className}>
+      <div className='grow w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory'>
+        
+        {p.items.map(({id, Content, className}, index) => (
+          <HSnapItem className={'flex-100 h-full flex-col items-center relative ' + className}
+            id={id} key={id} onAppear={() => onAppearItem(id, index)}>
             <Content />
           </HSnapItem>
-      ))}
+        ))}
+        
+      </div>
+
+      <HSnapNav nav={nav} />
     </div>
-
-    <div className='flex-center w-full pointer-events-none z-10 py-2'>
-      <Button onClick={() => onClickNav(nav.left)} className='transition' style={{
-        opacity: nav.left? 1 : 0.5,
-        pointerEvents: nav.left? 'all' : 'none',
-      }}>
-        <Icon name='view-back' size='54' />
-      </Button>
-
-      <div className='w-3' />
-
-      <Button onClick={() => onClickNav(nav.right)} className='transition' style={{
-        opacity: nav.right? 1 : 0.5,
-        pointerEvents: nav.right? 'all' : 'none',
-      }}>
-        <Icon name='view-forward' size='54' />
-      </Button>
-    </div>
-  </div>
-)}
+  )
+}
 
 export const VSnapStack = (p) => (
   <div {...p} className={'snap-y snap-mandatory overflow-x-visible overflow-y-scroll ' + p.className}>
@@ -70,3 +54,34 @@ export const VSnapItem = p => pug`
   })
     .snap-start.snap-always.w-full.h-full.relative(...p)
 `
+
+// Helpers
+
+var HSnapNav = p => {
+  function onClickNav(navId) {
+    window.location = '#' + navId
+  }
+
+  return pug`
+    div.flex-center.w-full.pointer-events-none.z-10.py-2
+      Button.transition(
+        onClick=() => onClickNav(p.nav.left) 
+        style={
+          opacity: p.nav.left? 1 : 0.5,
+          pointerEvents: p.nav.left? 'all' : 'none',
+        }
+      )
+        Icon(name='view-back' size='54')
+
+      div.w-3
+
+      Button.transition(
+        onClick=() => onClickNav(p.nav.right)
+        style={
+          opacity: p.nav.right? 1 : 0.5,
+          pointerEvents: p.nav.right? 'all' : 'none',
+        }
+      )
+        Icon(name='view-forward' size='54')
+  `
+}

@@ -3,11 +3,11 @@ import { PopupRoot, Subheader, Section, SectionTitle } from "./Basics"
 import useNav from "../model/useNav"
 
 export default p => pug`
-  - const {nav} = useNav()
-  - const why = nav.why
+  - const {page} = useNav()
+  - const why = page.why
   PopupRoot
     Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
-      | The Inspiration for #{nav.pageTitle}
+      | The Inspiration for #{page.title}
 
     .w-full.grow.flex.flex-col.overflow-y-scroll
       Section
