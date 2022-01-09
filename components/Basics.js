@@ -59,7 +59,7 @@ export const SectionTitle = p => pug`
 `
 
 export const PopupRoot = p => pug`
-  Box.h-full.flex.flex-col.overflow-hidden(
+  Box.flex.flex-col.overflow-hidden(
     ...p 
     className=${'max-w-[777px] ' + p.className}
   )

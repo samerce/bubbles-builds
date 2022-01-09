@@ -63,7 +63,7 @@ var HSnapNav = p => {
   }
 
   return pug`
-    div.flex-center.w-full.pointer-events-none.z-10.py-2
+    div.flex-center.w-full.pointer-events-none.z-10.pt-2
       Button.transition(
         onClick=() => onClickNav(p.nav.left) 
         style={

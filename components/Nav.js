@@ -43,7 +43,7 @@ export default (p) => {
     <div className='flex-center'>
       <NavButton className={NavClasses + 'px-3'} icon='email' popupId={Popups.Contact} />
       <NavButton className={NavClasses + 'px-6'} icon='sam' />
-      <NavButton className={NavClasses + 'px-3'} icon='youtube' />
+      <NavButton className={NavClasses + 'px-3'} icon='youtube' popupId={Popups.Music} />
     </div>
 
     <div className='flex-1 flex mx-2'>

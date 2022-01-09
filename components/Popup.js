@@ -3,6 +3,7 @@ import { animated, useSpring, config } from 'react-spring'
 import How from './How'
 import Why from './Why'
 import Contact from './Contact'
+import Music from './Music'
 
 const Anim = animated.div
 
@@ -28,6 +29,9 @@ export default p => {
 
         PopupContent.origin-bottom-left(id=Popups.Contact)
           Contact
+
+        PopupContent.origin-bottom-right(id=Popups.Music)
+          Music
   `
 }
 
@@ -60,7 +64,7 @@ var PopupContent = p => {
   })
 
   return pug`
-    Anim.absolute.h-full.pointer-events-auto(
+    Anim.absolute.h-full.flex-col.flex.justify-end.pointer-events-auto(
       ...p
       className=p.className
       style=${{...scale, ...opacityAnim(visible)}}

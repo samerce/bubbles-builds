@@ -8,7 +8,7 @@ import heather from '../public/images/heather.jpg'
 
 export default p => pug`
   Page(
-    id='acupuncture' index=p.index title='Acupuncture' shaderId='Nslyz8'
+    id='acupuncture' index=p.index title='Acupuncture' shaderId='Ws3fR7'
     how=HowConfig why=WhyConfig
   )
     HSnapStack.flex-100.h-full.relative(items=Items)
