@@ -4,7 +4,7 @@ import rickyforhouse from '../public/images/rickyforhouse.jpg'
 
 export default p => pug`
   Page(
-    id='rickyforhouse' index=p.index title='Ricky for House' shaderId='ll2GD3'
+    id='rickyforhouse' index=p.index title='Ricky for House' shaderId='NdscR8'
     how=HowConfig why=WhyConfig
   )
     .flex-100.h-full.relative.flex.flex-col.items-center.pb-nav

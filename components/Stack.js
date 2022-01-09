@@ -35,7 +35,7 @@ export const HSnapStack = p => {
             <Content />
           </HSnapItem>
         ))}
-        
+
       </div>
 
       <HSnapNav nav={nav} />
@@ -68,7 +68,7 @@ var HSnapNav = p => {
         onClick=() => onClickNav(p.nav.left) 
         style={
           opacity: p.nav.left? 1 : 0.5,
-          pointerEvents: p.nav.left? 'all' : 'none',
+          pointerEvents: p.nav.left? 'auto' : 'none',
         }
       )
         Icon(name='view-back' size='54')
@@ -79,7 +79,7 @@ var HSnapNav = p => {
         onClick=() => onClickNav(p.nav.right)
         style={
           opacity: p.nav.right? 1 : 0.5,
-          pointerEvents: p.nav.right? 'all' : 'none',
+          pointerEvents: p.nav.right? 'auto' : 'none',
         }
       )
         Icon(name='view-forward' size='54')

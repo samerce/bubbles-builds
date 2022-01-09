@@ -7,72 +7,80 @@ import { scrollTo } from "../utils/scroll"
 import useNav, { NavMenu } from '../model/useNav'
 import usePopup, { Popups } from '../model/usePopup'
 
+const NavClasses = ' mx-2 px-6 h-54 flex-center '
+const SideClasses = ' h-54 pl-2 pr-6 text-2xl '
+
 export default (p) => {
   const {nav, setActiveMenu} = useNav()
   const {popupId, showPopup, hidePopup} = usePopup()
-  const isHowVisible = popupId === Popups.How
-  const isWhyVisible = popupId === Popups.Why
+
+  function isVisible(id) {
+    return popupId === id
+  }
+
+  function onClickPopupButton(id) {
+    if (id === Popups[id]) hidePopup()
+    else showPopup(id)
+  }
   
-  function onClickHow() {
-    isHowVisible? hidePopup() : showPopup(Popups.How)
-  }
-  function onClickWhy() {
-    isWhyVisible? hidePopup() : showPopup(Popups.Why)
-  }
   function onClickBackdrop() {
     setActiveMenu(null)
     hidePopup()
   }
 
   return (
-  <div className='fixed flex bottom-0 left-0 px-7 px- h-nav justify-between items-center w-full z-20'>
+  <div className='fixed flex bottom-0 left-0 px-7 h-nav justify-between items-center w-full z-20'>
+
     <div className='absolute-full' onClick={onClickBackdrop} />
+
     <div className='flex-1 flex justify-end mx-2'>
-      <Button onClick={onClickHow} className='h-54 pl-2 pr-6 origin-right text-2xl'
-      style={{filter: isHowVisible? 'invert()' : 'none'}}>
-        <NavIcon name={isHowVisible? 'view-close' : 'bolt-circle'} className='mx-1' />
+      <NavButton className={SideClasses} 
+        icon='bolt-circle' iconClass='mx-1' popupId={Popups.How}>
         How
-      </Button>
+      </NavButton>
     </div>
 
     <div className='flex-center'>
-      <NavButton className='px-3' onClick={() => {
-        setActiveMenu(NavMenu.Email)
-      }}>
-        <NavIcon name='email' />
-      </NavButton>
-
-      <NavButton className='px-6' onClick={() => {
-        setActiveMenu(NavMenu.SiteMap)
-      }}>
-        <NavIcon name='sam' />
-      </NavButton>
-
-      <NavButton className='px-3' onClick={() => {
-        setActiveMenu(NavMenu.Music)
-      }}>
-        <NavIcon name='youtube' />
-      </NavButton>
+      <NavButton className={NavClasses + 'px-3'} icon='email' popupId={Popups.Contact} />
+      <NavButton className={NavClasses + 'px-6'} icon='sam' />
+      <NavButton className={NavClasses + 'px-3'} icon='youtube' />
     </div>
 
     <div className='flex-1 flex mx-2'>
-      <Button onClick={onClickWhy} className='h-54 pl-2 pr-6 origin-left text-2xl'
-      style={{filter: isWhyVisible? 'invert()' : 'none'}}>
-        <NavIcon name={isWhyVisible? 'view-close' : 'compass'} className='mx-1' />
+      <NavButton className={SideClasses} icon='compass' iconClass='mx-1' popupId={Popups.Why}>
         Why
-      </Button>
+      </NavButton>
     </div>
+
   </div>
 )}
 
-var NavIcon = (p) => (
-  <Icon size='42' {...p} 
-  className={'inline text-accent drop-shadow-tpWhite ' + p.className} />
-)
+var NavIcon = (p) => pug`
+  Icon.inline.text-accent.drop-shadow-tpWhite(
+    size='42' ...p className=p.className
+  )
+`
 
-var NavButton = (p) => (
-  <Button {...p} className={'mx-2 px-6 h-54 flex-center ' + p.className} />
-)
+var NavButton = (p) => {
+  const {popupId: activePopupId, showPopup, hidePopup} = usePopup()
+  const isPopupVisible = activePopupId === p.popupId
+  const style = {filter: isPopupVisible? 'invert()' : 'none'}
+  const iconName = isPopupVisible? 'view-close' : p.icon
+
+  function onClick() {
+    if (activePopupId === p.popupId) hidePopup()
+    else showPopup(p.popupId)
+  }
+
+  return (
+    <Button {...p} className={p.className} onClick={onClick} style={style}>
+
+      <NavIcon name={iconName} className={p.iconClass} />
+      {p.children}
+
+    </Button>
+  )
+}
 
 function styleFor(navBtn) {
   const anim = useSpring({

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { useSelector, useDispatch } from 'react-redux'
 import { makeEnum } from '../utils/lang'
 
-export const Popups = makeEnum('How', 'Why')
+export const Popups = makeEnum('How', 'Why', 'Contact')
 
 const slice = createSlice({
   name: 'popup',

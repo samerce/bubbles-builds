@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import { VSnapStack } from '../components/Stack'
-import Nav from '../components/Nav'
 import Popup from '../components/Popup'
+import Nav from '../components/Nav'
 import Bio from '../components/Bio'
 import ExpressYourYes from '../components/ExpressYourYes'
 import RickyForHouse from '../components/RickyForHouse'
 import Dqitwh from '../components/Dqitwh'
-import useNav from '../model/useNav'
+import Acupuncture from '../components/Acupuncture'
 
 export default p => pug`
   VSnapStack.w-screen.h-screen(id='root-stack')
@@ -17,7 +17,7 @@ export default p => pug`
       link(rel="preconnect" href="https://fonts.gstatic.com" crossOrigin)
       link(href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&family=Bungee+Shade&family=Bayon&display=swap" rel="stylesheet")
 
-    each Page, index in [Bio, ExpressYourYes, RickyForHouse, Dqitwh]
+    each Page, index in [Bio, ExpressYourYes, RickyForHouse, Dqitwh, Acupuncture]
       Page(index=index)
 
     Popup
