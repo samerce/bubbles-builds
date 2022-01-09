@@ -13,7 +13,7 @@ export default p => pug`
     id='expressyouryes' index=p.index title='Express Your Yes' shaderId='fdscR8'
     how=HowConfig why=WhyConfig
   )
-    HSnapStack.flex-100.h-full.relative(items=Items)
+    HSnapStack(items=Items)
 `
 
 var Items = [

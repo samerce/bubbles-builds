@@ -26,7 +26,7 @@ export const HSnapStack = p => {
   }
 
   return (
-    <div className={'flex flex-col pb-nav ' + p.className}>
+    <div className={'flex flex-col flex-100 h-full w-full relative ' + p.className}>
       <div className='grow w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory'>
         
         {p.items.map(({id, Content, className}, index) => (
@@ -52,14 +52,14 @@ export const VSnapItem = p => pug`
   VisibilitySensor(onChange = visible => {
     if (visible && p.onAppear) p.onAppear()
   })
-    .snap-start.snap-always.w-full.h-full.relative(...p)
+    .snap-start.snap-always.w-full.h-full.relative(...p className=p.className)
 `
 
 // Helpers
 
 var HSnapNav = p => {
   function onClickNav(navId) {
-    window.location = '#' + navId
+    document.getElementById(navId).scrollIntoView({behavior: 'smooth'})
   }
 
   return pug`

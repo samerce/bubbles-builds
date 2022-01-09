@@ -11,7 +11,7 @@ export default p => pug`
     id='acupuncture' index=p.index title='Acupuncture' shaderId='Ws3fR7'
     how=HowConfig why=WhyConfig
   )
-    HSnapStack.flex-100.h-full.relative(items=Items)
+    HSnapStack(items=Items)
 `
 
 var Items = [

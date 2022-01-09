@@ -54,7 +54,7 @@ export const SectionButton = p => pug`
 
 export const SectionTitle = p => pug`
   .basis-full.flex.justify-between.items-center.ml-4
-    h3.font-button.text-2xl.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-white.leading-tight.pointer-events-none(...p className=p.className)
+    h3.font-button.text-2xl.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-white.leading-tight(...p className=p.className)
     SectionButton
 `
 

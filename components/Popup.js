@@ -4,6 +4,7 @@ import How from './How'
 import Why from './Why'
 import Contact from './Contact'
 import Music from './Music'
+import SiteMenu from './SiteMenu'
 
 const Anim = animated.div
 
@@ -32,6 +33,9 @@ export default p => {
 
         PopupContent.origin-bottom-right(id=Popups.Music)
           Music
+
+        PopupContent.origin-bottom(id=Popups.SiteMenu)
+          SiteMenu
   `
 }
 

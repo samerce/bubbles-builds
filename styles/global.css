@@ -55,7 +55,7 @@
   }
 
   .border-sexy {
-    box-shadow: 0 0 0 1px theme('colors.tpBlack');
+    box-shadow: 0 0 0 1px theme('colors.tpAccentDark');
     @apply border border-tpWhite;
   }
 

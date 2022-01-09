@@ -7,11 +7,10 @@ export default p => pug`
     id='dqitwh' index=p.index title='Drag Queen in the White House' shaderId='fsfczH'
     how=HowConfig why=WhyConfig
   )
-    .flex-100.h-full.relative.flex.flex-col.items-center.pb-nav
-      Header.text-white Drag Queen in the White House
-      Image(src=dqitwh width=1280 height=828 framed fillHeight)
-      PrimaryLink.mt-7(href='https://dragqueeninthewhitehouse.com' newTab)
-        | See It
+    Header.text-white Drag Queen in the White House
+    Image(src=dqitwh width=1280 height=828 framed fillHeight)
+    PrimaryLink.mt-7(href='https://dragqueeninthewhitehouse.com' newTab)
+      | See It
 `
 
 var HowConfig = [

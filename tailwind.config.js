@@ -35,7 +35,8 @@ const extensions = {
   colors: ({ theme }) => ({
     accent: '#4f1a99',
     accentLite: '#f4ebff',
-    accentDark: '#0e0619', 
+    accentDark: '#0e0619',
+    tpAccentDark: '#0e06192c',
     tpWhite: 'rgba(244, 235, 255,.18)',
     tpBlack: 'rgba(24, 8, 46,.27)',
   }),

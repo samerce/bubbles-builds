@@ -2,12 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 import { useSelector, useDispatch } from 'react-redux'
 import { makeEnum } from '../utils/lang'
 
-export const NavMenu = makeEnum('SiteMap', 'Email', 'Music')
-
 const slice = createSlice({
   name: 'nav',
   initialState: {
-    activeMenu: null, // NavMenu
     page: {
       id: 'bio',
       title: 'Bubbles Builds',

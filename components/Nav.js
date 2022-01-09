@@ -8,7 +8,7 @@ import useNav, { NavMenu } from '../model/useNav'
 import usePopup, { Popups } from '../model/usePopup'
 
 const NavClasses = ' mx-2 px-6 h-54 flex-center '
-const SideClasses = ' h-54 pl-2 pr-6 text-2xl '
+const SideClasses = ' h-54 pl-2 pr-6 text-2xl mx-2 '
 
 export default (p) => {
   const {nav, setActiveMenu} = useNav()
@@ -29,28 +29,24 @@ export default (p) => {
   }
 
   return (
-  <div className='fixed flex bottom-0 left-0 px-7 h-nav justify-between items-center w-full z-20'>
+  <div className='fixed flex-center bottom-0 left-0 px-7 h-nav w-full z-20'>
 
     <div className='absolute-full' onClick={onClickBackdrop} />
 
-    <div className='flex-1 flex justify-end mx-2'>
-      <NavButton className={SideClasses} 
-        icon='bolt-circle' iconClass='mx-1' popupId={Popups.How}>
-        How
-      </NavButton>
-    </div>
+    <NavButton className={SideClasses} 
+      icon='bolt-circle' iconClass='mx-1' popupId={Popups.How}>
+      How
+    </NavButton>
 
     <div className='flex-center'>
       <NavButton className={NavClasses + 'px-3'} icon='email' popupId={Popups.Contact} />
-      <NavButton className={NavClasses + 'px-6'} icon='sam' />
+      <NavButton className={NavClasses + 'px-6'} icon='sam' popupId={Popups.SiteMenu} />
       <NavButton className={NavClasses + 'px-3'} icon='youtube' popupId={Popups.Music} />
     </div>
 
-    <div className='flex-1 flex mx-2'>
-      <NavButton className={SideClasses} icon='compass' iconClass='mx-1' popupId={Popups.Why}>
-        Why
-      </NavButton>
-    </div>
+    <NavButton className={SideClasses} icon='compass' iconClass='mx-1' popupId={Popups.Why}>
+      Why
+    </NavButton>
 
   </div>
 )}

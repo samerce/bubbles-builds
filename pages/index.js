@@ -17,7 +17,7 @@ export default p => pug`
       link(rel="preconnect" href="https://fonts.gstatic.com" crossOrigin)
       link(href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&family=Bungee+Shade&family=Bayon&display=swap" rel="stylesheet")
 
-    each Page, index in [Bio, ExpressYourYes, RickyForHouse, Dqitwh, Acupuncture]
+    each Page, index in [Bio, ExpressYourYes, RickyForHouse, Acupuncture, Dqitwh]
       Page(index=index)
 
     Popup
