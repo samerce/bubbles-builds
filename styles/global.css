@@ -59,6 +59,10 @@
     @apply border border-tpWhite;
   }
 
+  input::placeholder, textarea::placeholder {
+    color: theme('colors.placeholder');
+  }
+
 }
 
 :root {

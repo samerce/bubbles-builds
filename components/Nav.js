@@ -3,11 +3,12 @@ import How from "./How"
 import Why from "./Why"
 import { useSpring, config } from 'react-spring'
 import { scrollTo } from "../utils/scroll"
+import { FaHeadphonesAlt } from 'react-icons/fa';
 
 import useNav, { NavMenu } from '../model/useNav'
 import usePopup, { Popups } from '../model/usePopup'
 
-const NavClasses = ' mx-2 px-6 h-54 flex-center '
+const NavClasses = ' mx-2 h-54 flex-center '
 const SideClasses = ' h-54 pl-2 pr-6 text-2xl mx-2 '
 
 export default (p) => {
@@ -39,9 +40,9 @@ export default (p) => {
     </NavButton>
 
     <div className='flex-center'>
-      <NavButton className={NavClasses + 'px-3'} icon='email' popupId={Popups.Contact} />
-      <NavButton className={NavClasses + 'px-6'} icon='sam' popupId={Popups.SiteMenu} />
-      <NavButton className={NavClasses + 'px-3'} icon='youtube' popupId={Popups.Music} />
+      <NavButton className={NavClasses + 'w-[69px]'} icon='email' popupId={Popups.Contact} />
+      <NavButton className={NavClasses + 'w-[81px]'} icon='sam' popupId={Popups.SiteMenu} />
+      <NavButton className={NavClasses + 'w-[69px]'} icon='music' popupId={Popups.Music} />
     </div>
 
     <NavButton className={SideClasses} icon='compass' iconClass='mx-1' popupId={Popups.Why}>
@@ -51,11 +52,13 @@ export default (p) => {
   </div>
 )}
 
-var NavIcon = (p) => pug`
-  Icon.inline.text-accent.drop-shadow-tpWhite(
-    size='42' ...p className=p.className
-  )
-`
+var NavIcon = (p) => {
+  const classes = 'inline text-accent drop-shadow-tpWhite ' + p.className
+  if (p.name === 'music') return <FaHeadphonesAlt className={'w-[30px] h-[30px] -mt-1 ' + classes} />
+  return pug`
+    Icon(size='42' ...p className=classes)
+  `
+}
 
 var NavButton = (p) => {
   const {popupId: activePopupId, showPopup, hidePopup} = usePopup()
@@ -70,10 +73,8 @@ var NavButton = (p) => {
 
   return (
     <Button {...p} className={p.className} onClick={onClick} style={style}>
-
       <NavIcon name={iconName} className={p.iconClass} />
       {p.children}
-
     </Button>
   )
 }

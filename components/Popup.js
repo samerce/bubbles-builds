@@ -49,7 +49,7 @@ var Background = p => {
   }
 
   return pug`
-    Anim.absolute.top-0.left-0.w-full.h-full.bg-black.bg-opacity-50.opacity-0(
+    Anim.absolute.top-0.left-0.w-full.h-full.bg-black.bg-opacity-80.opacity-0(
       onClick=hidePopup
       style=style
     )
