@@ -2,14 +2,14 @@ import React from "react"
 import { PopupRoot, Subheader, Section, SectionTitle } from "./Basics"
 import usePopup from "../model/usePopup"
 
-export default p => {
+export default function SiteMenu(p) {
   const {hidePopup} = usePopup()
 
   function onClick(id) { 
     hidePopup()
     setTimeout(() => {
-      document.getElementById(id).scrollIntoView({behavior: "smooth"})
-    }, 100)
+      window.location = '#' + id
+    }, 200)
   }
 
   return pug`
@@ -32,6 +32,15 @@ export default p => {
 
         Section
           SectionTitle.rotate-2(onClick=() => onClick('dqitwh')) DQITWH
+
+        Section
+          SectionTitle.-rotate-1(onClick=() => onClick('flitandland')) Flit & Land
+
+        Section
+          SectionTitle.-rotate-1(onClick=() => onClick('psymail')) Psymail
+
+        Section
+          SectionTitle.-rotate-1(onClick=() => onClick('glyphite')) Glyphite
 
   `
 }

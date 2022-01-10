@@ -6,8 +6,8 @@ export default function handler(req, res) {
       'Accept': 'application/json',
     },
     body: req.body,
-  }).then(() => {
-    res.status(200).send()
+  }).then(response => {
+    res.status(response.status).send(response.statusText)
   })
 
 }

@@ -14,11 +14,13 @@ export default () => {
     setWidth(window.innerWidth)
     setHeight(window.innerHeight)
   }, [])
+
   useBus({
     resize: () => throttle(() => {
       setWidth(window.innerWidth)
       setHeight(window.innerHeight)
     }, 100)
   })
+  
   return {screenWidth, screenHeight, shape}
 }

@@ -6,13 +6,13 @@ import abby from '../public/images/abby.jpg'
 import brodie from '../public/images/brodie.jpg'
 import heather from '../public/images/heather.jpg'
 
-export default p => pug`
+export default function Acupuncture(p) { return pug`
   Page(
     id='acupuncture' index=p.index title='Acupuncture' shaderId='Ws3fR7'
     how=HowConfig why=WhyConfig
   )
     HSnapStack(items=Items)
-`
+`}
 
 var Items = [
   {

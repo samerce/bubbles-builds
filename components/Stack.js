@@ -30,7 +30,7 @@ export const HSnapStack = p => {
       <div className='grow w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory'>
         
         {p.items.map(({id, Content, className}, index) => (
-          <HSnapItem className={'flex-100 h-full flex-col items-center relative ' + className}
+          <HSnapItem className={'flex-100 h-full flex-col items-center relative px-[9px] ' + className}
             id={id} key={id} onAppear={() => onAppearItem(id, index)}>
             <Content />
           </HSnapItem>

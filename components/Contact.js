@@ -1,12 +1,11 @@
-import React, { useLayoutEffect, useRef, useState } from "react"
-import { PopupRoot, Subheader, SectionTitle, Icon, Button, Link } from "./Basics"
-import useNav from "../model/useNav"
-import { animated, useSpring, config, useSpringRef, useChain } from "react-spring"
+import React, { useLayoutEffect, useState } from "react"
+import { PopupRoot, Subheader, Icon, Button, Link } from "./Basics"
+import { animated, useSpring, config } from "react-spring"
 import { makeEnum } from "../utils/lang"
 
 const Anim = animated.div
 const Mode = makeEnum('waiting', 'sending', 'sent', 'error')
-const InputClasses = "border-sexy glass rounded-3xl w-full bg-accentDark h-[42px] px-[18px] font-button text-lg leading-[42px] "
+const InputClasses = "border-sexy rounded-3xl w-full bg-accentDark h-[42px] px-[18px] font-button text-lg leading-[42px] "
 
 export default function Contact(p) {
   const [mode, setMode] = useState(Mode.waiting)
@@ -25,8 +24,15 @@ export default function Contact(p) {
         text: `from: ${from}\n${message}`,
         channel: '@bubbles',
       })
-    }).then(() => {
-      setTimeout(() => setMode(Mode.sent), 4000)
+    }).then(response => {
+      setTimeout(() => {
+        if (response.status === 200) {
+          setMode(Mode.sent)
+        } else {
+          response.text().then(text => console.error(text))
+          setMode(Mode.error)
+        }
+      }, 2000)
     })
   }
 
@@ -50,7 +56,7 @@ export default function Contact(p) {
         span.absolute.text-md.flex-center.text-accentLite.font-button(class='w-[27px] h-[27px]')
           | OR
 
-      div.text-xl.font-button.flex-center.text-accentLite.mb-3 Text Me
+      div.text-xl.font-button.flex-center.text-accentLite.mb-3 use this little widget
 
       input(
         type='email' placeholder='email / phone number / astral signature' 
@@ -69,32 +75,60 @@ export default function Contact(p) {
         SendButton(onClick=sendMessage mode=mode)
 `}
 
+const SendIcons = {
+  [Mode.waiting]: 'enter',
+  [Mode.sending]: 'send',
+  [Mode.sent]: 'checkmark',
+  [Mode.error]: 'important-fill',
+}
+const SendIconTransform = {
+  [Mode.waiting]: 'rotate(-90deg)',
+  [Mode.sending]: 'rotate(-90deg)',
+  [Mode.sent]: 'none',
+  [Mode.error]: 'none',
+}
+
 var SendButton = p => {
-  const sending = useSpring({
+  const backdropSendingAnim = useSpring({
     loop: {reverse: true},
-    from: { scale: 0 },
+    from: { scale: .18 },
     to: { scale: 1.2 },
     config: {
-      ...config.wobbly,
+      ...config.stiff,
+      mass: .9,
     }
   })
+  const iconSendingAnim = useSpring({
+    loop: {reverse: true},
+    from: { scale: 1.2 },
+    to: { scale: .6 },
+    config: {
+      ...config.stiff,
+      mass: 1,
+    }
+  })
+  const iconStyle = (p.mode === Mode.sending)? iconSendingAnim : {}
 
   return pug`
-    Button.rounded-full.flex-center.absolute.z-10(
+    Button.rounded-full.flex-center.absolute.z-10.overflow-hidden(
       class='w-[32px] h-[32px] right-[5px] bottom-[5px] -mt-[1px]'
       onClick=p.onClick
+      style={
+        pointerEvents: (p.mode === Mode.waiting || p.mode === Mode.error)? 'auto' : 'none',
+      }
     )
-      Icon.text-accent(
-        name=${p.mode === Mode.sent? 'checkmark' : 'enter'} 
-        size='24' style={transform: p.mode === Mode.sent? 'none' : 'rotate(-90deg)'}
-      )
+      Anim(style=iconStyle)
+        Icon.text-accent(
+          name=${SendIcons[p.mode]} 
+          size='24' style={transform: SendIconTransform[p.mode]}
+        )
     
     Anim.absolute.h-full.w-full.rounded-full.bg-accent.z-0(
       class='w-[36px] h-[36px] right-[3px] bottom-[3px]'
       style=${
         p.mode === Mode.sending? 
-          sending : p.mode === Mode.sent? 
-            {transform: 'none'} : {transform: 'scale(0)'}
+          backdropSendingAnim : p.mode ===  Mode.sent?
+          {transform: 'none'} : {transform: 'scale(0)'}
       }
     )
   `
