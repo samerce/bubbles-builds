@@ -41,12 +41,12 @@ export default function Contact(p) {
   }, [from, message])
   
   return pug`
-  PopupRoot
+  PopupRoot.glass-dark(...p className=p.className)
     Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
       | Let's Talk
 
     div.grow.flex.flex-col.overflow-y-scroll.relative.p-4(class='w-[432px]')
-      Link.flex-center.text-xl.mx-auto.mt-2(
+      Link.glass.flex-center.text-xl.mx-auto.mt-2(
         href='mailto:bubbles@expressyouryes.com' class='h-54 px-6 pt-[1px]'
       )
         | Use your mail app
@@ -110,7 +110,7 @@ var SendButton = p => {
   const iconStyle = (p.mode === Mode.sending)? iconSendingAnim : {}
 
   return pug`
-    Button.rounded-full.flex-center.absolute.z-10.overflow-hidden(
+    Button.glass.rounded-full.flex-center.absolute.z-10.overflow-hidden(
       class='w-[32px] h-[32px] right-[5px] bottom-[5px] -mt-[1px]'
       onClick=p.onClick
       style={

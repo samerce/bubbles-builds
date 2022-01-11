@@ -37,6 +37,9 @@
     text-shadow: 
       1px 1px #18082e, 2px 2px #18082e, 3px 3px #18082e;
   }
+  .text-shadow-duo {
+    text-shadow: -1px -1px theme('colors.tpBlack'), 1px 1px theme('colors.tpWhite');
+  }
 
   .glass {
     backdrop-filter: blur(6px);
@@ -55,7 +58,7 @@
   }
 
   .border-sexy {
-    box-shadow: 0 0 0 1px theme('colors.tpAccentDark');
+    box-shadow: 0 0 0 1px theme('colors.tpBlack');
     @apply border border-tpWhite;
   }
 

@@ -5,6 +5,7 @@ import Why from './Why'
 import Contact from './Contact'
 import Music from './Music'
 import SiteMenu from './SiteMenu'
+import WhoIsBubbles from './WhoIsBubbles'
 
 const Anim = animated.div
 
@@ -23,19 +24,22 @@ export default p => {
 
       .h-full.w-full.relative.flex.justify-center.pointer-events-none
         PopupContent.origin-bottom-left(id=Popups.How)
-          How
+          How.pointer-events-auto
 
-        PopupContent.origin-bottom-right(id=Popups.Why)
-          Why
+        PopupContent.origin-bottom-right.justify-end(id=Popups.Why)
+          Why.pointer-events-auto
 
-        PopupContent.origin-bottom-left(id=Popups.Contact)
-          Contact
+        PopupContent.origin-bottom-left.justify-end(id=Popups.Contact)
+          Contact.pointer-events-auto
 
-        PopupContent.origin-bottom-right(id=Popups.Music)
-          Music
+        PopupContent.origin-bottom-right.justify-end(id=Popups.Music)
+          Music.pointer-events-auto
 
-        PopupContent.origin-bottom(id=Popups.SiteMenu)
-          SiteMenu
+        PopupContent.origin-bottom.justify-end(id=Popups.SiteMenu)
+          SiteMenu.pointer-events-auto
+
+        PopupContent.justify-center(id=Popups.WhoIsBubbles)
+          WhoIsBubbles.pointer-events-auto
   `
 }
 
@@ -68,7 +72,7 @@ var PopupContent = p => {
   })
 
   return pug`
-    Anim.absolute.h-full.flex-col.flex.justify-end.pointer-events-auto(
+    Anim.absolute.h-full.flex-col.flex(
       ...p
       className=p.className
       style=${{...scale, ...opacityAnim(visible)}}

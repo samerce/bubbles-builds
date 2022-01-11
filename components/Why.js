@@ -2,15 +2,15 @@ import React from "react"
 import { PopupRoot, Subheader, Section, SectionTitle } from "./Basics"
 import useNav from "../model/useNav"
 
-export default p => pug`
+export default function Why(p) { return pug`
   - const {page} = useNav()
   - const why = page.why
   
-  PopupRoot
+  PopupRoot.glass-dark(...p className=p.className)
     Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
       | The Inspiration for #{page.title}
 
-    .w-full.grow.flex.flex-col.overflow-y-scroll
+    div.w-full.grow.flex.flex-col.overflow-y-scroll
       Section
         SectionTitle.rotate-3 make art magic
         | #{why? why.art : ''}
@@ -22,4 +22,4 @@ export default p => pug`
       Section
         SectionTitle.rotate-2 explore, grow, and play!
         | #{why? why.play : ''}
-`
+`}

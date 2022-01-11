@@ -4,7 +4,7 @@ import { animated } from 'react-spring'
 import React, { useState, useLayoutEffect, useMemo } from 'react'
 import useResizeAware from 'react-resize-aware'
 
-const ButtonClasses = ' rounded-3xl glass text-accent border-sexy text-shadow-tpWhite font-button uppercase leading-none '
+const ButtonClasses = ' rounded-3xl text-accent border-sexy text-shadow-duo font-button uppercase leading-none '
 
 export const Button = (p) => (
   <animated.button {...p} className={ButtonClasses + p.className}>
@@ -16,12 +16,12 @@ export const Link = p => pug`
 `
 
 export const PrimaryLink = p => pug`
-  Link(...p className='h-16 px-7 m-4 text-3xl flex-center pt-[3px] ' + p.className)
+  Link(...p className='glass h-16 px-7 mx-4 mt-6 mb-3 text-3xl flex-center pt-[3px] ' + p.className)
 `
 
 export const Header = (p) => (
   <h1 {...p}
-  className={'font-head mx-auto pt-11 pb-8 text-5xl text-center text-shadow-6 drop-shadow-2xl uppercase text-accentLite leading-tight ' + p.className}>
+  className={'font-head mx-auto py-9 text-4xl text-center text-shadow-6 drop-shadow-2xl uppercase text-accentLite leading-tight ' + p.className}>
   </h1>
 )
 
@@ -39,7 +39,7 @@ export const Icon = (p) => (
 )
 
 export const Box = (p) => (
-  <div {...p} className={'glass-dark text-accentLite text-shadow-tpBlack rounded-2xl border-sexy ' + p.className}></div>
+  <div {...p} className={'text-accentLite text-shadow-tpBlack rounded-2xl border-sexy ' + p.className}></div>
 )
 
 export const Section = p => pug`
@@ -53,9 +53,7 @@ export const SectionButton = p => pug`
 `
 
 export const SectionTitle = p => pug`
-  .basis-full.flex.justify-between.items-center.ml-4
-    h3.font-button.text-2xl.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-white.leading-tight(...p className=p.className)
-    SectionButton
+  h3.font-button.text-2xl.text-shadow-6.drop-shadow-2xl.uppercase.text-white.leading-tight(...p className=p.className)
 `
 
 export const PopupRoot = p => pug`

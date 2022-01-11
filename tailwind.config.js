@@ -33,13 +33,12 @@ const extensions = {
     tpWhite: '1px 1px ' + theme('colors.tpWhite'),
   }),
   colors: ({ theme }) => ({
-    accent: '#4f1a99',
-    accentLite: '#f4ebff',
-    accentDark: '#0e0619',
-    tpAccentDark: '#0e06192c',
-    tpWhite: 'rgba(244, 235, 255,.18)',
-    tpBlack: 'rgba(24, 8, 46,.27)',
-    placeholder: '#f4ebff8c',
+    accent: '#92017a',
+    accentLite: '#fff0fc',
+    accentDark: '#1a0114',
+    tpWhite: '#fff0fc21',
+    tpBlack: '#1a011421',
+    placeholder: '#fff0fc8c',
   }),
 }
 

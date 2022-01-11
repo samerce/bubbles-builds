@@ -1,18 +1,26 @@
 import { PageTitle, Button, } from './Basics'
 import Page from './Page'
+import usePopup, { Popups } from '../model/usePopup'
 
-export default p => pug`
-  Page.flex.items-center(
-    id='bio' index=p.index title='Bubbles Builds' shaderId='XdyXD3'
-    how=HowConfig why=WhyConfig
-  )
-    .absolute.pointer-events-none.flex-center.h-full.w-full
-      PageTitle.rotate-6.leading-none.grow.flex-center.flex-col
-        div Bubbles
-        div Builds
-      
-    Button.text-3xl.h-54.px-8.pt-1.mt-auto Who is Bubbles?
-`
+export default function Bio(p) {
+  const {showPopup} = usePopup()
+
+  return pug`
+    Page.flex.items-center(
+      id='bio' index=p.index title='Bubbles Builds' shaderId='XdyXD3'
+      how=HowConfig why=WhyConfig
+    )
+      .absolute.pointer-events-none.flex-center.h-full.w-full
+        PageTitle.rotate-6.leading-none.grow.flex-center.flex-col
+          div Bubbles
+          div Builds
+        
+      Button.glass.text-3xl.h-54.px-8.pt-1.mt-auto(
+        onClick=() => showPopup(Popups.WhoIsBubbles)
+      )
+        | Who is Bubbles?
+  `
+}
 
 var HowConfig = [
   'Javascript', 'HTML', 'CSS', 'Pug', 'TailwindCSS', 'Webpack',

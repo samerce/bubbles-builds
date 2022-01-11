@@ -5,48 +5,54 @@ import React from "react"
 const Highlighted = 'bg-accentLite border-sexy text-accent text-shadow-tpWhite'
 const Dim = 'text-accentLite text-opacity-60'
 
-export default p => {
+export default function How(p) {
   const {page} = useNav()
   
   return pug`
-    PopupRoot
+    PopupRoot(...p)
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | The Nuts & Bolts of #{page.title}
       
-      .w-full.grow.flex.flex-col.overflow-y-scroll
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.glass-dark
         Section
-          SectionTitle.rotate-3 Languages
+          SectionHeader.rotate-3 Languages
           each lang in Languages
             Item #{lang}
 
         Section
-          SectionTitle.-rotate-6 Frameworks
+          SectionHeader.-rotate-2 Frameworks
           each framework in Frameworks
             Item #{framework}
 
         Section
-          SectionTitle.rotate-2 Tools
+          SectionHeader.rotate-2 Tools
           each tool in Tools
             Item #{tool}
 
         Section
-          SectionTitle.-rotate-1 Platforms
+          SectionHeader.-rotate-1 Platforms
           each platform in Platforms
             Item #{platform}
 
         Section
-          SectionTitle.rotate-3 Experience
+          SectionHeader.rotate-3 Experience
           each experience in Experience
             Item #{experience}
 
         Section.border-none
-          SectionTitle.-rotate-2 Education
+          SectionHeader.-rotate-2 Education
           Item B.S.E. Computer Science, University of Michigan
 
-      Subheader.border-t.border-tpWhite.bg-accent.rounded-b-2xl.flex-center.p-4
-        Button.h-54.flex-center.p-6(glass=false) See the code
+      Subheader.bg-accent.border-t.border-tpWhite.rounded-b-2xl.p-0
+        button.h-54.w-full.font-button.flex-center.pt-1 See the code
   `
 }
+
+var SectionHeader = p => pug`
+  div.basis-full.flex.justify-between.items-center.ml-4
+    SectionTitle(className=p.className) #{p.children}
+    SectionButton
+`
 
 var Item = p => {
   const {page} = useNav()

@@ -27,10 +27,10 @@ export const HSnapStack = p => {
 
   return (
     <div className={'flex flex-col flex-100 h-full w-full relative ' + p.className}>
-      <div className='grow w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory'>
+      <div className='grow w-full max-h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory'>
         
         {p.items.map(({id, Content, className}, index) => (
-          <HSnapItem className={'flex-100 h-full flex-col items-center relative px-[9px] ' + className}
+          <HSnapItem className={'flex-100 h-full max-w-full max-h-full flex-col items-center relative px-[9px] ' + className}
             id={id} key={id} onAppear={() => onAppearItem(id, index)}>
             <Content />
           </HSnapItem>
@@ -64,7 +64,7 @@ var HSnapNav = p => {
 
   return pug`
     div.flex-center.w-full.pointer-events-none.z-10.pt-2
-      Button.transition(
+      Button.glass.transition(
         onClick=() => onClickNav(p.nav.left) 
         style={
           opacity: p.nav.left? 1 : 0.5,
@@ -75,7 +75,7 @@ var HSnapNav = p => {
 
       div.w-3
 
-      Button.transition(
+      Button.glass.transition(
         onClick=() => onClickNav(p.nav.right)
         style={
           opacity: p.nav.right? 1 : 0.5,

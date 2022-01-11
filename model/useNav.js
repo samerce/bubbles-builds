@@ -36,7 +36,6 @@ export default () => {
     setPage: (page) => dispatch(a.setPage(page)),
     pageDidAppear: (page) => {
       dispatch(a.setPage(page))
-      window.location = '#' + page.id
     },
   }
 }

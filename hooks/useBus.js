@@ -1,6 +1,6 @@
 import {useEffect, useLayoutEffect} from 'react'
 
-export default (listeners) => {
+export default function useBus(listeners) {
   useEffect(() => {
     window.broadcast = (eventName, props) => {
       let event = null
@@ -9,22 +9,19 @@ export default (listeners) => {
       } else event = new Event(eventName)
       dispatchEvent(event)
     }
-    window.on = (event, listener) => {
-      return addEventListener(event, (e) => {
-        if (e.detail) listener(e.detail, e)
-        else listener(e)
-      })
-    }
-    window.off = removeEventListener
   }, [])
 
   useLayoutEffect(() => {
     for (const event in listeners) {
-      window.on?.(event, listeners[event])
+      const listener = listeners[event]
+      window.addEventListener(event, (e) => {
+        if (e.detail) listener(e.detail, e)
+        else listener(e)
+      })
     }
   }, () => {
     for (const event in listeners) {
-      window.off?.(event, listeners[event])
+      window.removeEventListener(event, listeners[event])
     }
   })
 }

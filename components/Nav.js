@@ -11,7 +11,7 @@ import usePopup, { Popups } from '../model/usePopup'
 const NavClasses = ' mx-2 h-54 flex-center '
 const SideClasses = ' h-54 pl-2 pr-6 text-2xl mx-2 '
 
-export default (p) => {
+export default function Nav(p) {
   const {nav, setActiveMenu} = useNav()
   const {popupId, showPopup, hidePopup} = usePopup()
 
@@ -30,9 +30,7 @@ export default (p) => {
   }
 
   return (
-  <div className='fixed flex-center bottom-0 left-0 px-7 h-nav w-full z-20'>
-
-    <div className='absolute-full' onClick={onClickBackdrop} />
+  <div className='fixed flex-center bottom-0 left-0 px-7 h-nav w-full z-20 pointer-events-none'>
 
     <NavButton className={SideClasses} 
       icon='bolt-circle' iconClass='mx-1' popupId={Popups.How}>
@@ -65,6 +63,7 @@ var NavButton = (p) => {
   const isPopupVisible = activePopupId === p.popupId
   const style = {filter: isPopupVisible? 'invert()' : 'none'}
   const iconName = isPopupVisible? 'view-close' : p.icon
+  const classes = 'glass pointer-events-auto ' + p.className
 
   function onClick() {
     if (activePopupId === p.popupId) hidePopup()
@@ -72,23 +71,11 @@ var NavButton = (p) => {
   }
 
   return (
-    <Button {...p} className={p.className} onClick={onClick} style={style}>
+    <Button {...p} className={classes} style={style} onClick={onClick}>
+
       <NavIcon name={iconName} className={p.iconClass} />
       {p.children}
+
     </Button>
   )
-}
-
-function styleFor(navBtn) {
-  const anim = useSpring({
-    to: {
-      scale: navBtn.target? 1 : 0,
-      opacity: navBtn.target? 1 : 0
-    },
-    config: {
-      ...config.wobbly,
-      mass: .36,
-    }
-  })
-  return anim
 }

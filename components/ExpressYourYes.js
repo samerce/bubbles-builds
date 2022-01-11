@@ -7,14 +7,15 @@ import eyy from '../public/images/eyy-site.jpg'
 import eym from '../public/images/eym.jpg'
 import eymBubbles from '../public/images/eym-bubbles.jpg'
 import quark from '../public/images/quark.jpg'
+import purpleRepublic from '../public/images/purple-republic.jpg'
 
-export default p => pug`
+export default function ExpressYourYes(p) { return pug`
   Page(
     id='expressyouryes' index=p.index title='Express Your Yes' shaderId='fdscR8'
     how=HowConfig why=WhyConfig
   )
     HSnapStack(items=Items)
-`
+`}
 
 var Items = [
   {
@@ -55,6 +56,16 @@ var Items = [
         Image(src=quark width=1280 height=813 framed fillHeight)
         PrimaryLink.mt-7(href='https://purplerepublic-quark.herokuapp.com' newTab)
           | Hop on the Ride
+    `,
+  },
+  {
+    id: 'purplerepublic',
+    Content: p => pug`
+      Fragment
+        Header.text-white purple republic
+        Image(src=purpleRepublic width=1280 height=800 framed fillHeight)
+        PrimaryLink.mt-7(href='https://purplerepublic-linear.herokuapp.com' newTab)
+          | View It
     `,
   },
 ]

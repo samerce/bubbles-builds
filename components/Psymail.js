@@ -14,7 +14,7 @@ export default function Psymail(p) {
     id='psymail' index=p.index title='Psymail' shaderId='7dfyzN'
     how=HowConfig why=WhyConfig
   )
-    Header.text-white Psymail Commerce
+    Header.text-white Prototype: Psymail
 
     if screenWidth < 1080
       div.w-full.h-full

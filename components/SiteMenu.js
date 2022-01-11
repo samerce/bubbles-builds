@@ -1,8 +1,32 @@
 import React from "react"
-import { PopupRoot, Subheader, Section, SectionTitle } from "./Basics"
+import { PopupRoot, Subheader, Section, SectionTitle, Button } from "./Basics"
 import usePopup from "../model/usePopup"
 
-export default function SiteMenu(p) {
+export default function SiteMenu(p) { return pug`
+  PopupRoot.bg-tpBlack.rounded-2xl(...p className=p.className)
+    Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
+      | Bubbles Builds!
+
+    .w-full.grow.flex.flex-col.overflow-y-scroll.glass.rounded-b-2xl
+      
+      MenuButton(id='bio', rotate=3) Who is Bubbles?
+
+      MenuButton(id='expressyouryes' rotate=-1) Express Your Yes
+
+      MenuButton(id='rickyforhouse' rotate=2) Ricky for House
+      
+      MenuButton(id='acupuncture' rotate=-3) Acupuncture
+
+      MenuButton(id='dqitwh' rotate=1) DQITWH
+
+      MenuButton(id='flitandland' rotate=-2) Flit & Land
+
+      MenuButton(id='psymail' rotate=3) Psymail
+
+      MenuButton(id='glyphite' rotate=-1) Glyphite
+`}
+
+var MenuButton = p => {
   const {hidePopup} = usePopup()
 
   function onClick(id) { 
@@ -13,34 +37,11 @@ export default function SiteMenu(p) {
   }
 
   return pug`
-    PopupRoot
-      Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
-        | Bubbles Builds!
-
-      .w-full.grow.flex.flex-col.overflow-y-scroll
-        Section
-          SectionTitle.rotate-3(onClick=() => onClick('bio')) Who is Bubbles?
-
-        Section
-          SectionTitle.-rotate-2(onClick=() => onClick('expressyouryes')) Express Your Yes
-
-        Section
-          SectionTitle.rotate-2(onClick=() => onClick('rickyforhouse')) Ricky for House
-        
-        Section
-          SectionTitle.rotate-2(onClick=() => onClick('acupuncture')) Acupuncture
-
-        Section
-          SectionTitle.rotate-2(onClick=() => onClick('dqitwh')) DQITWH
-
-        Section
-          SectionTitle.-rotate-1(onClick=() => onClick('flitandland')) Flit & Land
-
-        Section
-          SectionTitle.-rotate-1(onClick=() => onClick('psymail')) Psymail
-
-        Section
-          SectionTitle.-rotate-1(onClick=() => onClick('glyphite')) Glyphite
-
+    button(
+      class='h-[81px] border-b border-tpWhite cursor-pointer'
+      onClick=() => onClick(p.id) 
+    )
+      div.font-button.text-2xl.text-shadow-duo.text-accent(className=${`rotate-${p.rotate}`})
+        | #{p.children}
   `
 }
