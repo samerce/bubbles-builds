@@ -43,17 +43,17 @@ export const Box = (p) => (
 )
 
 export const Section = p => pug`
-  .flex-center.flex-wrap.px-3.py-6.w-full.border-b.border-b-tpWhite(...p className=p.className)
+  div.flex-center.flex-wrap.px-3.py-6.w-full.border-b.border-b-tpWhite(...p className=p.className)
 `
 
 export const SectionButton = p => pug`
-  .flex-center
-    .h-9.text-xl.rounded-xl.flex-center.px-3.bg-transparent.border-none.text-accentLite
-      Icon.inline.text-accentLite(name='down-caret' size='27')
+  Icon.w-16.h-9.px-3.text-accentLite(name='down-caret' size='27')
 `
 
 export const SectionTitle = p => pug`
-  h3.font-button.text-2xl.text-shadow-6.drop-shadow-2xl.uppercase.text-white.leading-tight(...p className=p.className)
+  h3.font-button.text-2xl.text-shadow-6.uppercase.text-accentLite.leading-tight(
+    ...p className=p.className
+  )
 `
 
 export const PopupRoot = p => pug`

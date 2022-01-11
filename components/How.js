@@ -13,7 +13,7 @@ export default function How(p) {
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | The Nuts & Bolts of #{page.title}
       
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.glass-dark
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.bg-accentDark
         Section
           SectionHeader.rotate-3 Languages
           each lang in Languages

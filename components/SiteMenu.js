@@ -4,8 +4,8 @@ import usePopup from "../model/usePopup"
 
 export default function SiteMenu(p) { return pug`
   PopupRoot.bg-tpBlack.rounded-2xl(...p className=p.className)
-    Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
-      | Bubbles Builds!
+    Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl.text-3xl
+      span.text-3xl Bubbles Builds!
 
     .w-full.grow.flex.flex-col.overflow-y-scroll.glass.rounded-b-2xl
       
@@ -24,6 +24,8 @@ export default function SiteMenu(p) { return pug`
       MenuButton(id='psymail' rotate=3) Psymail
 
       MenuButton(id='glyphite' rotate=-1) Glyphite
+      
+      MenuButton(id='bjg' rotate=2) Blackjack Genius
 `}
 
 var MenuButton = p => {
@@ -41,7 +43,9 @@ var MenuButton = p => {
       class='h-[81px] border-b border-tpWhite cursor-pointer'
       onClick=() => onClick(p.id) 
     )
-      div.font-button.text-2xl.text-shadow-duo.text-accent(className=${`rotate-${p.rotate}`})
+      div.font-button.text-3xl.text-shadow-duo.text-accent(style=${{
+        transform: `rotate(${p.rotate}deg)`,
+      }})
         | #{p.children}
   `
 }
