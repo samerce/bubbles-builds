@@ -8,8 +8,8 @@ import { FaHeadphonesAlt } from 'react-icons/fa';
 import useNav, { NavMenu } from '../model/useNav'
 import usePopup, { Popups } from '../model/usePopup'
 
-const NavClasses = ' mx-2 h-54 flex-center '
-const SideClasses = ' h-54 pl-2 pr-6 text-2xl mx-2 '
+const BtnClasses = 'h-54 mx-1 md:mx-2 glass pointer-events-auto text-xl md:text-2xl '
+const SideBtnClasses = ' md:pl-2 md:pr-5 pl-2 pr-4 w-[96px] md:w-[108px] flex items-center justify-between '
 
 export default function Nav(p) {
   const {nav, setActiveMenu} = useNav()
@@ -29,32 +29,42 @@ export default function Nav(p) {
     hidePopup()
   }
 
-  return (
-  <div className='fixed flex-center bottom-0 left-0 px-7 h-nav w-full z-20 pointer-events-none'>
+  return pug`
+    div.fixed.flex-center.bottom-0.left-0.px-2.h-nav.w-full.z-20.pointer-events-none(
+      class='md:h-navBig origin-bottom scale-[.8] 2xs:scale-[.94] xs:scale-100'
+    )
 
-    <NavButton className={SideClasses} 
-      icon='bolt-circle' iconClass='mx-1' popupId={Popups.How}>
-      How
-    </NavButton>
+      NavButton(
+        icon='bolt-circle' iconClass='mx-1' popupId=Popups.How
+        className=SideBtnClasses
+      ) How
 
-    <div className='flex-center'>
-      <NavButton className={NavClasses + 'w-[69px]'} icon='email' popupId={Popups.Contact} />
-      <NavButton className={NavClasses + 'w-[81px]'} icon='sam' popupId={Popups.SiteMenu} />
-      <NavButton className={NavClasses + 'w-[69px]'} icon='music' popupId={Popups.Music} />
-    </div>
+      NavButton(
+        icon='email' popupId=Popups.Contact 
+        class='flex-center grow-0 shrink-0 basis-[54px] md:basis-[69px] rounded-full'
+      )
+      NavButton(
+        icon='sam' popupId=Popups.SiteMenu 
+        class='flex-center grow-0 shrink-0 basis-[54px] md:basis-[81px] rounded-full'
+      )
+      NavButton(
+        icon='music' popupId=Popups.Music 
+        class='flex-center grow-0 shrink-0 basis-[54px] md:basis-[69px] rounded-full'
+      )
 
-    <NavButton className={SideClasses} icon='compass' iconClass='mx-1' popupId={Popups.Why}>
-      Why
-    </NavButton>
-
-  </div>
-)}
+      NavButton(
+        icon='compass' iconClass='mx-1' popupId=Popups.Why
+        className=SideBtnClasses
+      ) Why
+  `
+}
 
 var NavIcon = (p) => {
-  const classes = 'inline text-accent drop-shadow-tpWhite ' + p.className
-  if (p.name === 'music') return <FaHeadphonesAlt className={'w-[30px] h-[30px] -mt-1 ' + classes} />
+  const classes = 'inline text-accent drop-shadow-tpWhite w-[36px] h-[36px] md:w-[42px] md:h-[42px]' + p.className
+  if (p.name === 'music') return <FaHeadphonesAlt className={'w-[26px] h-[26px] md:w-[30px] md:h-[30px] -mt-1 ' + classes} />
+  
   return pug`
-    Icon(size='42' ...p className=classes)
+    Icon(...p className=classes)
   `
 }
 
@@ -63,7 +73,7 @@ var NavButton = (p) => {
   const isPopupVisible = activePopupId === p.popupId
   const style = {filter: isPopupVisible? 'invert()' : 'none'}
   const iconName = isPopupVisible? 'view-close' : p.icon
-  const classes = 'glass pointer-events-auto ' + p.className
+  const classes = BtnClasses + p.className
 
   function onClick() {
     if (activePopupId === p.popupId) hidePopup()
@@ -74,7 +84,7 @@ var NavButton = (p) => {
     <Button {...p} className={classes} style={style} onClick={onClick}>
 
       <NavIcon name={iconName} className={p.iconClass} />
-      {p.children}
+      <span className='mt-[3px]'>{p.children}</span>
 
     </Button>
   )

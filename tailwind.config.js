@@ -1,4 +1,6 @@
-const NavHeight = '108px'
+const defaultTheme = require('tailwindcss/defaultTheme')
+const NavHeightBig = '108px'
+const NavHeight = '81px'
 
 const extensions = {
   width: {
@@ -9,15 +11,20 @@ const extensions = {
     54: '54px',
     108: '108px',
     nav: NavHeight,
+    navBig: NavHeightBig,
   },
   flex: {
     100: '0 0 100%',
   },
   padding: {
+    2: '9px',
+    7: '27px',
     nav: NavHeight,
+    navBig: NavHeightBig,
   },
   bottom: {
     nav: NavHeight,
+    navBig: NavHeightBig,
   },
   fontSize: {
     '8xl': '6rem',
@@ -55,6 +62,11 @@ module.exports = {
   ],
   theme: {
     extend: extensions,
+    screens: {
+      '2xs': '375px',
+      xs: '400px',
+      ...defaultTheme.screens,
+    },
   },
   variants: {},
   plugins: [],

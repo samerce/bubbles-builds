@@ -24,7 +24,7 @@ var Items = [
       Fragment
         Header.text-white express your yes
         Image(src=eyy width=1280 height=808 framed fillHeight)
-        PrimaryLink.mt-7(href='https://www.expressyouryes.com' newTab)
+        PrimaryLink(href='https://www.expressyouryes.com' newTab)
           | Check It Out
     `,
   },
@@ -34,7 +34,7 @@ var Items = [
       Fragment
         Header.text-white express your mess
         Image(src=eym width=1280 height=824 framed fillHeight)
-        PrimaryLink.mt-7(href='https://eym-parchment.herokuapp.com' newTab)
+        PrimaryLink(href='https://eym-parchment.herokuapp.com' newTab)
           | Go There
     `,
   },
@@ -44,7 +44,7 @@ var Items = [
       Fragment
         Header.text-white express your mess — bubbles
         Image(src=eymBubbles width=1280 height=817 framed fillHeight)
-        PrimaryLink.mt-7(href='https://eym-bubbleverse.herokuapp.com' newTab)
+        PrimaryLink(href='https://eym-bubbleverse.herokuapp.com' newTab)
           | Experience It
     `,
   },
@@ -54,7 +54,7 @@ var Items = [
       Fragment
         Header.text-white express your mess — quark
         Image(src=quark width=1280 height=813 framed fillHeight)
-        PrimaryLink.mt-7(href='https://purplerepublic-quark.herokuapp.com' newTab)
+        PrimaryLink(href='https://purplerepublic-quark.herokuapp.com' newTab)
           | Hop on the Ride
     `,
   },
@@ -64,7 +64,7 @@ var Items = [
       Fragment
         Header.text-white purple republic
         Image(src=purpleRepublic width=1280 height=800 framed fillHeight)
-        PrimaryLink.mt-7(href='https://purplerepublic-linear.herokuapp.com' newTab)
+        PrimaryLink(href='https://purplerepublic-linear.herokuapp.com' newTab)
           | View It
     `,
   },

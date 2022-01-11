@@ -9,7 +9,7 @@ export default function Glyphite(p) { return pug`
     how=HowConfig why=WhyConfig
   )
     Header.text-white Glyphite
-    div.w-full.relative
+    div.grow.w-full.overflow-hidden.relative
       NImage.rounded-xl(layout='responsive' src=glyphite quality=90)
 `}
 

@@ -9,27 +9,30 @@ import WhoIsBubbles from './WhoIsBubbles'
 
 const Anim = animated.div
 
-export default p => {
+export default function Popup(p) {
   const {popupId} = usePopup()
   const rootStyle = {
     pointerEvents: popupId? 'auto' : 'none',
   }
 
   return pug`
-    .fixed.top-0.left-0.h-full.w-full.z-10.pb-nav(
-      class='pt-[36px]'
+    div.fixed.top-0.left-0.h-full.w-full.z-10(
+      class='pt-3 md:pt-7 px-3 pb-nav md:pb-navBig'
       style=rootStyle
     )
       Background
 
-      .h-full.w-full.relative.flex.justify-center.pointer-events-none
+      div.h-full.w-full.relative.flex.justify-center.pointer-events-none
         PopupContent.origin-bottom-left(id=Popups.How)
           How.pointer-events-auto
 
         PopupContent.origin-bottom-right.justify-end(id=Popups.Why)
           Why.pointer-events-auto
 
-        PopupContent.origin-bottom-left.justify-end(id=Popups.Contact)
+        PopupContent.origin-bottom-left.justify-end(
+          id=Popups.Contact
+          class='w-full max-w-[432px] sm:w-[432px]'
+        )
           Contact.pointer-events-auto
 
         PopupContent.origin-bottom-right.justify-end(id=Popups.Music)

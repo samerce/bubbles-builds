@@ -57,6 +57,8 @@ export const VSnapItem = p => pug`
 
 // Helpers
 
+const IconCx = 'w-[54px] h-[54px]'
+
 var HSnapNav = p => {
   function onClickNav(navId) {
     document.getElementById(navId).scrollIntoView({behavior: 'smooth'})
@@ -71,7 +73,7 @@ var HSnapNav = p => {
           pointerEvents: p.nav.left? 'auto' : 'none',
         }
       )
-        Icon(name='view-back' size='54')
+        Icon(name='view-back' className=IconCx)
 
       div.w-3
 
@@ -82,6 +84,6 @@ var HSnapNav = p => {
           pointerEvents: p.nav.right? 'auto' : 'none',
         }
       )
-        Icon(name='view-forward' size='54')
+        Icon(name='view-forward' className=IconCx)
   `
 }

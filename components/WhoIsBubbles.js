@@ -7,7 +7,7 @@ export default function WhoIsBubbles(p) {
   const {hidePopup} = usePopup()
 
   return pug`
-    PopupRoot.max-h-full.overflow-visible(...p className=p.className)
+    PopupRoot.overflow-visible(...p className=p.className)
 
       div(class='absolute right-0 w-[320px] h-[180px] -translate-y-full pointer-events-none')
         Image(src='https://s3.us-east-2.amazonaws.com/purplerepublic.us/commons/bubbles-hi.gif' width=320 height=180 quality=90)

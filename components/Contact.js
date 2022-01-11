@@ -45,7 +45,7 @@ export default function Contact(p) {
     Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
       | Let's Talk
 
-    div.grow.flex.flex-col.overflow-y-scroll.relative.p-4(class='w-[432px]')
+    div.grow.flex.flex-col.overflow-y-scroll.relative.p-4.w-full
       Link.glass.flex-center.text-xl.mx-auto.mt-2(
         href='mailto:bubbles@expressyouryes.com' class='h-54 px-6 pt-[1px]'
       )

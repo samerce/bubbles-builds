@@ -8,7 +8,8 @@ export default function RickyForHouse(p) { return pug`
     how=HowConfig why=WhyConfig
   )
     Header.text-white Ricky for House
-    Image(src=rickyforhouse width=1280 height=742 framed fillHeight)
+    div.grow.w-full.overflow-hidden.relative.flex-center(class='p-[18px]')
+      Image(src=rickyforhouse width=1280 height=742 framed fillHeight)
     PrimaryLink.mt-7(href='https://ricky301.wixsite.com/rickyforhouse' newTab)
       | Go There
 `}

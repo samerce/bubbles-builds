@@ -8,7 +8,10 @@ export default function FlitAndLand(p) { return pug`
     how=HowConfig why=WhyConfig
   )
     Header.text-white Prototype: Flit & Land
-    Image(src=flitandland width=1280 height=799 framed fillHeight)
+    
+    div.grow.w-full.overflow-hidden.relative.flex-center(class='p-[18px]')
+      Image(src=flitandland width=1280 height=799 framed fillHeight)
+    
     PrimaryLink.mt-7(href='https://flitandland-beta.herokuapp.com' newTab)
       | See It
 `}

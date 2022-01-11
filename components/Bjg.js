@@ -6,7 +6,7 @@ import bjgFullTable from '../public/images/bjg-full-table.jpg'
 import bjgSuggestion from '../public/images/bjg-suggestion.jpg'
 
 export default function Glyphite(p) { return pug`
-  Page(...p class='px-[18px]'
+  Page(...p
     id='bjg' index=p.index title='Blackjack Genius' shaderId='ssXczN'
     how=HowConfig why=WhyConfig
   )

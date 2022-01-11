@@ -4,7 +4,7 @@ import { animated } from 'react-spring'
 import React, { useState, useLayoutEffect, useMemo } from 'react'
 import useResizeAware from 'react-resize-aware'
 
-const ButtonClasses = ' rounded-3xl text-accent border-sexy text-shadow-duo font-button uppercase leading-none '
+const ButtonClasses = ' rounded-3xl text-accent border-sexy text-shadow-duo font-button uppercase leading-none select-none flex-center '
 
 export const Button = (p) => (
   <animated.button {...p} className={ButtonClasses + p.className}>
@@ -16,7 +16,7 @@ export const Link = p => pug`
 `
 
 export const PrimaryLink = p => pug`
-  Link(...p className='glass h-16 px-7 mx-4 mt-6 mb-3 text-3xl flex-center pt-[3px] ' + p.className)
+  Link(...p className='glass grow-0 shrink-0 basis-[54px] h-54 px-7 mx-4 mt-6 mb-3 text-3xl pt-[3px] ' + p.className)
 `
 
 export const Header = (p) => (
@@ -28,11 +28,6 @@ export const Header = (p) => (
 export const Subheader = p => pug`
   h2.font-head.w-full.p-6.text-2xl.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentLite.leading-tight(...p className=p.className)
 `
-
-export const PageTitle = (p) => (
-  <div {...p} className={'self-center text-white text-center text-10xl uppercase font-head text-shadow-6 drop-shadow-2xl ' + p.className}>
-  </div>
-)
 
 export const Icon = (p) => (
   <SIcon {...p} glyph={p.name} />
@@ -59,7 +54,7 @@ export const SectionTitle = p => pug`
 export const PopupRoot = p => pug`
   Box.flex.flex-col.overflow-hidden(
     ...p 
-    className=${'max-w-[777px] ' + p.className}
+    className='max-w-full max-h-full lg:max-w-[777px] ' + p.className
   )
 `
 
