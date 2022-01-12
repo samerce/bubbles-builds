@@ -12,7 +12,7 @@ import Psymail from '../components/Psymail'
 import Glyphite from '../components/Glyphite'
 import Bjg from '../components/Bjg'
 
-export default p => pug`
+export default function Index(p) { return pug`
   VSnapStack.absolute.top-0.left-0.right-0.bottom-0
     Head
       title bubbles builds
@@ -22,8 +22,8 @@ export default p => pug`
       link(href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&family=Bungee+Shade&family=Bayon&display=swap" rel="stylesheet")
 
     each Page, index in [Bio, ExpressYourYes, RickyForHouse, Acupuncture, Dqitwh, FlitAndLand, Psymail, Glyphite, Bjg]
-      Page(index=index)
+      Page(index=index key=index)
 
     Popup
     Nav
-`
+`}

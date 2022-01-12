@@ -21,7 +21,7 @@ export const PrimaryLink = p => pug`
 
 export const Header = (p) => (
   <h1 {...p}
-  className={'font-head mx-auto py-9 text-2xl sm:text-3xl md:text-4xl text-center text-shadow-6 drop-shadow-2xl uppercase text-accentLite leading-tight ' + p.className}>
+  className={'font-head mx-auto pt-6 pb-4 text-2xl sm:text-3xl md:text-4xl text-center text-shadow-6 drop-shadow-2xl uppercase text-accentLite leading-tight ' + p.className}>
   </h1>
 )
 
@@ -59,41 +59,60 @@ export const PopupRoot = p => pug`
 `
 
 export const Image = p => {
-  const TheImage = p.framed? FramedImage : BaseImage
   const baseWidth = p.width
   const baseHeight = p.height
 
-  if (p.fillHeight) {
-    const [sizeListener, bounds] = useResizeAware()
-    const [imgWidth, setImgWidth] = useState(baseWidth)
-    const aspectRatio = useMemo(() => baseWidth / baseHeight, [baseWidth, baseHeight])
+  const [sizeListener, bounds] = useResizeAware()
+  const [imgSize, setImgSize] = useState({width: baseWidth, height: baseHeight})
+  const aspectRatio = useMemo(() => p.width / p.height, [p.width, p.height])
 
-    useLayoutEffect(() => {
-      setImgWidth(Math.floor(bounds.height * aspectRatio))
-    }, [bounds.height])
+  const TheImage = () => (
+    <NImage quality='90' {...p} {...imgSize} className={'rounded-xl ' + p.className} />
+  )
 
-    return (
-      <div className={`h-full relative ` + p.className} style={{width: imgWidth}}>
+  useLayoutEffect(() => {
+    const parentAspectRatio = bounds.width / bounds.height
+    const fillWidth = parentAspectRatio <= aspectRatio
+
+    if (fillWidth) {
+      setImgSize({
+        width: bounds.width,
+        height: Math.floor(bounds.width / aspectRatio),
+      })
+    } else { // fill height
+      setImgSize({
+        width: Math.floor(bounds.height * aspectRatio),
+        height: bounds.height,
+      })
+    }
+  }, [bounds.width, bounds.height])
+
+  return (
+    <div className={'relative h-full w-full ' + (p.framed? 'p-[18px]' : '')}>
+      <div className='relative h-full w-full flex-center flex-col'>
         {sizeListener}
-        <TheImage {...p} width={imgWidth} height={bounds.height} className='' />
-      </div>
-    )
-  }
 
-  return <TheImage {...p} />
+        <div className={p.className + ' relative'} style={{
+          width: imgSize.width, height: imgSize.height
+        }}>
+
+          {p.framed ? 
+            <FramedImage {...imgSize}>
+              <TheImage />
+            </FramedImage>
+          : 
+            <TheImage />
+          }
+
+        </div>
+      </div>
+    </div>
+  )
 }
 
 // Helpers 
 
 const FrameWidth = 9
-
-var BaseImage = pp => (
-  <NImage
-    layout='fill' objectFit='contain' quality='90'
-    {...pp}
-    className={'rounded-xl ' + pp.className}
-  />
-)
 
 var FramedImage = p => (
   <div className='relative h-full w-full'>
@@ -104,6 +123,6 @@ var FramedImage = p => (
       left: -FrameWidth,
     }} />
 
-    <BaseImage {...p} />
+    {p.children}
   </div>
 )

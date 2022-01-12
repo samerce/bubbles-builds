@@ -10,7 +10,7 @@ export default function Dqitwh(p) { return pug`
     Header.text-white Drag Queen in the White House
     
     div.grow.w-full.overflow-hidden.relative.flex-center(class='p-[18px]')
-      Image(src=dqitwh width=1280 height=828 framed fillHeight)
+      Image(src=dqitwh width=1280 height=828 framed)
     
     PrimaryLink.mt-7(href='https://dragqueeninthewhitehouse.com' newTab)
       | See It

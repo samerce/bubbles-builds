@@ -28,7 +28,7 @@ export const HSnapStack = p => {
   }
 
   return (
-    <div className={'flex flex-col flex-100 h-full w-full relative ' + p.className}>
+    <div className={'flex flex-col flex-1 w-full h-full relative overflow-hidden ' + p.className}>
       <div className='grow w-full max-h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory'>
         
         {p.items.map(({id, Content, className}, index) => (
@@ -54,7 +54,7 @@ export const VSnapItem = p => pug`
   VisibilitySensor(onChange = visible => {
     if (visible && p.onAppear) p.onAppear()
   })
-    .snap-start.snap-always.w-full.h-full.relative(...p className=p.className)
+    div.snap-start.snap-always.w-full.h-full.relative(...p className=p.className)
 `
 
 // Helpers

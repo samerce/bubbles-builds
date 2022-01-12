@@ -19,7 +19,7 @@ const slice = createSlice({
 export const popupReducer = slice.reducer
 const a = slice.actions
 
-export default () => {
+export default function usePopup() {
   const dispatch = useDispatch()
   const popup = useSelector(state => state.popup)
 

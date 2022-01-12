@@ -20,21 +20,21 @@ var Items = [
     id: 'bjg-full-table',
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
-        Image(src=bjgFullTable width=1280 height=720 framed fillHeight)
+        Image(src=bjgFullTable width=1280 height=720 framed)
     `,
   },
   {
     id: 'bjg-suggestion',
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
-        Image(src=bjgSuggestion width=1280 height=720 framed fillHeight)
+        Image(src=bjgSuggestion width=1280 height=720 framed)
     `,
   },
   {
     id: 'bjg-betting',
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
-        Image(src=bjgBetting width=1280 height=720 framed fillHeight)
+        Image(src=bjgBetting width=1280 height=720 framed)
     `,
   },
 ]

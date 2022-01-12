@@ -2,7 +2,7 @@ import {useState, useLayoutEffect} from 'react'
 import {throttle} from 'lodash'
 import useBus from './useBus.js'
 
-export default () => {
+export default function useScreenSize() {
   const [screenWidth, setWidth] = useState()
   const [screenHeight, setHeight] = useState()
   

@@ -26,7 +26,7 @@ const slice = createSlice({
 export const navReducer = slice.reducer
 const a = slice.actions
 
-export default () => {
+export default function useNav() {
   const dispatch = useDispatch()
   const nav = useSelector(state => state.nav)
 
