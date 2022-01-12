@@ -18,7 +18,7 @@ export default function Psymail(p) {
     if screenWidth < 1080
       HSnapStack(items=Items)
     else
-      div.flex-center.w-full.h-full.grow.overflow-hidden
+      div.flex-center.w-full.h-full.overflow-hidden
         div.h-full.relative
           Commerce
 

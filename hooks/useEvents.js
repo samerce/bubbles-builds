@@ -1,15 +1,15 @@
 import {useEffect, useLayoutEffect} from 'react'
 
-export default function useBus(listeners) {
-  useEffect(() => {
-    window.broadcast = (eventName, props) => {
-      let event = null
-      if (props) {
-        event = new CustomEvent(eventName, {detail: props})
-      } else event = new Event(eventName)
-      dispatchEvent(event)
-    }
-  }, [])
+export default function useEvents(listeners) {
+  const broadcast = (eventName, props) => {
+    let event = null
+    
+    if (props) {
+      event = new CustomEvent(eventName, {detail: props})
+    } else event = new Event(eventName)
+
+    window.dispatchEvent(event)
+  }
 
   useLayoutEffect(() => {
     for (const event in listeners) {
@@ -24,4 +24,6 @@ export default function useBus(listeners) {
       window.removeEventListener(event, listeners[event])
     }
   })
+
+  return broadcast
 }

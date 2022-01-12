@@ -1,6 +1,6 @@
 import Page from './Page'
 import { HSnapStack } from './Stack'
-import { PrimaryLink, Header, Image } from './Basics'
+import { Header, Image, PrimaryLink, } from './Basics'
 import { Fragment } from 'react'
 
 import eyy from '../public/images/eyy-site.jpg'

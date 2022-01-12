@@ -1,5 +1,5 @@
 import Page from './Page'
-import { Image, Header, PrimaryLink } from './Basics'
+import { Header, Image, PrimaryLink } from './Basics'
 import dqitwh from '../public/images/dqitwh.jpg'
 
 export default function Dqitwh(p) { return pug`
@@ -8,11 +8,8 @@ export default function Dqitwh(p) { return pug`
     how=HowConfig why=WhyConfig
   )
     Header.text-white Drag Queen in the White House
-    
-    div.grow.w-full.overflow-hidden.relative.flex-center(class='p-[18px]')
-      Image(src=dqitwh width=1280 height=828 framed)
-    
-    PrimaryLink.mt-7(href='https://dragqueeninthewhitehouse.com' newTab)
+    Image(src=dqitwh width=1280 height=828 framed)
+    PrimaryLink(href='https://dragqueeninthewhitehouse.com' newTab)
       | See It
 `}
 

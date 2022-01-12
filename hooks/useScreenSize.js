@@ -1,6 +1,6 @@
 import {useState, useLayoutEffect} from 'react'
 import {throttle} from 'lodash'
-import useBus from './useBus.js'
+import useEvents from './useEvents.js'
 
 export default function useScreenSize() {
   const [screenWidth, setWidth] = useState()
@@ -15,7 +15,7 @@ export default function useScreenSize() {
     setHeight(window.innerHeight)
   }, [])
 
-  useBus({
+  useEvents({
     resize: () => throttle(() => {
       setWidth(window.innerWidth)
       setHeight(window.innerHeight)

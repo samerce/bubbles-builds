@@ -17,10 +17,11 @@ export default function Page(p) {
   }
 
   function visibility() {
-    if (p.index > page.index + 1 || p.index < page.index - 1 ||
-      (p.index !== page.index && popupId)) {
-      return 'hidden'
-    } else return 'visible'
+    // if (p.index > page.index + 1 || p.index < page.index - 1 ||
+    //   (p.index !== page.index && popupId)) {
+    //   return 'hidden'
+    // } else 
+    return 'visible'
   }
 
   return (

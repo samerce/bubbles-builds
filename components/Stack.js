@@ -1,16 +1,13 @@
 import VisibilitySensor from 'react-visibility-sensor'
 import { Icon, Button } from './Basics'
 import { useState } from 'react'
-import { colorToRgba } from '@react-spring/shared'
 
-export const HSnapItem = (p) => (
-  <VisibilitySensor onChange={isVisible => {
+export const HSnapItem = p => pug`
+  VisibilitySensor(onChange=isVisible => {
     if (isVisible && p.onAppear) p.onAppear()
-  }}>
-    <div {...p} className={'snap-start snap-always inline-flex ' + p.className}>
-    </div>
-  </VisibilitySensor>
-)
+  })
+    div.snap-start.snap-always.inline-flex(...p className=p.className)
+`
 
 export const HSnapStack = p => {
   const [nav, setNav] = useState({})
@@ -34,7 +31,9 @@ export const HSnapStack = p => {
         {p.items.map(({id, Content, className}, index) => (
           <HSnapItem className={'flex-100 h-full max-w-full max-h-full flex-col items-center relative px-[9px] ' + className}
             id={id} key={id} onAppear={() => onAppearItem(id, index)}>
+
             <Content />
+
           </HSnapItem>
         ))}
 
@@ -45,10 +44,9 @@ export const HSnapStack = p => {
   )
 }
 
-export const VSnapStack = (p) => (
-  <div {...p} className={'snap-y snap-mandatory overflow-x-visible overflow-y-scroll ' + p.className}>
-  </div>
-)
+export const VSnapStack = (p) => pug`
+  div.snap-y.snap-mandatory.overflow-x-visible.overflow-y-scroll(...p className=p.className)
+`
 
 export const VSnapItem = p => pug`
   VisibilitySensor(onChange = visible => {

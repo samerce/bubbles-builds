@@ -26,7 +26,7 @@ export const Header = (p) => (
 )
 
 export const Subheader = p => pug`
-  h2.font-head.w-full.p-6.text-2xl.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentLite.leading-tight(...p className=p.className)
+  h2.font-head.w-full.p-6.text-xl.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentLite.leading-tight(...p className=p.className + ' sm:text-2xl')
 `
 
 export const Icon = (p) => (
@@ -58,6 +58,8 @@ export const PopupRoot = p => pug`
   )
 `
 
+const FrameWidth = 6
+
 export const Image = p => {
   const baseWidth = p.width
   const baseHeight = p.height
@@ -88,41 +90,29 @@ export const Image = p => {
   }, [bounds.width, bounds.height])
 
   return (
-    <div className={'relative h-full w-full ' + (p.framed? 'p-[18px]' : '')}>
+    <div className={
+      p.className + ' relative h-full w-full overflow-hidden ' + (p.framed && 'p-[18px]')
+    }>
       <div className='relative h-full w-full flex-center flex-col'>
         {sizeListener}
 
-        <div className={p.className + ' relative'} style={{
+        <div className='relative' style={{
           width: imgSize.width, height: imgSize.height
         }}>
 
-          {p.framed ? 
-            <FramedImage {...imgSize}>
-              <TheImage />
-            </FramedImage>
-          : 
-            <TheImage />
+          {p.framed &&
+            <div className='absolute rounded-2xl glass border-sexy' style={{
+              width: imgSize.width + FrameWidth * 2,
+              height: imgSize.height + FrameWidth * 2,
+              top: -FrameWidth,
+              left: -FrameWidth,
+            }} />
           }
+  
+          <TheImage />
 
         </div>
       </div>
     </div>
   )
 }
-
-// Helpers 
-
-const FrameWidth = 9
-
-var FramedImage = p => (
-  <div className='relative h-full w-full'>
-    <div className='absolute rounded-2xl glass border-sexy' style={{
-      width: p.width + FrameWidth * 2,
-      height: p.height + FrameWidth * 2,
-      top: -FrameWidth,
-      left: -FrameWidth,
-    }} />
-
-    {p.children}
-  </div>
-)

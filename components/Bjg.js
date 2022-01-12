@@ -11,8 +11,7 @@ export default function Glyphite(p) { return pug`
     how=HowConfig why=WhyConfig
   )
     Header.text-white Blackjack Genius
-    div.w-full.h-full.relative
-      HSnapStack(items=Items)
+    HSnapStack(items=Items)
 `}
 
 var Items = [

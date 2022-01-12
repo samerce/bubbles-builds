@@ -3,6 +3,10 @@
 @import "tailwindcss/utilities";
 
 @layer components {
+  html {
+    background: theme('colors.accent');
+  }
+
   p {
     @apply text-xl;
     font-family: theme('fontFamily.body');

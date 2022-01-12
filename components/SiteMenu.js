@@ -4,8 +4,8 @@ import usePopup from "../model/usePopup"
 
 export default function SiteMenu(p) { return pug`
   PopupRoot.bg-tpBlack.rounded-2xl(...p className=p.className)
-    Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl.text-3xl
-      span.text-3xl Bubbles Builds!
+    Subheader.border-b.border-tpWhite.bg-accent.rounded-t-2xl
+      span(class='text-xl xs:text-2xl sm:text-3xl') Bubbles Builds!
 
     div.w-full.grow.flex.flex-col.overflow-y-scroll.overflow-x-hidden.glass.rounded-b-2xl
       
@@ -40,10 +40,10 @@ var MenuButton = p => {
 
   return pug`
     button(
-      class='h-[81px] border-b border-tpWhite cursor-pointer w-full'
+      class='basis-[81px] shrink-0 border-b border-tpWhite cursor-pointer w-full'
       onClick=() => onClick(p.id) 
     )
-      div.font-button.text-3xl.text-shadow-duo.text-accent(style=${{
+      div.font-button.text-3xl.text-shadow-duo.text-accent.select-none(style=${{
         transform: `rotate(${p.rotate}deg)`,
       }})
         | #{p.children}

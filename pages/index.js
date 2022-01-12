@@ -13,7 +13,7 @@ import Glyphite from '../components/Glyphite'
 import Bjg from '../components/Bjg'
 
 export default function Index(p) { return pug`
-  VSnapStack.absolute.top-0.left-0.right-0.bottom-0
+  VSnapStack.absolute.top-0.left-0.right-0.bottom-0.bg-accent
     Head
       title bubbles builds
       link(rel="icon" href="/favicon.ico")

@@ -1,5 +1,5 @@
 import Page from './Page'
-import { Image, Header, PrimaryLink } from './Basics'
+import { Header, Image, PrimaryLink } from './Basics'
 import flitandland from '../public/images/flitandland.jpg'
 
 export default function FlitAndLand(p) { return pug`
@@ -8,11 +8,8 @@ export default function FlitAndLand(p) { return pug`
     how=HowConfig why=WhyConfig
   )
     Header.text-white Prototype: Flit & Land
-    
-    div.grow.w-full.overflow-hidden.relative
-      Image(src=flitandland width=1280 height=799 framed)
-    
-    PrimaryLink.mt-7(href='https://flitandland-beta.herokuapp.com' newTab)
+    Image(src=flitandland width=1280 height=799 framed)
+    PrimaryLink(href='https://flitandland-beta.herokuapp.com' newTab)
       | See It
 `}
 

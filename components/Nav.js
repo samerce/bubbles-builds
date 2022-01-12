@@ -30,7 +30,7 @@ export default function Nav(p) {
   }
 
   return pug`
-    div.fixed.flex-center.bottom-0.left-0.px-2.h-nav.w-full.z-20.pointer-events-none(
+    div.sticky.flex-center.bottom-0.left-0.px-2.h-nav.w-full.z-20.pointer-events-none(
       class='md:h-navBig origin-bottom scale-[.8] 2xs:scale-[.94] xs:scale-100'
     )
 
