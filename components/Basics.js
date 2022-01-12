@@ -21,7 +21,7 @@ export const PrimaryLink = p => pug`
 
 export const Header = (p) => (
   <h1 {...p}
-  className={'font-head mx-auto py-9 text-4xl text-center text-shadow-6 drop-shadow-2xl uppercase text-accentLite leading-tight ' + p.className}>
+  className={'font-head mx-auto py-9 text-2xl sm:text-3xl md:text-4xl text-center text-shadow-6 drop-shadow-2xl uppercase text-accentLite leading-tight ' + p.className}>
   </h1>
 )
 

@@ -13,7 +13,7 @@ import Glyphite from '../components/Glyphite'
 import Bjg from '../components/Bjg'
 
 export default p => pug`
-  VSnapStack.w-screen.h-screen(id='root-stack')
+  VSnapStack.absolute.top-0.left-0.right-0.bottom-0
     Head
       title bubbles builds
       link(rel="icon" href="/favicon.ico")

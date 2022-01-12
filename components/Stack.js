@@ -22,7 +22,9 @@ export const HSnapStack = p => {
       left: itemLeft?.id,
       right: itemRight?.id
     })
-    window.location = '#' + id
+    
+    // causes page to jump, figure out another way to give these pages urls
+    // window.location = '#' + id 
   }
 
   return (
