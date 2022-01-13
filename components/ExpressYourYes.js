@@ -71,7 +71,7 @@ var Items = [
 ]
 
 var HowConfig = [
-  'Javascript', 'HTML', 'CSS', 'Webpack', 'Styled Components', 'React', 'Redux', 'Node.js', 'Coffeescript', 
+  'Javascript', 'HTML / JSX / Pug', 'CSS', 'Webpack', 'Styled Components', 'React', 'Redux', 'Node.js', 'Coffeescript', 
 ]
 
 var WhyConfig = {

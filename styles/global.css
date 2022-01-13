@@ -8,11 +8,11 @@
   }
 
   p {
-    @apply text-xl;
+    font-size: 22px;
     font-family: theme('fontFamily.body');
     /* text-transform: lowercase; */
     max-width: 777px;
-    hyphens: auto;
+    /* hyphens: auto; */
   }
 
   .flex-center {

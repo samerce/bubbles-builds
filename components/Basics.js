@@ -4,7 +4,7 @@ import { animated } from 'react-spring'
 import React, { useState, useLayoutEffect, useMemo } from 'react'
 import useResizeAware from 'react-resize-aware'
 
-const ButtonClasses = ' rounded-3xl text-accent border-sexy text-shadow-duo font-button uppercase leading-none select-none flex-center '
+export const ButtonClasses = ' rounded-3xl text-accent border-sexy text-shadow-duo font-button uppercase leading-none select-none flex-center '
 
 export const Button = (p) => (
   <animated.button {...p} className={ButtonClasses + p.className}>
@@ -38,15 +38,19 @@ export const Box = (p) => (
 )
 
 export const Section = p => pug`
-  div.flex-center.flex-wrap.px-3.py-6.w-full.border-b.border-b-tpWhite(...p className=p.className)
+  div.flex-center.flex-wrap.pt-3.pb-5.px-5.w-full.relative(...p className=p.className)
 `
 
 export const SectionButton = p => pug`
-  Icon.w-16.h-9.px-3.text-accentLite(name='down-caret' size='27')
+  Icon.glass(...p name='down-caret' size='27' className=p.className + ButtonClasses style=${{
+    transform: p.expanded? 'rotate(180deg)' : 'rotate(0deg)',
+    padding: p.expanded? '0' : '1px 0 0 1px',
+    ...p.style
+  }})
 `
 
 export const SectionTitle = p => pug`
-  h3.font-button.text-2xl.text-shadow-6.uppercase.text-accentLite.leading-tight(
+  h3.font-button.text-2xl.text-shadow-duo.uppercase.text-accent.leading-tight(
     ...p className=p.className
   )
 `

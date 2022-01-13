@@ -23,7 +23,8 @@ export default function Popup(p) {
       Background
 
       div.h-full.w-full.relative.flex.justify-center.pointer-events-none
-        PopupContent.origin-bottom-left(id=Popups.How)
+        
+        PopupContent.origin-bottom-left.justify-end(id=Popups.How)
           How.pointer-events-auto
 
         PopupContent.origin-bottom-right.justify-end(id=Popups.Why)
