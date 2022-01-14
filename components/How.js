@@ -25,7 +25,7 @@ export default function How(p) {
       div.w-full.grow.flex.flex-col.overflow-y-scroll.bg-accentDark(class='max-w-[777px]')
 
         p.py-7.px-8.text-center
-          | Highlighted below are the technologies and relevant experience used to build this site.
+          | Highlighted below are the technologies and experience used to create ${page.title}.
 
         Section
           SectionHeader.rotate-3(
@@ -61,11 +61,11 @@ export default function How(p) {
 
         Section
           SectionHeader.rotate-3(
-            onClick=() => toggle('experiences')
-            expanded=expanded.experiences
-          ) Experience
-          each experience in Experiences
-            Item(...experience expanded=expanded.experiences)
+            onClick=() => toggle('jobs')
+            expanded=expanded.jobs
+          ) Jobs
+          each job in Jobs
+            Item(...job expanded=expanded.jobs)
 
         Section.border-none
           SectionHeader.-rotate-2(noButton expanded=true) Education
@@ -193,7 +193,7 @@ var Languages = [
     color: '#b07219',
     time: '1 year',
     description: `
-      At Amazon.com, I worked on the Store Picker for Kindle Fire, built in Android OS. I also built a top-20 Blackjack game, Blackjack Genius, in Haxe, a wrapper around Android OS.
+      At Amazon.com, I worked on the Store Picker for Kindle Fire, built in Android OS. I also built an Android game, Blackjack Genius, which was a top 20 game in the Play Store for over a year.
     `,
   },
   {
@@ -202,7 +202,7 @@ var Languages = [
     color: '#ffac45',
     time: '6 months',
     description: `
-      I recently built a prototype email app in Swift.
+      In early 2021, I built Psymail, a prototype email app in Swift.
     `,
   },
   {
@@ -220,7 +220,7 @@ var Languages = [
     color: '#4F5D95',
     time: '2 years',
     description: `
-      Through my time at Amazon.com and afterward, in freelance work, I've used PHP for a variety of projects.
+      At Amazon.com, and afterward in freelance work, I used PHP for a variety of projects.
     `,
   },
   {
@@ -449,7 +449,7 @@ var Platforms = [
   },
 ]
 
-var Experiences = [
+var Jobs = [
   {
     name: 'Express Your Yes Foundation',
     experience: 100,

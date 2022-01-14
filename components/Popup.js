@@ -24,19 +24,29 @@ export default function Popup(p) {
 
       div.h-full.w-full.relative.flex.justify-center.pointer-events-none
         
-        PopupContent.origin-bottom-left.justify-end(id=Popups.How)
+        PopupContent.justify-end(
+          id=Popups.How
+          style={transformOrigin: '22% bottom'}
+        )
           How.pointer-events-auto
 
-        PopupContent.origin-bottom-right.justify-end(id=Popups.Why)
+        PopupContent.origin-bottom-right.justify-end(
+          id=Popups.Why
+          style={transformOrigin: '80% bottom'}
+        )
           Why.pointer-events-auto
 
         PopupContent.origin-bottom-left.justify-end(
           id=Popups.Contact
           class='w-full max-w-[432px] sm:w-[432px]'
+          style={transformOrigin: '28% bottom'}
         )
           Contact.pointer-events-auto
 
-        PopupContent.origin-bottom-right.justify-end(id=Popups.Music)
+        PopupContent.origin-bottom-right.justify-end(
+          id=Popups.Music
+          style={transformOrigin: '74% bottom'}
+        )
           Music.pointer-events-auto
 
         PopupContent.origin-bottom.justify-end(id=Popups.SiteMenu)
@@ -79,7 +89,7 @@ var PopupContent = p => {
     Anim.absolute.h-full.flex-col.flex(
       ...p
       className=p.className
-      style=${{...scale, ...opacityAnim(visible)}}
+      style=${{...p.style, ...scale, ...opacityAnim(visible)}}
     )
   `
 }

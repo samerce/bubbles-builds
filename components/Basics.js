@@ -72,10 +72,6 @@ export const Image = p => {
   const [imgSize, setImgSize] = useState({width: baseWidth, height: baseHeight})
   const aspectRatio = useMemo(() => p.width / p.height, [p.width, p.height])
 
-  const TheImage = () => (
-    <NImage quality='90' {...p} {...imgSize} className={'rounded-xl ' + p.className} />
-  )
-
   useLayoutEffect(() => {
     const parentAspectRatio = bounds.width / bounds.height
     const fillWidth = parentAspectRatio <= aspectRatio
@@ -113,7 +109,10 @@ export const Image = p => {
             }} />
           }
   
-          <TheImage />
+          <NImage 
+            quality='90' {...p} {...imgSize} className={'rounded-xl ' + p.className} 
+            placeholder='blur'
+          />
 
         </div>
       </div>
