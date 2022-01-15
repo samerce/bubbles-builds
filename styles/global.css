@@ -15,6 +15,10 @@
     /* hyphens: auto; */
   }
 
+  a {
+    text-decoration: underline;
+  }
+
   .flex-center {
     @apply flex;
     @apply justify-center;
