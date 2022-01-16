@@ -247,6 +247,15 @@ var Languages = [
       I used these low-level languages in college and have avoided them at all costs since. While I understand the concepts deeply and appreciate that knowledge, I am very grateful to work with more human-readable langauges like Javascript, CoffeeScript, and Swift.
     `,
   },
+  {
+    name: 'Haxe',
+    experience: 10,
+    color: '#dfb81c',
+    time: '3 years',
+    description: `
+      I used this language to cross-compile Blackjack Genius to Android and iOS.
+    `,
+  },
 ]
 
 var Frameworks = [

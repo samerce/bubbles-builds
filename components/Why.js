@@ -17,7 +17,7 @@ export default function Why(p) {
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | The Inspiration for #{page.title}
 
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.pt-2.pb-4(
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.py-2(
         class='md:px-3'
         id=ScrollerId
       )

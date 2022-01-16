@@ -13,11 +13,13 @@ export default function Glyphite(p) { return pug`
 `}
 
 var HowConfig = [
-  'React', 'Javascript', 'Express', 'HTML / JSX / Pug', 'CSS', 'Styled Components', 'Coffeescript', 'SASS', 'Square Payments', 'AWS S3', 'Redux', 'Git', 'Atom', 'Webpack', 'AWS Lambda', 'Express Your Yes Foundation', 'Iodine', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'B.S.E. Computer Science, University of Michigan',
+  'AngularJS', 'Javascript', 'Express', 'HTML / JSX / Pug', 'CSS', 'Coffeescript', 'SASS', 'AWS S3', 'Git', 'Webpack', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan', 'Node.js', 'Atom', 
 ]
 
 var WhyConfig = {
-  art: 'Art',
-  love: 'Love',
-  play: 'Play',
+  art: 'Glyphite.com was born out of a desire to easily create beautiful text for games. There were no tools to build rich, gorgeous, effect-laden fonts for games and we decided to fill that gap. Using this web-app, you could layer shadows, strokes, and fills to create stunning font sprites.',
+
+  love: 'We offered this advanced tool on a donation model because we believed games should just have better fonts!',
+
+  play: 'My then-partner and I had a blast building this and told the world about it at the Game Developer’s Conference in San Francisco in 2014. We dove in and created marketing materials, blog posts, booth displays, and a green-screen experience where people could pose for a picture, pick a backdrop, and add Glyphite-stylized text. It was well-received but our day jobs pulled us away from the project, and it fizzled shortly after.',
 }
