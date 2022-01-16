@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import usePopup, {Popups} from '../model/usePopup'
 import { animated, useSpring, config } from 'react-spring'
 import How from './How'
@@ -85,6 +86,14 @@ var PopupContent = p => {
     }
   })
 
+  useEffect(() => {
+    if (!visible) {
+      setTimeout(() => {
+        document.getElementById(p.id).style.visibility = 'hidden'
+      }, 300)
+    }
+  }, [popupId])
+
   return pug`
     Anim.absolute.h-full.flex-col.flex(
       ...p
@@ -93,7 +102,7 @@ var PopupContent = p => {
         ...p.style, 
         ...scale, 
         ...opacityAnim(visible),
-        visibility: visible? 'visible' : 'hidden',
+        visibility: visible? 'visible' : 'inherit',
       }}
     )
   `
