@@ -1,5 +1,5 @@
 import React from "react"
-import { PopupRoot, Subheader, Section, SectionTitle, Button, Link } from "./Basics"
+import { PopupRoot, Subheader, Button, Link } from "./Basics"
 import Image from 'next/image'
 import usePopup from '../model/usePopup'
 

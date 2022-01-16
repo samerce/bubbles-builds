@@ -10,16 +10,23 @@ export default function Why(p) { return pug`
     Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
       | The Inspiration for #{page.title}
 
-    div.w-full.grow.flex.flex-col.overflow-y-scroll
-      Section
-        SectionTitle.rotate-3 make art magic
-        | #{why? why.art : ''}
+    div.w-full.grow.flex.flex-col.overflow-y-scroll.pt-6.pb-2.px-4
+      WhySection
+        div.flex
+          SectionTitle.rotate-2 make art magic
+        p.p-7 #{why? why.art : ''}
 
-      Section
-        SectionTitle.-rotate-6 share love
-        | #{why? why.love : ''}
+      WhySection
+        div.flex
+          SectionTitle.-rotate-2 share love
+        p.p-7 #{why? why.love : ''}
 
-      Section
-        SectionTitle.rotate-2 explore, grow, and play!
-        | #{why? why.play : ''}
+      WhySection
+        div.flex
+          SectionTitle.rotate-1 explore, grow, and play!
+        p.p-7 #{why? why.play : ''}
 `}
+
+var WhySection = p => pug`
+  Section.flex-col.items-center(...p className=p.className)
+`

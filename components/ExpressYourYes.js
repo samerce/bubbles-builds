@@ -71,11 +71,11 @@ var Items = [
 ]
 
 var HowConfig = [
-  'Javascript', 'HTML / JSX / Pug', 'CSS', 'Webpack', 'Styled Components', 'React', 'Redux', 'Node.js', 'Coffeescript', 
+  'Javascript', 'HTML / JSX / Pug', 'CSS', 'Webpack', 'Styled Components', 'React', 'Redux', 'Node.js', 'Coffeescript', 'Express Your Yes Foundation', 'Iodine.com', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'AWS Lambda', 'AWS S3', 'VSCode', 'Atom', 'Webpack', 'Git', 'Square Payments', 'Express', 'SASS', 'AWS CloudFront', 'BSE Computer Science, University of Michigan'
 ]
 
 var WhyConfig = {
-  art: 'Art',
-  love: 'Love',
-  play: 'Play',
+  art: 'These were the first projects I built after leaving the corporate world. They’re experiments at the edges of the norm; artistic explorations outside the confines of typical standards like usability and conversions.',
+  love: 'One of the main goals with these projects was to shake the viewer out of their comfort zone. They often intentionally use obscurity and non-linearity as well as color-overload to overwhelm—a sort of test to weed out those not curious enough to explore...',
+  play: 'Above all, they are playful experiments designed to contrast the sea of grids and boxes you usually see. Highly animated and whimsical, they often take you on journeys rather than facilitate quick navigation, borne from a desire to create the unexpected awe you might feel on a hike or exploring a new city.',
 }

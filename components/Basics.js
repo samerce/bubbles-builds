@@ -12,7 +12,7 @@ export const Button = (p) => (
 )
 
 export const Link = p => pug`
-  a(...p className=ButtonClasses + p.className target=p.newTab? '_blank' : null)
+  a(...p className='no-underline ' + ButtonClasses + p.className target=p.newTab? '_blank' : null)
 `
 
 export const PrimaryLink = p => pug`
@@ -38,21 +38,21 @@ export const Box = (p) => (
 )
 
 export const Section = p => pug`
-  div.flex-center.flex-wrap.pt-3.pb-5.px-5.w-full.relative(...p className=p.className)
+  div.flex.flex-wrap.pt-3.relative(...p className=p.className)
 `
 
-export const SectionButton = p => pug`
+export const SectionTitle = p => pug`
+  h3.font-header.text-2xl.text-shadow-duo.text-accent.leading-tight.bg-white.px-3.h-9.flex-center.rounded-xl.select-none(
+    ...p className=p.className + ' pt-[3px]'
+  )
+`
+
+export const DropdownButton = p => pug`
   Icon.glass(...p name='down-caret' size='27' className=p.className + ButtonClasses style=${{
     transform: p.expanded? 'rotate(180deg)' : 'rotate(0deg)',
     padding: p.expanded? '0' : '1px 0 0 1px',
     ...p.style
   }})
-`
-
-export const SectionTitle = p => pug`
-  h3.font-button.text-2xl.text-shadow-duo.uppercase.text-accent.leading-tight(
-    ...p className=p.className
-  )
 `
 
 export const PopupRoot = p => pug`

@@ -1,3 +1,4 @@
+import React from 'react'
 import Page from './Page'
 import { Header, Image, PrimaryLink } from './Basics'
 import { HSnapStack } from './Stack'
@@ -47,10 +48,16 @@ var Items = [
   }
 ]
 
-var HowConfig = []
+var HowConfig = [
+  'Wix', 'Iodine.com', 'Express Your Yes Foundation', 'Amazon.com', 'Clover Labs', 'Third & Loom', 'BSE Computer Science, University of Michigan', 'Javascript'
+]
 
 var WhyConfig = {
-  art: 'Art',
-  love: 'Love',
-  play: 'Play',
+  art: 'In desigining these three websites for Acupuncturists in Ann Arbor, Michigan, I aimed to fuse the avant-garde explorations of Express Your Yes with business practicality. This produced some elegant patterns: full-spread imagery to immerse, flowing visual elements to take you on a journey, and playful flourishes to bring a bit of whimsy.',
+
+  love: pug`
+    | All three of these clients are committed to diversity, equity, and inclusion. So, we took care to avoid appropriating Chinese symbology, instead opting for natural scenery. When choosing photos of people, we balanced representation of their current clientele with inviting new ones. #[br] #[br] Most of them offer special pricing to those with economic difficulty and some even accept hour-for-hour trades, bypassing money completely. As a queer person, I help clients prioritize these details so that our work contributes to unifying our species through love rather than dollar bills.
+  `,
+
+  play: 'I was compensated for my work with cash and acupuncture sessions. Part of building a piece of art that stands alone to represent an experience is to immerse yourself in it. I received acupuncture from all three of them and built those experiences into the personality of each site.',
 }

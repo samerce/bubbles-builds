@@ -29,7 +29,7 @@ export default function Page(p) {
     className={'w-full h-full relative flex flex-col items-center pb-nav md:pb-navBig ' + p.className}>
       <iframe className='pointer-events-none absolute' width="100%" height="100%" frameBorder="0" 
         src={`https://www.shadertoy.com/embed/${p.shaderId}?gui=false&t=10&paused=false&muted=true`}
-        allowFullScreen 
+        allowFullScreen tabIndex={-1}
       />
 
       {p.children}

@@ -1,5 +1,5 @@
 import useNav from "../model/useNav"
-import { PopupRoot, Subheader, Section, SectionTitle, SectionButton, Button, Link } from "./Basics"
+import { PopupRoot, Subheader, Section, SectionTitle, DropdownButton, Button, Link } from "./Basics"
 import React, { useLayoutEffect, useState } from "react"
 import useResizeAware from 'react-resize-aware'
 import useScreenSize from "../hooks/useScreenSize"
@@ -15,6 +15,7 @@ export default function How(p) {
     setExpanded({
       [id]: !expanded[id],
     })
+    setTimeout(() => document.getElementById(id).scrollIntoView({behavior: 'smooth'}), 50)
   }
   
   return pug`
@@ -22,12 +23,12 @@ export default function How(p) {
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | The Nuts & Bolts of #{page.title}
       
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.bg-accentDark(class='max-w-[777px]')
+      div.w-full.grow.flex.flex-col.px-5.overflow-y-scroll.bg-accentDark(class='max-w-[777px]')
 
-        p.py-7.px-8.text-center
+        p.py-7.text-center
           | Highlighted below are the technologies and experience used to create ${page.title}.
 
-        Section
+        HowSection(id='languages')
           SectionHeader.rotate-3(
             onClick=() => toggle('languages')
             expanded=expanded.languages
@@ -35,7 +36,7 @@ export default function How(p) {
           each lang in Languages
             Item(...lang expanded=expanded.languages)
 
-        Section
+        HowSection(id='frameworks')
           SectionHeader.-rotate-2(
             onClick=() => toggle('frameworks')
             expanded=expanded.frameworks
@@ -43,7 +44,7 @@ export default function How(p) {
           each framework in Frameworks
             Item(...framework expanded=expanded.frameworks)
 
-        Section
+        HowSection(id='tools')
           SectionHeader.rotate-2(
             onClick=() => toggle('tools')
             expanded=expanded.tools
@@ -51,7 +52,7 @@ export default function How(p) {
           each tool in Tools
             Item(...tool expanded=expanded.tools)
 
-        Section
+        HowSection(id='platforms')
           SectionHeader.-rotate-1(
             onClick=() => toggle('platforms')
             expanded=expanded.platforms
@@ -59,7 +60,7 @@ export default function How(p) {
           each platform in Platforms
             Item(...platform expanded=expanded.platforms)
 
-        Section
+        HowSection.flex-center(id='jobs')
           SectionHeader.rotate-3(
             onClick=() => toggle('jobs')
             expanded=expanded.jobs
@@ -67,9 +68,9 @@ export default function How(p) {
           each job in Jobs
             Item(...job expanded=expanded.jobs)
 
-        Section.border-none
+        HowSection.border-none
           SectionHeader.-rotate-2(noButton expanded=true) Education
-          Item(name='B.S.E. Computer Science, University of Michigan')
+          Item(name='BSE Computer Science, University of Michigan')
 
       Subheader.bg-accent.border-t.border-tpWhite.rounded-b-2xl.p-0
         Link.h-54.w-full.font-button.flex-center.pt-1(
@@ -82,11 +83,15 @@ var SectionHeader = p => pug`
   Button.w-full.justify-between.items-center.px-3.py-2.glass.rounded-4xl.bg-accent.mb-2(
     onClick=p.onClick
   )
-    SectionTitle.bg-white.px-2.py-1.rounded-xl(className=p.className) #{p.children}
-    SectionButton.bg-white(
+    SectionTitle(className=p.className) #{p.children}
+    DropdownButton.bg-white(
       style={display: p.noButton? 'none' : 'inherit'}
       expanded=p.expanded
     )
+`
+
+var HowSection = p => pug`
+  Section.flex-center.pb-5(...p className=p.className)
 `
 
 var Name = p => {
@@ -121,13 +126,13 @@ var Item = p => {
     div.flex-center.flex-col.text-xl.font-body.rounded-2xl.leading-tight.w-full.px-1.relative
       
       div.flex-center.w-full.overflow-hidden.relative
-        div(class='w-[150px]')
+        div(class='w-[164px]')
           Name #{p.name}
         ExperienceBar(...p)
         div.pl-3.pr-4(
           style={display: screenWidth < [600]? 'none' : 'inherit'}
         ) #{p.time}
-        SectionButton.overflow-hidden.mr-2(
+        DropdownButton.overflow-hidden.mr-2(
           onClick=() => setExpanded(!expanded)
           expanded=expanded
         )
@@ -381,6 +386,14 @@ var Tools = [
     `,
   },
   {
+    name: 'Wix',
+    experience: 100,
+    time: '3 years',
+    description: `
+      I've published four websites using the Wix platform and still maintain three of those sites.
+    `,
+  },
+  {
     name: 'Xcode',
     experience: 100,
     time: '12 years',
@@ -424,6 +437,14 @@ var Platforms = [
     `,
   },
   {
+    name: 'AWS CloudFront',
+    experience: 80,
+    time: '4 years',
+    description: `
+      I used CloudFront as my main CDN form 2015 to 2019.
+    `,
+  },
+  {
     name: 'iOS',
     experience: 100,
     time: '12 years',
@@ -440,7 +461,7 @@ var Platforms = [
     `,
   },
   {
-    name: 'Next.js',
+    name: 'Vercel',
     experience: 100,
     time: '12 years',
     description: `
@@ -459,7 +480,7 @@ var Jobs = [
     `,
   },
   {
-    name: 'Iodine',
+    name: 'Iodine.com',
     experience: 100,
     time: '12 years',
     description: `

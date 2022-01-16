@@ -33,8 +33,10 @@ const extensions = {
   },
   fontFamily: {
     head: 'bungee shade',
-    body: 'yanone kaffeesatz',
+    title: 'bungee shade',
+    body: 'crimson pro',//'yanone kaffeesatz',
     button: 'bayon',
+    header: 'bayon',
   },
   dropShadow: ({ theme }) => ({
     tpWhite: '1px 1px ' + theme('colors.tpWhite'),

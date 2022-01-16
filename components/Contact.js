@@ -46,7 +46,7 @@ export default function Contact(p) {
       | Let's Talk
 
     div.grow.flex.flex-col.overflow-y-scroll.relative.p-4.w-full
-      Link.glass.flex-center.text-xl.mx-auto.mt-2(
+      Link.bg-white.flex-center.text-2xl.mx-auto.mt-2(
         href='mailto:bubbles@expressyouryes.com' class='h-54 px-6 pt-[1px]'
       )
         | Use your mail app
@@ -56,9 +56,9 @@ export default function Contact(p) {
         span.absolute.text-md.flex-center.text-accentLite.font-button(class='w-[27px] h-[27px]')
           | OR
 
-      div.text-xl.font-button.flex-center.text-accentLite.mb-3 use this little widget
+      div.text-2xl.font-button.flex-center.text-accentLite.mb-3 use this little widget
 
-      input(
+      input.text-xl(
         type='email' placeholder='email / phone number / astral signature' 
         value=from onChange=e => setFrom(e.target.value)
         className=InputClasses
@@ -67,7 +67,7 @@ export default function Contact(p) {
       div.h-4
 
       div.flex.items-center.relative
-        textarea(
+        textarea.text-xl(
           id='contact-message' placeholder='what can we build together?' 
           value=message onChange=e => setMessage(e.target.value)
           className=InputClasses + ' pr-[42px] leading-[1.5] pt-[6px] h-[108px] relative'
@@ -110,7 +110,7 @@ var SendButton = p => {
   const iconStyle = (p.mode === Mode.sending)? iconSendingAnim : {}
 
   return pug`
-    Button.glass.rounded-full.flex-center.absolute.z-10.overflow-hidden(
+    Button.bg-white.rounded-full.flex-center.absolute.z-10.overflow-hidden(
       class='w-[32px] h-[32px] right-[5px] bottom-[5px] -mt-[1px]'
       onClick=p.onClick
       style={

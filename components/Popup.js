@@ -89,7 +89,12 @@ var PopupContent = p => {
     Anim.absolute.h-full.flex-col.flex(
       ...p
       className=p.className
-      style=${{...p.style, ...scale, ...opacityAnim(visible)}}
+      style=${{
+        ...p.style, 
+        ...scale, 
+        ...opacityAnim(visible),
+        visibility: visible? 'visible' : 'hidden',
+      }}
     )
   `
 }
