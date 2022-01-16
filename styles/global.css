@@ -7,15 +7,6 @@
     background: theme('colors.accent');
   }
 
-  p {
-    font-size: 21px;
-    line-height: 1.4;
-    font-family: theme('fontFamily.body');
-    /* text-transform: lowercase; */
-    max-width: 777px;
-    /* hyphens: auto; */
-  }
-
   a {
     text-decoration: underline;
   }

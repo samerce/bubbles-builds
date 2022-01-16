@@ -1,16 +1,21 @@
 import React from "react"
 import { PopupRoot, Subheader, SectionTitle } from "./Basics"
 import usePopup, { Popups } from "../model/usePopup"
+import usePopupScrollReset from "../hooks/usePopupScrollReset"
+
+const ScrollerId = 'site-menu-scroller'
 
 export default function SiteMenu(p) { 
   const {showPopup} = usePopup()
+
+  usePopupScrollReset(ScrollerId, Popups.SiteMenu)
 
   return pug`
     PopupRoot.bg-tpBlack.rounded-2xl(...p className=p.className)
       Subheader.border-b.border-tpWhite.bg-accent.rounded-t-2xl
         span(class='text-xl xs:text-2xl sm:text-3xl') Bubbles Builds!
 
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.overflow-x-hidden.bg-accentDark.rounded-b-2xl.py-3
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.overflow-x-hidden.bg-accentDark.rounded-b-2xl.py-3(id=ScrollerId)
         
         MenuButton(id='bio' rotate=3 onClick=${() => {
           setTimeout(() => showPopup(Popups.WhoIsBubbles), 400)

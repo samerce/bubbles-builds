@@ -60,7 +60,7 @@ export default function Nav(p) {
 }
 
 var NavIcon = (p) => {
-  const classes = 'inline text-accent drop-shadow-tpWhite w-[36px] h-[36px] md:w-[42px] md:h-[42px]' + p.className
+  const classes = 'inline text-accent drop-shadow-tpWhite w-[36px] h-[36px] md:w-[42px] md:h-[42px] ' + p.className
   if (p.name === 'music') return <FaHeadphonesAlt className={'w-[26px] h-[26px] md:w-[30px] md:h-[30px] -mt-1 ' + classes} />
   
   return pug`
@@ -74,7 +74,7 @@ var NavButton = p => {
   const iconName = isPopupVisible? 'view-close' : p.icon
   const classes = BtnClasses + p.className
   const style = {
-    filter: isPopupVisible? 'invert()' : 'none',
+    filter: isPopupVisible? 'invert(1)' : 'invert(0)',
   }
 
   function onClick() {

@@ -18,7 +18,7 @@ export default function Popup(p) {
 
   return pug`
     div.fixed.top-0.left-0.h-full.w-full.z-10(
-      class='pt-3 md:pt-7 px-3 pb-nav md:pb-navBig'
+      class='pt-1 md:pt-4 px-1 pb-nav md:pb-navBig'
       style=rootStyle
     )
       Background

@@ -1,11 +1,13 @@
 import useNav from "../model/useNav"
-import { PopupRoot, Subheader, Section, SectionTitle, DropdownButton, Button, Link } from "./Basics"
+import { PopupRoot, Subheader, Section, SectionTitle, DropdownButton, Button, Link, Text, } from "./Basics"
 import React, { useLayoutEffect, useState } from "react"
-import useResizeAware from 'react-resize-aware'
 import useScreenSize from "../hooks/useScreenSize"
+import { Popups } from "../model/usePopup"
+import usePopupScrollReset from "../hooks/usePopupScrollReset"
 
 const Highlighted = ' bg-accentLite border-sexy text-accent text-shadow-tpWhite '
 const Dim = ' text-accentLite text-opacity-60 '
+const ScrollerId = 'how-scroller'
 
 export default function How(p) {
   const {page} = useNav()
@@ -17,15 +19,20 @@ export default function How(p) {
     })
     setTimeout(() => document.getElementById(id).scrollIntoView({behavior: 'smooth'}), 50)
   }
+
+  usePopupScrollReset(ScrollerId, Popups.How)
   
   return pug`
     PopupRoot(...p)
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | The Nuts & Bolts of #{page.title}
       
-      div.w-full.grow.flex.flex-col.px-5.overflow-y-scroll.bg-accentDark(class='max-w-[777px]')
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.bg-accentDark(
+        class='max-w-[777px] py-2 md:py-3'
+        id=ScrollerId
+      )
 
-        p.py-7.text-center
+        Text.text-center
           | Highlighted below are the technologies and experience used to create ${page.title}.
 
         HowSection(id='languages')
@@ -91,7 +98,7 @@ var SectionHeader = p => pug`
 `
 
 var HowSection = p => pug`
-  Section.flex-center.pb-5(...p className=p.className)
+  Section.flex-center.pb-5(...p className='px-3 md:px-5 ' + p.className)
 `
 
 var Name = p => {
@@ -115,29 +122,32 @@ var ExperienceBar = p => {
 }
 
 var Item = p => {
+  // const {screenWidth} = useScreenSize()
   const [expanded, setExpanded] = useState(false)
-  const {screenWidth} = useScreenSize()
+
+  function toggle() {
+    setExpanded(!expanded)
+  }
 
   useLayoutEffect(() => {
     if (!p.expanded) setExpanded(false)
   }, [p.expanded])
 
   if (p.expanded) return pug`
-    div.flex-center.flex-col.text-xl.font-body.rounded-2xl.leading-tight.w-full.px-1.relative
+    div.flex-center.flex-col.text-xl.font-body.rounded-2xl.leading-tight.w-full.relative
       
-      div.flex-center.w-full.overflow-hidden.relative
+      div.flex-center.w-full.overflow-hidden.relative.cursor-pointer.select-none(onClick=toggle)
         div(class='w-[164px]')
           Name #{p.name}
         ExperienceBar(...p)
-        div.pl-3.pr-4(
-          style={display: screenWidth < [600]? 'none' : 'inherit'}
-        ) #{p.time}
+        // div.pl-3.pr-4(
+        //   style={display: screenWidth < [600]? 'none' : 'inherit'}
+        // ) #{p.time}
         DropdownButton.overflow-hidden.mr-2(
-          onClick=() => setExpanded(!expanded)
           expanded=expanded
         )
 
-      p.p-7(style={
+      Text(style={
         display: expanded? 'block' : 'none',
       }) #{p.description}
   ` 
@@ -295,17 +305,8 @@ var Frameworks = [
     `,
   },
   {
-    name: 'React Native',
-    experience: 50,
-    color: '#244776',
-    time: '1 year',
-    description: `
-      I used React Native at the last tech company I worked for, Iodine, a health-tech startup that primarily offered a mobile app to track your mood while taking anti-depressants. Using React's functional structure on mobile platforms that hadn't embraced it yet was a dream. Thought it was sometimes difficult to make components that looked and acted like native ones, writing, testing, and deploying the apps far outweighed those occasional problems.
-    `,
-  },
-  {
     name: 'SASS',
-    experience: 50,
+    experience: 80,
     color: '#b07219',
     time: '5 years',
     description: `
@@ -314,11 +315,20 @@ var Frameworks = [
   },
   {
     name: 'Node.js',
-    experience: 50,
+    experience: 60,
     color: '#8a8a8a',
     time: '12 years',
     description: `
       Even though I've been using Node.js for over a decade, I have never written large systems on the server side. I am much happier as a front-end developer. That said, I have no trouble building server APIs.
+    `,
+  },
+  {
+    name: 'React Native',
+    experience: 60,
+    color: '#244776',
+    time: '1 year',
+    description: `
+      I used React Native at the last tech company I worked for, Iodine, a health-tech startup that primarily offered a mobile app to track your mood while taking anti-depressants. Using React's functional structure on mobile platforms that hadn't embraced it yet was a dream. Thought it was sometimes difficult to make components that looked and acted like native ones, writing, testing, and deploying the apps far outweighed those occasional problems.
     `,
   },
   {
@@ -328,6 +338,15 @@ var Frameworks = [
     time: '6 months',
     description: `
       I introduced myself to Core Data While building a prototype email app for iOS. It is somewhat complicated but extremely powerful. Though it took a minute to learn, it made data management a breeze once I got comfortable with it.
+    `,
+  },
+  {
+    name: 'Apple Core ML',
+    experience: 40,
+    color: '#244776',
+    time: '6 months',
+    description: `
+      To build the smart email filtering in Psymail, I trained machine learning models using Core ML.
     `,
   },
   {

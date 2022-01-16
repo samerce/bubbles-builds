@@ -40,8 +40,12 @@ export const Box = (p) => (
   <div {...p} className={'text-accentLite text-shadow-tpBlack rounded-2xl border-sexy ' + p.className}></div>
 )
 
+export const Text = p => pug`
+  p(...p className='px-4 md:px-6 py-3 md:py-5 text-[18px] md:text-[21px] max-w-[777px] leading-[1.5] font-body ' + p.className)
+`
+
 export const Section = p => pug`
-  div.flex.flex-wrap.pt-3.relative(...p className=p.className)
+  div.flex.flex-wrap.pt-6.relative(...p className=p.className)
 `
 
 export const SectionTitle = p => pug`
