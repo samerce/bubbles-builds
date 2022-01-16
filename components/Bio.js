@@ -26,7 +26,7 @@ export default function Bio(p) {
 }
 
 var HowConfig = [
-  'Javascript', 'HTML / JSX / Pug', 'CSS', 'Pug', 'TailwindCSS', 'Webpack',
+  'Javascript', 'HTML / JSX / Pug', 'CSS', 'Pug', 'TailwindCSS', 'Webpack', 'Vercel',
   'React', 'Redux', 'Node.js', 'Next.js', 'Git', 'VSCode', 'Iodine.com', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan', 'Express Your Yes Foundation'
 ]
 

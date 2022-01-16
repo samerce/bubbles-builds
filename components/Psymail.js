@@ -47,11 +47,13 @@ var Items = [
 ]
 
 var HowConfig = [
-  'React', 'Javascript', 'Express', 'HTML / JSX / Pug', 'CSS', 'Styled Components', 'Coffeescript', 'SASS', 'Square Payments', 'AWS S3', 'Redux', 'Git', 'Atom', 'Webpack', 'AWS Lambda', 'Express Your Yes Foundation', 'Iodine', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'B.S.E. Computer Science, University of Michigan',
+   'Objective-C', 'Swift', 'SwiftUI', 'Apple Core Data', 'Apple Core ML', 'Xcode', 'iOS', 'Git', 'Express Your Yes Foundation', 'Iodine.com', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan',
 ]
 
 var WhyConfig = {
-  art: 'Art',
-  love: 'Love',
-  play: 'Play',
+  art: 'I built Psymail to experiment with fun and effortless email management. Magically sorting email is not new but it hasn’t been done well yet—the right filters, workflows, and customizations, I figured, would make all the difference. ',
+
+  love: 'The plan is to release Psymail on a donation model, to share the joy of better email with everyone. Since email is hosted by the provider and Core Data stores everything in Apple’s cloud, it costs nothing to run, so why not pay it forward?',
+
+  play: 'Psymail is designed with fluid swipes at the fore. The drawer design that has recently grown in popularity is used throughout. So with one little swipe you can switch inbox perspectives, take action on emails, and use advanced composition tools—fabulous, fun and fast!',
 }

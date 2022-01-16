@@ -14,11 +14,13 @@ export default function FlitAndLand(p) { return pug`
 `}
 
 var HowConfig = [
-  'React', 'Javascript', 'Express', 'HTML / JSX / Pug', 'CSS', 'Styled Components', 'Coffeescript', 'SASS', 'Square Payments', 'AWS S3', 'Redux', 'Git', 'Atom', 'Webpack', 'AWS Lambda', 'Express Your Yes Foundation', 'Iodine', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'B.S.E. Computer Science, University of Michigan',
+  'React', 'Javascript', 'Express', 'HTML / JSX / Pug', 'CSS', 'Styled Components', 'Coffeescript', 'AWS S3', 'AWS CloudFront', 'Node.js', 'Git', 'Atom', 'Webpack', 'Express Your Yes Foundation', 'Iodine.com', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan',
 ]
 
 var WhyConfig = {
-  art: 'Art',
-  love: 'Love',
-  play: 'Play',
+  art: 'Flit & Land is a prototype of a program from Drag Queen in the White House. In keeping with the book’s vibe, the site is a technicolor wonderland painting a world where the drudgery of 9-to-5 has been eradicated. A long gradient sets the mood and short blurbs are sprinkled among playful flourishes, making the ideas digestible and the journey light.',
+  
+  love: 'The prototype is a blueprint of an experiment with the hypothesis that if more of us were doing work that we loved everyday, then love, not profit, would become the driving force in our lives.',
+
+  play: 'At the core of the blueprint is the idea that ease and lightheartedness lead us most quickly to our passions. When we play, we naturally move towards what interests us, what keeps us curious and growing. Flit & Land is a lifestyle experiment in which you are guaranteed a basic living—housing, food, transportation, internet—to explore your play, in exchange for offering your best self back to the network.',
 }
