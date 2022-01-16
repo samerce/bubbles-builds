@@ -20,8 +20,8 @@ export default function WhoIsBubbles(p) {
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | Who is Bubbles?
 
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.glass-dark.p-7
-        p Bubbles Sandcastle has a BSE in Computer Science from the University of Michigan. Bubbles formerly worked in Big Tech and left that world due to its poor work-life balance and general lack of social consciousness.
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.glass-dark.py-7.px-9
+        p Bubbles Sandcastle has a BSE in Computer Science from the University of Michigan. They formerly worked in Big Tech and left that world due to its poor work-life balance and general lack of social consciousness.
         br
         p After leaving Amazon.com, Bubbles explored the startup scene and eventually founded one of their own, Clover Labs. There, they built a web-based game-making platform and used it to launch #[a(onClick=() => goToAnchor('bjg') class='cursor-pointer') Blackjack Genius], an Android game that held a top-20 spot in the Play Store for over a year. 
         br

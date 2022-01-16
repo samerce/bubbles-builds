@@ -60,6 +60,14 @@ export const VSnapItem = p => pug`
 const IconCx = 'w-[54px] h-[54px]'
 
 var HSnapNav = p => {
+  function buttonStyle(btn) {
+    return {
+      opacity: btn? 1 : 0.5,
+      pointerEvents: btn? 'auto' : 'none',
+      cursor: btn? 'pointer' : 'default',
+    }
+  }
+
   function onClickNav(navId) {
     document.getElementById(navId).scrollIntoView({behavior: 'smooth'})
   }
@@ -68,10 +76,7 @@ var HSnapNav = p => {
     div.flex-center.w-full.pointer-events-none.z-10.pt-2
       Button.glass.transition(
         onClick=() => onClickNav(p.nav.left) 
-        style={
-          opacity: p.nav.left? 1 : 0.5,
-          pointerEvents: p.nav.left? 'auto' : 'none',
-        }
+        style=${buttonStyle(p.nav.left)}
       )
         Icon(name='view-back' className=IconCx)
 
@@ -79,10 +84,7 @@ var HSnapNav = p => {
 
       Button.glass.transition(
         onClick=() => onClickNav(p.nav.right)
-        style={
-          opacity: p.nav.right? 1 : 0.5,
-          pointerEvents: p.nav.right? 'auto' : 'none',
-        }
+        style=${buttonStyle(p.nav.right)}
       )
         Icon(name='view-forward' className=IconCx)
   `

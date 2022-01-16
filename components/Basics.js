@@ -16,7 +16,10 @@ export const Link = p => pug`
 `
 
 export const PrimaryLink = p => pug`
-  Link(...p className='glass grow-0 shrink-0 basis-[54px] h-54 px-7 mx-4 mt-6 mb-3 text-3xl pt-[3px] ' + p.className)
+  Link(...p 
+    className='glass grow-0 shrink-0 basis-[54px] h-54 pl-7 pr-5 mx-4 mt-6 mb-3 text-3xl pt-[3px] flex-center ' + p.className)
+    | #{p.children}
+    Icon(name='external-fill' size=36 class='mb-[3px] ml-[6px]')
 `
 
 export const Header = (p) => (

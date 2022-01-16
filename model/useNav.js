@@ -14,9 +14,6 @@ const slice = createSlice({
     },
   },
   reducers: {
-    setActiveMenu: (state, action) => {
-      state.activeMenu = action.payload
-    },
     setPage: (state, action) => {
       state.page = action.payload
     },
@@ -32,7 +29,6 @@ export default function useNav() {
 
   return { 
     ...nav, 
-    setActiveMenu: (menu) => dispatch(a.setActiveMenu(menu)),
     setPage: (page) => dispatch(a.setPage(page)),
     pageDidAppear: (page) => {
       dispatch(a.setPage(page))

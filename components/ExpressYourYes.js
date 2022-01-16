@@ -76,6 +76,8 @@ var HowConfig = [
 
 var WhyConfig = {
   art: 'These were the first projects I built after leaving the corporate world. They’re experiments at the edges of the norm; artistic explorations outside the confines of typical standards like usability and conversions.',
-  love: 'One of the main goals with these projects was to shake the viewer out of their comfort zone. They often intentionally use obscurity and non-linearity as well as color-overload to overwhelm—a sort of test to weed out those not curious enough to explore...',
-  play: 'Above all, they are playful experiments designed to contrast the sea of grids and boxes you usually see. Highly animated and whimsical, they often take you on journeys rather than facilitate quick navigation, borne from a desire to create the unexpected awe you might feel on a hike or exploring a new city.',
+
+  love: 'One of the main goals with these projects was to shake the viewer out of their comfort zone. They often intentionally use obscurity and non-linearity as well as color-overload to overwhelm—an implicit invitation to be curious.',
+
+  play: 'Above all, they are playful experiments designed to contrast the sea of grids and boxes. Highly animated and whimsical, they often take you on journeys rather than facilitate quick navigation, borne from a desire to create the unexpected awe you might feel on a hike or exploring a new city.',
 }

@@ -5,7 +5,7 @@ import NImage from 'next/image'
 
 export default function Glyphite(p) { return pug`
   Page(...p class='px-[18px]'
-    id='glyphite' index=p.index title='Glyphite' shaderId='ssXczN'
+    id='glyphite' index=p.index title='Glyphite' shaderId='7dfyzN'
     how=HowConfig why=WhyConfig
   )
     Header.text-white Glyphite

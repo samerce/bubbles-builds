@@ -10,7 +10,7 @@ export default function Psymail(p) {
 
   return pug`
   Page(...p
-    id='psymail' index=p.index title='Psymail' shaderId='7dfyzN'
+    id='psymail' index=p.index title='Psymail' shaderId='7slyRS'
     how=HowConfig why=WhyConfig
   )
     Header.text-white Prototype: Psymail

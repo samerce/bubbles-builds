@@ -8,11 +8,11 @@ import { FaHeadphonesAlt } from 'react-icons/fa';
 import useNav, { NavMenu } from '../model/useNav'
 import usePopup, { Popups } from '../model/usePopup'
 
-const BtnClasses = 'h-54 mx-1 md:mx-2 glass pointer-events-auto text-xl md:text-2xl '
+const BtnClasses = ' h-54 mx-1 md:mx-2 glass pointer-events-auto text-xl md:text-2xl transition '
+const CenterClasses = ' flex-center grow-0 shrink-0 basis-[54px] rounded-full '
 const SideBtnClasses = ' md:pl-2 md:pr-5 pl-2 pr-4 w-[96px] md:w-[108px] flex items-center justify-between '
 
 export default function Nav(p) {
-  const {nav, setActiveMenu} = useNav()
   const {popupId, showPopup, hidePopup} = usePopup()
 
   function isVisible(id) {
@@ -40,16 +40,16 @@ export default function Nav(p) {
       ) How
 
       NavButton(
-        icon='email' popupId=Popups.Contact 
-        class='flex-center grow-0 shrink-0 basis-[54px] md:basis-[69px] rounded-full'
+        icon='email-fill' popupId=Popups.Contact
+        className=CenterClasses + 'md:basis-[69px]'
       )
       NavButton(
         icon='sam' popupId=Popups.SiteMenu 
-        class='flex-center grow-0 shrink-0 basis-[54px] md:basis-[81px] rounded-full'
+        className=CenterClasses + 'md:basis-[81px]'
       )
       NavButton(
         icon='music' popupId=Popups.Music 
-        class='flex-center grow-0 shrink-0 basis-[54px] md:basis-[69px] rounded-full'
+        className=CenterClasses + 'md:basis-[69px]'
       )
 
       NavButton(
@@ -68,12 +68,14 @@ var NavIcon = (p) => {
   `
 }
 
-var NavButton = (p) => {
+var NavButton = p => {
   const {popupId: activePopupId, showPopup, hidePopup} = usePopup()
   const isPopupVisible = activePopupId === p.popupId
-  const style = {filter: isPopupVisible? 'invert()' : 'none'}
   const iconName = isPopupVisible? 'view-close' : p.icon
   const classes = BtnClasses + p.className
+  const style = {
+    filter: isPopupVisible? 'invert()' : 'none',
+  }
 
   function onClick() {
     if (activePopupId === p.popupId) hidePopup()

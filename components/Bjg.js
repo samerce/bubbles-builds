@@ -5,9 +5,9 @@ import bjgBetting from '../public/images/bjg-betting.jpg'
 import bjgFullTable from '../public/images/bjg-full-table.jpg'
 import bjgSuggestion from '../public/images/bjg-suggestion.jpg'
 
-export default function Glyphite(p) { return pug`
+export default function Bjg(p) { return pug`
   Page(...p
-    id='bjg' index=p.index title='Blackjack Genius' shaderId='ssXczN'
+    id='bjg' index=p.index title='Blackjack Genius' shaderId='sdsyRS'
     how=HowConfig why=WhyConfig
   )
     Header.text-white Blackjack Genius
