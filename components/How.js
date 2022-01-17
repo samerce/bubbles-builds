@@ -203,21 +203,21 @@ var Languages = [
     `,
   },
   {
-    name: 'Java',
-    experience: 50,
-    color: '#b07219',
-    time: '1 year',
-    description: `
-      At Amazon.com, I worked on the Store Picker for Kindle Fire, built in Android OS. I also built an Android game, Blackjack Genius, which was a top 20 game in the Play Store for over a year.
-    `,
-  },
-  {
     name: 'Swift',
-    experience: 40,
+    experience: 60,
     color: '#ffac45',
     time: '6 months',
     description: `
       In early 2021, I built Psymail, a prototype email app in Swift.
+    `,
+  },
+  {
+    name: 'Java',
+    experience: 40,
+    color: '#b07219',
+    time: '1 year',
+    description: `
+      At Amazon.com, I worked on the Store Picker for Kindle Fire, built in Android OS. I also built an Android game, Blackjack Genius, which was a top 20 game in the Play Store for over a year.
     `,
   },
   {
@@ -402,47 +402,47 @@ var Tools = [
     experience: 100,
     time: '12 years',
     description: `
-      I love git.
-    `,
-  },
-  {
-    name: 'Atom',
-    experience: 100,
-    time: '12 years',
-    description: `
-      I love Atom.
-    `,
-  },
-  {
-    name: 'Wix',
-    experience: 100,
-    time: '3 years',
-    description: `
-      I've published four websites using the Wix platform and still maintain three of those sites.
-    `,
-  },
-  {
-    name: 'Xcode',
-    experience: 100,
-    time: '12 years',
-    description: `
-      I love Xcode.
+      What is there to say? It's Git! I’ve used it since I started coding, and even led the migration from Perforce to Git on the Amazon iOS team.
     `,
   },
   {
     name: 'Webpack',
-    experience: 100,
-    time: '12 years',
+    experience: 66.67,
+    time: '8 years',
     description: `
-      I love Webpack.
+      I use Webpack on all my projects and am comfortable configuring it.
+    `,
+  },
+  {
+    name: 'Atom',
+    experience: 41.67,
+    time: '5 years',
+    description: `
+      Atom was my main IDE until VSCode sucked me in.
+    `,
+  },
+  {
+    name: 'Wix',
+    experience: 16.67,
+    time: '2 years',
+    description: `
+      I’ve published four websites using the Wix platform and still maintain three of those sites.
+    `,
+  },
+  {
+    name: 'Xcode',
+    experience: 12.5,
+    time: '1.5 years',
+    description: `
+      I used Xcode for a year at Amazon and, recently, to build Psymail.
     `,
   },
   {
     name: 'VSCode',
-    experience: 100,
-    time: '12 years',
+    experience: 4.17,
+    time: '6 months',
     description: `
-      I love VSCode.
+      I started using VSCode in mid-2020 and love its high-quality extensions, speed, and git integration.
     `,
   },
 ]
@@ -450,18 +450,10 @@ var Tools = [
 var Platforms = [
   {
     name: 'AWS S3',
-    experience: 100,
-    time: '12 years',
+    experience: 90,
+    time: '6 years',
     description: `
-      I love VSCode.
-    `,
-  },
-  {
-    name: 'AWS Lambda',
-    experience: 100,
-    time: '12 years',
-    description: `
-      I love VSCode.
+      The place for all my sites’ assets.
     `,
   },
   {
@@ -469,31 +461,39 @@ var Platforms = [
     experience: 80,
     time: '4 years',
     description: `
-      I used CloudFront as my main CDN form 2015 to 2019.
+      My CDN of choice.
     `,
   },
   {
     name: 'iOS',
-    experience: 100,
-    time: '12 years',
+    experience: 50,
+    time: '1.5 years',
     description: `
-      I love VSCode.
+      A year at Amazon in Objective-C. Six months in Swifth on Psymail.
     `,
   },
   {
     name: 'Android',
-    experience: 100,
-    time: '12 years',
+    experience: 50,
+    time: '3 years',
     description: `
-      I love VSCode.
+      A year at Amazon on Kindle Fire OS. Variously from 2010-2014 for Blackjack Genius.
+    `,
+  },
+  {
+    name: 'AWS Lambda',
+    experience: 40,
+    time: '1 year',
+    description: `
+      Easy way to make serverless endpoints. I use it to record audition requests from expressyouryes.com.
     `,
   },
   {
     name: 'Vercel',
-    experience: 100,
-    time: '12 years',
+    experience: 20,
+    time: '1 month',
     description: `
-      I love VSCode.
+      This portfolio site is my first experience with Vercel. It streamlines the difficult parts of setting up DNS, a CDN, and continuous integration. I dig.
     `,
   },
 ]
@@ -502,41 +502,41 @@ var Jobs = [
   {
     name: 'Express Your Yes Foundation',
     experience: 100,
-    time: '12 years',
+    time: '4 years',
     description: `
-      I love VSCode.
+      The non-profit I co-founded and run with my partner, Petals. Through three name changes—Purple Republic to express your mess to Express Your Yes—we opened queer art galleries in the south, built avant-garde web experiments, and rippled love with art popups across the nation.
     `,
   },
   {
-    name: 'Iodine.com',
+    name: 'Crendo Creations',
     experience: 100,
-    time: '12 years',
+    time: '4 years',
     description: `
-      I love VSCode.
-    `,
-  },
-  {
-    name: 'Clover Labs',
-    experience: 100,
-    time: '12 years',
-    description: `
-      I love VSCode.
-    `,
-  },
-  {
-    name: 'Third & Loom',
-    experience: 100,
-    time: '12 years',
-    description: `
-      I love VSCode.
+      The startup I co-founded in 2014 with my previous partner, Chris. We produced Glyphite.com, a web-app to build stylized fonts for games, and Blackjack Genius, an Android game that trained you to play for mathematically better odds.
     `,
   },
   {
     name: 'Amazon.com',
-    experience: 100,
-    time: '12 years',
+    experience: 50,
+    time: '2 years',
     description: `
-      I love VSCode.
+      My first job out of college. I worked on the Amazon app for iPhone and the Store Picker app for Kindle Fire. I learned a lot about editing and managing massive systems, hiring software engineers, and working on large, fast-moving teams. After two years, I had my fill of extreme capitalism and left to explore the startup scene.
+    `,
+  },
+  {
+    name: 'Iodine.com',
+    experience: 25,
+    time: '1 year',
+    description: `
+      In search of software work with more meaning, I joined this health-tech startup in 2015. They had two main missions: to crowdsource honest reviews of medications and to help people find the right depression medication faster with an iOS app. I worked mostly on the latter in React Native. 
+    `,
+  },
+  {
+    name: 'Third & Loom',
+    experience: 25,
+    time: '1 year',
+    description: `
+      My first gig after leaving Amazon. It was an advanced web-app built with AngularJS and Ruby on Rails. It helped brides build bespoke gowns. You previewed the gown in the editor as you chose materials, flourishes, and a silhouette, and then you worked one-on-one with our designers to refine the dress before creation. 
     `,
   },
 ]
