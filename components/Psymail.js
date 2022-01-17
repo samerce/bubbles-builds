@@ -53,6 +53,10 @@ var Items = [
   {
     id: 'psymail-drawer',
     Content: Drawer,
+  },
+  {
+    id: 'psymail-message-drawer',
+    Content: MessageDrawer,
   }
 ]
 
