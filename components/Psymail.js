@@ -4,6 +4,7 @@ import { HSnapStack } from './Stack'
 import useScreenSize from '../hooks/useScreenSize'
 import psymailCommerce from '../public/images/psymail-commerce.jpg'
 import psymailDrawer from '../public/images/psymail-drawer.jpg'
+import psymailMessageDrawer from '../public/images/psymail-message-drawer.jpg'
 
 export default function Psymail(p) { 
   const {screenWidth} = useScreenSize()
@@ -26,6 +27,11 @@ export default function Psymail(p) {
         
         div.h-full.relative
           Drawer
+          
+        div.basis-16
+        
+        div.h-full.relative
+          MessageDrawer
 `}
 
 var Commerce = p => pug`
@@ -33,6 +39,10 @@ var Commerce = p => pug`
 `
 var Drawer = p => pug`
   Image(src=psymailDrawer width=591 height=1280 framed)
+`
+
+var MessageDrawer = p => pug`
+  Image(src=psymailMessageDrawer width=591 height=1280 framed)
 `
 
 var Items = [
