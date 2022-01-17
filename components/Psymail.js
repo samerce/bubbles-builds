@@ -17,32 +17,32 @@ export default function Psymail(p) {
     Header.text-white Prototype: Psymail
 
     if screenWidth < 1080
-      HSnapStack(items=Items)
+      HSnapStack(items=Items itemProps=p)
     else
       div.flex-center.w-full.h-full.overflow-hidden
         div.h-full.relative
-          Commerce
+          Commerce(...p)
 
         div.basis-16
         
         div.h-full.relative
-          Drawer
+          Drawer(...p)
           
         div.basis-16
         
         div.h-full.relative
-          MessageDrawer
+          MessageDrawer(...p)
 `}
 
 var Commerce = p => pug`
-  Image(src=psymailCommerce width=591 height=1280 framed)
+  Image(src=psymailCommerce width=591 height=1280 framed priority=p.willAppear)
 `
 var Drawer = p => pug`
-  Image(src=psymailDrawer width=591 height=1280 framed)
+  Image(src=psymailDrawer width=591 height=1280 framed priority=p.willAppear)
 `
 
 var MessageDrawer = p => pug`
-  Image(src=psymailMessageDrawer width=591 height=1280 framed)
+  Image(src=psymailMessageDrawer width=591 height=1280 framed priority=p.willAppear)
 `
 
 var Items = [

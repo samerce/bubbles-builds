@@ -9,7 +9,7 @@ export default function Glyphite(p) { return pug`
     how=HowConfig why=WhyConfig
   )
     Header.text-white Glyphite
-    Image(src=glyphite width=1280 height=767 framed)
+    Image(src=glyphite width=1280 height=767 framed priority=p.willAppear)
 `}
 
 var HowConfig = [

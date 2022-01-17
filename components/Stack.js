@@ -32,7 +32,7 @@ export const HSnapStack = p => {
           <HSnapItem className={'flex-100 h-full max-w-full max-h-full flex-col items-center relative px-[9px] ' + className}
             id={id} key={id} onAppear={() => onAppearItem(id, index)}>
 
-            <Content />
+            <Content {...p.itemProps} />
 
           </HSnapItem>
         ))}

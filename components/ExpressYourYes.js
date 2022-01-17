@@ -23,7 +23,7 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your yes
-        Image(src=eyy width=1280 height=808 framed)
+        Image(src=eyy width=1280 height=808 framed priority)
         PrimaryLink(href='https://www.expressyouryes.com' newTab)
           | Check It Out
     `,
@@ -33,7 +33,7 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your mess
-        Image(src=eym width=1280 height=824 framed)
+        Image(src=eym width=1280 height=824 framed priority)
         PrimaryLink(href='https://eym-parchment.herokuapp.com' newTab)
           | Go There
     `,
@@ -43,7 +43,7 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your mess — bubbles
-        Image(src=eymBubbles width=1280 height=817 framed)
+        Image(src=eymBubbles width=1280 height=817 framed priority)
         PrimaryLink(href='https://eym-bubbleverse.herokuapp.com' newTab)
           | Experience It
     `,
@@ -53,7 +53,7 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your mess — quark
-        Image(src=quark width=1280 height=813 framed)
+        Image(src=quark width=1280 height=813 framed priority)
         PrimaryLink(href='https://purplerepublic-quark.herokuapp.com' newTab)
           | Hop on the Ride
     `,

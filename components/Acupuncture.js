@@ -12,7 +12,7 @@ export default function Acupuncture(p) { return pug`
     id='acupuncture' index=p.index title='Acupuncture' shaderId='Ws3fR7'
     how=HowConfig why=WhyConfig
   )
-    HSnapStack(items=Items)
+    HSnapStack(items=Items itemProps=p)
 `}
 
 var Items = [
@@ -21,7 +21,7 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white Elemental Healing with Abby
-        Image(src=abby width=1280 height=800 framed)
+        Image(src=abby width=1280 height=800 framed priority=p.willAppear)
         PrimaryLink(href='https://bubblepillow.wixsite.com/website-3' newTab)
           | Go There
     `,
@@ -31,7 +31,7 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white The Lotus Center
-        Image(src=brodie width=1280 height=800 framed)
+        Image(src=brodie width=1280 height=800 framed priority=p.willAppear)
         PrimaryLink(href='https://www.annarboracupuncture.com' newTab)
           | Check It Out
     `,
@@ -41,7 +41,7 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white Heather Sloan Acupuncture
-        Image(src=heather width=1280 height=800 framed)
+        Image(src=heather width=1280 height=800 framed priority=p.willAppear)
         PrimaryLink(href='https://www.heather-sloan.com' newTab)
           | Visit
     `,

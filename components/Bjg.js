@@ -11,7 +11,7 @@ export default function Bjg(p) { return pug`
     how=HowConfig why=WhyConfig
   )
     Header.text-white Blackjack Genius
-    HSnapStack(items=Items)
+    HSnapStack(items=Items itemProps=p)
 `}
 
 var Items = [
@@ -19,21 +19,21 @@ var Items = [
     id: 'bjg-full-table',
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
-        Image(src=bjgFullTable width=1280 height=720 framed)
+        Image(src=bjgFullTable width=1280 height=720 framed priority=p.willAppear)
     `,
   },
   {
     id: 'bjg-suggestion',
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
-        Image(src=bjgSuggestion width=1280 height=720 framed)
+        Image(src=bjgSuggestion width=1280 height=720 framed priority=p.willAppear)
     `,
   },
   {
     id: 'bjg-betting',
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
-        Image(src=bjgBetting width=1280 height=720 framed)
+        Image(src=bjgBetting width=1280 height=720 framed priority=p.willAppear)
     `,
   },
 ]
