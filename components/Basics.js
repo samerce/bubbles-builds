@@ -4,7 +4,7 @@ import { animated } from 'react-spring'
 import React, { useState, useLayoutEffect, useMemo } from 'react'
 import useResizeAware from 'react-resize-aware'
 
-export const ButtonClasses = ' rounded-3xl text-accent border-sexy text-shadow-duo font-button uppercase leading-none select-none flex-center '
+export const ButtonClasses = ' rounded-3xl border-sexy text-shadow-duo font-button uppercase leading-none select-none flex-center text-accent hover:text-accentLite transition duration-300 '
 
 export const Button = (p) => (
   <animated.button {...p} className={ButtonClasses + p.className}>
@@ -24,12 +24,12 @@ export const PrimaryLink = p => pug`
 
 export const Header = (p) => (
   <h1 {...p}
-  className={'font-head mx-auto pt-6 pb-4 text-2xl sm:text-3xl md:text-4xl text-center text-shadow-6 drop-shadow-2xl uppercase text-accentLite leading-tight ' + p.className}>
+  className={'font-head mx-auto pt-6 pb-4 text-2xl sm:text-3xl md:text-4xl text-center text-shadow-6 drop-shadow-2xl uppercase text-accentWhite leading-tight ' + p.className}>
   </h1>
 )
 
 export const Subheader = p => pug`
-  h2.font-head.w-full.p-6.text-xl.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentLite.leading-tight(...p className=p.className + ' sm:text-2xl')
+  h2.font-head.w-full.p-6.text-xl.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight(...p className=p.className + ' sm:text-2xl')
 `
 
 export const Icon = (p) => (
@@ -37,7 +37,7 @@ export const Icon = (p) => (
 )
 
 export const Box = (p) => (
-  <div {...p} className={'text-accentLite text-shadow-tpBlack rounded-2xl border-sexy ' + p.className}></div>
+  <div {...p} className={'text-accentWhite text-shadow-tpBlack rounded-2xl border-sexy ' + p.className}></div>
 )
 
 export const Text = p => pug`
@@ -55,7 +55,9 @@ export const SectionTitle = p => pug`
 `
 
 export const DropdownButton = p => pug`
-  Icon.glass(...p name='down-caret' size='27' className=p.className + ButtonClasses style=${{
+  Icon.glass(...p name='down-caret' size='27' 
+  className=p.className + ButtonClasses + (p.expanded && 'bg-accentWhite')
+  style=${{
     transform: p.expanded? 'rotate(180deg)' : 'rotate(0deg)',
     padding: p.expanded? '0' : '1px 0 0 1px',
     ...p.style

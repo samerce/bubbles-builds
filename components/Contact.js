@@ -53,10 +53,10 @@ export default function Contact(p) {
 
       div.mt-6.mb-5.flex-center
         hr.border-tpWhite.w-full
-        span.absolute.text-md.flex-center.text-accentLite.font-button(class='w-[27px] h-[27px]')
+        span.absolute.text-md.flex-center.text-accentWhite.font-button(class='w-[27px] h-[27px]')
           | OR
 
-      div.text-2xl.font-button.flex-center.text-accentLite.mb-3 use this little widget
+      div.text-2xl.font-button.flex-center.text-accentWhite.mb-3 use this little widget
 
       input.text-xl(
         type='email' placeholder='email / phone number / astral signature' 

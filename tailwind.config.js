@@ -43,7 +43,8 @@ const extensions = {
   }),
   colors: ({ theme }) => ({
     accent: '#92017a',
-    accentLite: '#fff0fc',
+    accentLite: '#ff01d5',
+    accentWhite: '#fff0fc',
     accentDark: '#1a0114',
     tpWhite: '#fff0fc21',
     tpBlack: '#1a011421',

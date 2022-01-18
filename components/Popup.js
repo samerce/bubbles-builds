@@ -89,7 +89,7 @@ var PopupContent = p => {
   useEffect(() => {
     if (!visible) {
       setTimeout(() => {
-        document.getElementById(p.id).style.visibility = 'hidden'
+        document.getElementById(p.id).style.display = 'none'
       }, 300)
     }
   }, [popupId])
@@ -102,7 +102,7 @@ var PopupContent = p => {
         ...p.style, 
         ...scale, 
         ...opacityAnim(visible),
-        visibility: visible? 'visible' : 'inherit',
+        display: visible? 'flex' : 'inherit',
       }}
     )
   `

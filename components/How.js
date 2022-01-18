@@ -5,8 +5,8 @@ import useScreenSize from "../hooks/useScreenSize"
 import { Popups } from "../model/usePopup"
 import usePopupScrollReset from "../hooks/usePopupScrollReset"
 
-const Highlighted = ' bg-accentLite border-sexy text-accent text-shadow-tpWhite '
-const Dim = ' text-accentLite text-opacity-60 '
+const Highlighted = ' bg-accentWhite border-sexy text-accent text-shadow-tpWhite '
+const Dim = ' text-accentWhite text-opacity-60 '
 const ScrollerId = 'how-scroller'
 
 export default function How(p) {
@@ -91,7 +91,7 @@ var SectionHeader = p => pug`
     onClick=p.onClick
   )
     SectionTitle(className=p.className) #{p.children}
-    DropdownButton.bg-white(
+    DropdownButton(
       style={display: p.noButton? 'none' : 'inherit'}
       expanded=p.expanded
     )
