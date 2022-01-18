@@ -24,7 +24,7 @@ export default function Index(p) {
         link(rel="icon" href="/favicon.ico")
         link(rel="preconnect" href="https://fonts.googleapis.com")
         link(rel="preconnect" href="https://fonts.gstatic.com" crossOrigin)
-        link(href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Bungee+Shade&family=Bayon&display=swap" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Denk+One&family=Bayon&display=swap" rel="stylesheet")
 
       each Page, index in [Bio, ExpressYourYes, RickyForHouse, Acupuncture, Dqitwh, FlitAndLand, Psymail, Glyphite, Bjg]
         Page(index=index key=index willAppear=${index === page.index + 1})

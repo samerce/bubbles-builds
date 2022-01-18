@@ -12,7 +12,7 @@ export const Button = (p) => (
 )
 
 export const Link = p => pug`
-  a(...p className='no-underline ' + ButtonClasses + p.className target=p.newTab? '_blank' : null)
+  a(...p className='no-underline' + ButtonClasses + p.className target=p.newTab? '_blank' : null)
 `
 
 export const PrimaryLink = p => pug`
@@ -29,7 +29,7 @@ export const Header = (p) => (
 )
 
 export const Subheader = p => pug`
-  h2.font-head.w-full.p-6.text-xl.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight(...p className=p.className + ' sm:text-2xl')
+  h2.font-head.w-full.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight(...p className='text-lg sm:text-3xl p-3 sm:p-6 ' + p.className)
 `
 
 export const Icon = (p) => (

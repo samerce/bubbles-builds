@@ -5,7 +5,7 @@ import { makeEnum } from "../utils/lang"
 
 const Anim = animated.div
 const Mode = makeEnum('waiting', 'sending', 'sent', 'error')
-const InputClasses = "border-sexy rounded-3xl w-full bg-accentDark h-[42px] px-[18px] font-button text-lg leading-[42px] "
+const InputClasses = "border-sexy rounded-3xl w-full bg-accentBlack h-[42px] px-[18px] font-button text-lg leading-[42px] "
 
 export default function Contact(p) {
   const [mode, setMode] = useState(Mode.waiting)

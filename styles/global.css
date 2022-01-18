@@ -50,7 +50,7 @@
   .glass-dark {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    @apply bg-accentDark bg-opacity-80;
+    @apply bg-accentBlack bg-opacity-80;
   }
 
   .shadow-asBorder {

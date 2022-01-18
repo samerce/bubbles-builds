@@ -9,7 +9,7 @@ import heather from '../public/images/heather.jpg'
 
 export default function Acupuncture(p) { return pug`
   Page(
-    id='acupuncture' index=p.index title='Acupuncture' shaderId='Ws3fR7'
+    id='acupuncture' index=p.index title='Acupuncture' shaderId='7slyzf'
     how=HowConfig why=WhyConfig
   )
     HSnapStack(items=Items itemProps=p)

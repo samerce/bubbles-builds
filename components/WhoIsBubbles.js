@@ -35,7 +35,6 @@ export default function WhoIsBubbles(p) {
         Text Having hip-hop danced their way out of depression, Bubbles decided to take a break from tech and explore the arts. They joined #[a Petals Sandcastle] at the tail-end of #[a(target='_blank' href='https://www.youtube.com/watch?v=ljrsFO7VZro') Lampshade Cafe] and years later co-founded #[a(target='_blank' href='https://www.expressyouryes.com') Express Your Yes Foundation] to amplify marginalized voices and advocate for art as healing.
         Text Now, Bubbles co-runs Express Your Yes Foundation, #[a(target='_blank' href='https://soundcloud.com/expressyouryes') produces music], soaks in the sun, #[a(target='_blank' href='https://ripplewiggle.medium.com') writes], experiments with sustainable living practices, dabbles in graphic design, and builds websites & apps for creatives, healers, nonprofits, and other arts-centered, socially responsible and environmentally conscious agents.
         
-      Subheader.border-t.border-tpWhite.bg-accent.rounded-b-2xl.relative.p-0.h-54
-        button.w-full.h-full.font-button.text-white.border-none(onClick=hidePopup) Close
+      Button.border-b-0.border-x-0.bg-accent.rounded-b-2xl.rounded-t-none.w-full.text-accentWhite.text-2xl(onClick=hidePopup class='basis-[54px] shrink-0 hover:bg-accentLite hover:text-accentDark') Close
   `
 }

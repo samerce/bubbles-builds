@@ -32,8 +32,8 @@ const extensions = {
     '10xl': '8rem',
   },
   fontFamily: {
-    head: 'bungee shade',
-    title: 'bungee shade',
+    head: 'denk one',
+    title: 'denk one',
     body: 'crimson pro',//'yanone kaffeesatz',
     button: 'bayon',
     header: 'bayon',
@@ -44,8 +44,9 @@ const extensions = {
   colors: ({ theme }) => ({
     accent: '#92017a',
     accentLite: '#ff01d5',
+    accentDark: '#500143',
     accentWhite: '#fff0fc',
-    accentDark: '#1a0114',
+    accentBlack: '#1a0114',
     tpWhite: '#fff0fc21',
     tpBlack: '#1a011421',
     placeholder: '#fff0fc8c',

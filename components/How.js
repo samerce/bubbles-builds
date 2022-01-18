@@ -27,7 +27,7 @@ export default function How(p) {
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | The Nuts & Bolts of #{page.title}
       
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.bg-accentDark(
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.bg-accentBlack(
         class='max-w-[777px] py-2 md:py-3'
         id=ScrollerId
       )
@@ -79,10 +79,10 @@ export default function How(p) {
           SectionHeader.-rotate-2(noButton expanded=true) Education
           Item(name='BSE Computer Science, University of Michigan')
 
-      Subheader.bg-accent.border-t.border-tpWhite.rounded-b-2xl.p-0
-        Link.h-54.w-full.font-button.flex-center.pt-1(
-          href='https://github.com/samerce/bubbles-builds' newTab
-        ) See the code
+      Link.w-full.pt-1.bg-accent.text-accentWhite.text-2xl.border-b-0.border-x-0.rounded-b-2xl.rounded-t-none(
+        href='https://github.com/samerce/bubbles-builds' newTab
+        class='basis-[54px] shrink-0 hover:bg-accentLite hover:text-accentDark'
+      ) See the code
   `
 }
 
@@ -114,7 +114,7 @@ var Name = p => {
 var ExperienceBar = p => {
   return (
     <div className='grow h-[18px] px-4 overflow-hidden relative'>
-      <div className='h-full rounded-3xl bg-gradient-to-r from-accentDark to-accent' style={{
+      <div className='h-full rounded-3xl bg-gradient-to-r from-accentBlack to-accent' style={{
         width: `${p.experience}%`,
       }} />
     </div>
