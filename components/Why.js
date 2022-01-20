@@ -17,7 +17,7 @@ export default function Why(p) {
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | The Inspiration for #[br(class='sm:hidden')] #{page.title}
 
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.py-2.bg-accentBlack(
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.py-2.rounded-b-2xl.bg-accentBlack(
         class='md:px-3'
         id=ScrollerId
       )

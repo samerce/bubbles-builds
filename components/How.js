@@ -77,7 +77,7 @@ export default function How(p) {
 
         HowSection
           SectionHeader.-rotate-2(noButton expanded=false) Education
-          Item(name='BSE Computer Science, University of Michigan')
+          Name.flex-center.text-center(class='w-[216px] xs:w-auto') BSE Computer Science, University of Michigan
 
         Link.px-6.pt-1.my-6.glass.text-2xl(
         href='https://github.com/samerce/bubbles-builds' newTab

@@ -32,17 +32,17 @@ export default function Gratitude(p) {
         GratitudeSection 
           div.flex.pb-2
             SectionTitle.rotate-2 friends & family
-          Text My work and I are not possible without my loving family, including my partner Petals, my mom Priscilla, my brother Rameen, my sister Alyana, and some awesome friends who helped me brainstorm for and test this site: Koki, T, and Abby.
+          Text My work and I are not possible without my loving family, including my partner Petals, my mom Priscilla, my brother Rameen, my sister Alyana, and some awesome friends who helped me brainstorm and test: Koki, T, and Abby.
 
         GratitudeSection
           div.flex.pb-2
             SectionTitle.rotate-3 shaders
-          Text The gorgeous backgrounds on this site are shaders from creators on Shadertoy.com. Huge thanks to their painstaking work developing the math equations that make these stunning pieces of art. It still blows my mind that they’re made with only equations and sometimes some images of just “noise”. So grateful the following humans have offered their work for free:
+          Text The gorgeous backgrounds on this site are shaders from creators on Shadertoy.com. Huge thanks to their painstaking work developing the equations that make these stunning pieces of art. It still blows my mind that they’re made with only math and sometimes some images of just “noise”. So grateful the following talented humans have offered their work for free:
 
         GratitudeSection
           div.flex.pb-2
             SectionTitle.-rotate-1 fonts
-          Text Anyone who knows me, knows I obsess over fonts. They can make or break a design and I spent several hours picking and re-picking fonts for this site. Many thanks to the following designers (and Google Fonts) who offer their work for free:
+          Text Anyone who knows me, knows I obsess over fonts. They can make or break a design and I spent several hours picking and re-picking fonts for this site. Many thanks to the following designers (and Google Fonts) who offer their impeccable work for free:
 
         GratitudeSection
           div.flex.pb-2
