@@ -5,14 +5,15 @@ import { useSpring, config } from 'react-spring'
 import { scrollTo } from "../utils/scroll"
 import { FaHeadphonesAlt } from 'react-icons/fa';
 
-import useNav, { NavMenu } from '../model/useNav'
+import useNav from '../model/useNav'
 import usePopup, { Popups } from '../model/usePopup'
 
-const BtnClasses = ' h-54 mx-1 md:mx-2 glass pointer-events-auto text-xl md:text-2xl '
+const BtnClasses = ' h-54 mx-1 md:mx-2 glass pointer-events-auto text-xl md:text-2xl transition '
 const CenterClasses = ' flex-center grow-0 shrink-0 basis-[54px] rounded-full '
 const SideBtnClasses = ' md:pl-2 md:pr-5 pl-2 pr-4 w-[96px] md:w-[108px] flex items-center justify-between '
 
 export default function Nav(p) {
+  const {page} = useNav()
   const {popupId, showPopup, hidePopup} = usePopup()
 
   function isVisible(id) {
@@ -34,9 +35,9 @@ export default function Nav(p) {
       class='md:h-navBig origin-bottom scale-[.8] 2xs:scale-[.94] xs:scale-100'
     )
 
-      NavButton(
+      NavButton.origin-right(
         icon='bolt-circle' iconProps={className: 'mx-1'} popupId=Popups.How
-        className=SideBtnClasses
+        className=SideBtnClasses + (!page.how && 'scale-0 opacity-20 pointer-events-none')
       ) How
 
       NavButton(
@@ -53,9 +54,9 @@ export default function Nav(p) {
         className=CenterClasses + 'md:basis-[54px]'
       )
 
-      NavButton(
+      NavButton.origin-left(
         icon='compass' iconProps={className: 'mx-1'} popupId=Popups.Why
-        className=SideBtnClasses
+        className=SideBtnClasses + (!page.why && 'scale-0 opacity-20 pointer-events-none')
       ) Why
   `
 }

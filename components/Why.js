@@ -13,11 +13,11 @@ export default function Why(p) {
   usePopupScrollReset(ScrollerId, Popups.Why)
   
   return pug`
-    PopupRoot.glass-dark(...p className=p.className)
+    PopupRoot(...p className=p.className)
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | The Inspiration for #[br(class='sm:hidden')] #{page.title}
 
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.py-2(
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.py-2.bg-accentBlack(
         class='md:px-3'
         id=ScrollerId
       )

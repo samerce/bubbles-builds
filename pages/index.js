@@ -11,6 +11,7 @@ import FlitAndLand from '../components/FlitAndLand'
 import Psymail from '../components/Psymail'
 import Glyphite from '../components/Glyphite'
 import Bjg from '../components/Bjg'
+import LetsBuild from '../components/LetsBuild'
 
 import useNav from '../model/useNav'
 
@@ -26,7 +27,7 @@ export default function Index(p) {
         link(rel="preconnect" href="https://fonts.gstatic.com" crossOrigin)
         link(href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Denk+One&family=Bayon&display=swap" rel="stylesheet")
 
-      each Page, index in [Bio, ExpressYourYes, RickyForHouse, Acupuncture, Dqitwh, FlitAndLand, Psymail, Glyphite, Bjg]
+      each Page, index in [Bio, ExpressYourYes, RickyForHouse, Acupuncture, Dqitwh, FlitAndLand, Psymail, Glyphite, Bjg, LetsBuild]
         Page(index=index key=index willAppear=${index === page.index + 1})
 
       Popup

@@ -15,7 +15,7 @@ export default function SiteMenu(p) {
       Subheader.border-b.border-tpWhite.bg-accent.rounded-t-2xl
         span(class='text-xl xs:text-2xl sm:text-3xl') Bubbles Builds!
 
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.overflow-x-hidden.bg-accentBlack.rounded-b-2xl.py-3(id=ScrollerId class='w-[298px]')
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.overflow-x-hidden.bg-accentBlack.rounded-b-2xl.py-3(id=ScrollerId class='w-[303px]')
         
         MenuButton(id='bio' rotate=3 onClick=${() => {
           setTimeout(() => showPopup(Popups.WhoIsBubbles), 400)
@@ -36,6 +36,8 @@ export default function SiteMenu(p) {
         MenuButton(id='glyphite' rotate=-1) Glyphite
         
         MenuButton(id='bjg' rotate=2) Blackjack Genius
+
+        MenuButton(id='letsbuild' rotate=-3) Let’s Build Together!
   `
 }
 
