@@ -8,7 +8,7 @@ export default function Bio(p) {
 
   return pug`
     Page.flex.items-center(
-      id='bio' index=p.index title='Bubbles Builds' shaderId='XdyXD3'
+      id='bio' index=p.index title='Bubbles Builds' shaderId='sdscWS'
       how=HowConfig why=WhyConfig
     )
       div.absolute.pointer-events-none.flex-center.h-full.w-full

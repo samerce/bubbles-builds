@@ -42,9 +42,9 @@
   }
 
   .glass {
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    @apply bg-accentWhite bg-opacity-50;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    @apply bg-accentWhite bg-opacity-40;
   }
 
   .glass-dark {

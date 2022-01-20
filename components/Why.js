@@ -15,7 +15,7 @@ export default function Why(p) {
   return pug`
     PopupRoot.glass-dark(...p className=p.className)
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
-        | The Inspiration for #{page.title}
+        | The Inspiration for #[br(class='sm:hidden')] #{page.title}
 
       div.w-full.grow.flex.flex-col.overflow-y-scroll.py-2(
         class='md:px-3'

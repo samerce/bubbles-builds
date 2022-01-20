@@ -29,7 +29,7 @@ export const Header = (p) => (
 )
 
 export const Subheader = p => pug`
-  h2.font-head.w-full.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight(...p className='text-lg sm:text-3xl p-3 sm:p-6 ' + p.className)
+  h2.font-head.w-full.flex-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight.px-6.text-center(...p className='text-xl sm:text-3xl py-3 md:py-5 shrink-0 ' + p.className)
 `
 
 export const Icon = (p) => (
@@ -49,13 +49,13 @@ export const Section = p => pug`
 `
 
 export const SectionTitle = p => pug`
-  h3.font-header.text-2xl.text-shadow-duo.text-accent.leading-tight.bg-white.px-3.h-9.flex-center.rounded-xl.select-none(
-    ...p className=p.className + ' pt-[3px]'
+  h3.font-header.text-shadow-duo.text-accent.leading-tight.bg-white.px-3.h-9.flex-center.rounded-xl.select-none(
+    ...p className=p.className + ' pt-[3px] text-xl sm:text-2xl'
   )
 `
 
 export const DropdownButton = p => pug`
-  Icon.glass(...p name='down-caret' size='27' 
+  Icon.bg-accentWhite(...p name='down-caret' size='27' 
   className=p.className + ButtonClasses + (p.expanded && 'bg-accentWhite')
   style=${{
     transform: p.expanded? 'rotate(180deg)' : 'rotate(0deg)',

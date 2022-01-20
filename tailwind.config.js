@@ -1,6 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const NavHeightBig = '108px'
-const NavHeight = '81px'
+const NavHeight = '108px'
 
 const extensions = {
   width: {

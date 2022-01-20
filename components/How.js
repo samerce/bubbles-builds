@@ -25,9 +25,9 @@ export default function How(p) {
   return pug`
     PopupRoot(...p)
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
-        | The Nuts & Bolts of #{page.title}
+        | The Nuts & Bolts of #[br(class='sm:hidden')] #{page.title}
       
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.bg-accentBlack(
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.bg-accentBlack.rounded-b-2xl(
         class='max-w-[777px] py-2 md:py-3'
         id=ScrollerId
       )
@@ -75,13 +75,13 @@ export default function How(p) {
           each job in Jobs
             Item(...job expanded=expanded.jobs)
 
-        HowSection.border-none
-          SectionHeader.-rotate-2(noButton expanded=true) Education
+        HowSection
+          SectionHeader.-rotate-2(noButton expanded=false) Education
           Item(name='BSE Computer Science, University of Michigan')
 
-      Link.w-full.pt-1.bg-accent.text-accentWhite.text-2xl.border-b-0.border-x-0.rounded-b-2xl.rounded-t-none(
+        Link.px-6.pt-1.my-6.glass.text-2xl(
         href='https://github.com/samerce/bubbles-builds' newTab
-        class='basis-[54px] shrink-0 hover:bg-accentLite hover:text-accentDark'
+        class='basis-[54px] self-center shrink-0'
       ) See the code
   `
 }
@@ -106,7 +106,9 @@ var Name = p => {
   const classes = p.className + (page.how?.includes(p.children) ? Highlighted : Dim)
 
   return pug`
-    div.inline-block.px-3.py-2.m-2.text-xl.font-body.rounded-2xl.leading-tight(className=classes)
+    div.inline-block.px-3.py-2.m-2.font-body.rounded-2xl.leading-tight(
+      className=classes + ' text-lg md:text-xl'
+    )
       | #{p.children}
   `
 }
