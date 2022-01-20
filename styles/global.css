@@ -67,6 +67,10 @@
     @apply text-xl;
   }
 
+  .content-auto {
+    content-visibility: auto;
+  }
+
 }
 
 :root {
