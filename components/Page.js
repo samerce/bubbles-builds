@@ -1,5 +1,4 @@
 import { VSnapItem } from './Stack'
-import Shader from './Shader'
 import useNav from '../model/useNav'
 import usePopup from '../model/usePopup'
 

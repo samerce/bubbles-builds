@@ -6379,8 +6379,6 @@ function Effect(vr, ac, canvas, callback, obj, forceMuted, forcePaused, resizeCa
     for (let j=0; j<(256*3); j++ ) { keyboardData[j] = 0; }
     let kayboardTexture = this.mRenderer.CreateTexture( this.mRenderer.TEXTYPE.T2D, 256, 3, this.mRenderer.TEXFMT.C1I8, this.mRenderer.FILTER.NONE, this.mRenderer.TEXWRP.CLAMP, null);
     let keyboardImage = new Image();
-    if( callback!==null )
-        keyboardImage.src = "/img/keyboard.png"; // don't load PNG if no UI 
     this.mKeyboard = { mData: keyboardData, mTexture: kayboardTexture, mIcon: keyboardImage };
 
     let iResize = function( xres, yres )
@@ -7675,8 +7673,8 @@ const Config = {
           "inputs": [
             {
               "id": "4dXGzn",
-              "filepath": "/media/a/0c7bf5fe9462d5bffbd11126e82908e39be3ce56220d900f633d58fb432e56f5.png",
-              "previewfilepath": "/media/ap/0c7bf5fe9462d5bffbd11126e82908e39be3ce56220d900f633d58fb432e56f5.png",
+              "filepath": "/shader/inputs/static.png",
+              "previewfilepath": "/shader/inputs/static.png",
               "type": "texture",
               "channel": 0,
               "sampler": {
@@ -7712,8 +7710,8 @@ const Config = {
           "inputs": [
             {
               "id": "XdX3Rn",
-              "filepath": "/media/a/52d2a8f514c4fd2d9866587f4d7b2a5bfa1a11a0e772077d7682deb8b3b517e5.jpg",
-              "previewfilepath": "/media/ap/52d2a8f514c4fd2d9866587f4d7b2a5bfa1a11a0e772077d7682deb8b3b517e5.jpg",
+              "filepath": "/shader/inputs/pebbles.jpg",
+              "previewfilepath": "/shader/inputs/pebbles.jpg",
               "type": "texture",
               "channel": 0,
               "sampler": {
@@ -7727,8 +7725,8 @@ const Config = {
             },
             {
               "id": "4sf3Rr",
-              "filepath": "/media/a/ad56fba948dfba9ae698198c109e71f118a54d209c0ea50d77ea546abad89c57.png",
-              "previewfilepath": "/media/ap/ad56fba948dfba9ae698198c109e71f118a54d209c0ea50d77ea546abad89c57.png",
+              "filepath": "/shader/inputs/grains.png",
+              "previewfilepath": "/shader/inputs/grains.png",
               "type": "texture",
               "channel": 1,
               "sampler": {
