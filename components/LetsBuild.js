@@ -18,7 +18,7 @@ export default function LetsBuild(p) {
           div Together!
         
       Button.glass.text-3xl.h-54.px-8.pt-1.mt-auto(
-        onClick=() => showPopup(Popups.Gratitude)
+        onClick=() => showPopup(Popups.Thanks)
       )
         Icon(name='like-fill' size=36)
   `

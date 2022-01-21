@@ -3,6 +3,7 @@ import NImage from 'next/image'
 import { animated } from 'react-spring'
 import React, { useState, useLayoutEffect, useMemo } from 'react'
 import useResizeAware from 'react-resize-aware'
+import usePopup from '../model/usePopup'
 
 export const ButtonClasses = ' rounded-3xl border-sexy text-shadow-duo font-button uppercase leading-none select-none flex-center text-accent hover:text-accentLite transition duration-300 '
 
@@ -70,6 +71,17 @@ export const PopupRoot = p => pug`
     className='max-w-full max-h-full lg:max-w-[777px] ' + p.className
   )
 `
+
+export const PopupCloseButton = p => {
+  const {hidePopup} = usePopup()
+
+  return pug`
+    Button.border-b-0.border-x-0.bg-accent.rounded-b-2xl.rounded-t-none.w-full.text-accentWhite.text-2xl.shrink-0(
+      onClick=hidePopup 
+      class='basis-[42px] sm:basis-[54px] hover:text-accentLite'
+    ) Close
+  `
+}
 
 const FrameWidth = 6
 

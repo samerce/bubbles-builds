@@ -7,7 +7,7 @@ import Contact from './Contact'
 import Music from './Music'
 import SiteMenu from './SiteMenu'
 import WhoIsBubbles from './WhoIsBubbles'
-import Gratitude from './Gratitude'
+import Thanks from './Thanks'
 
 const Anim = animated.div
 
@@ -57,8 +57,8 @@ export default function Popup(p) {
         PopupContent.justify-center(id=Popups.WhoIsBubbles)
           WhoIsBubbles.pointer-events-auto
 
-        PopupContent.justify-center(id=Popups.Gratitude)
-          Gratitude.pointer-events-auto
+        PopupContent.justify-center(id=Popups.Thanks)
+          Thanks.pointer-events-auto
   `
 }
 
