@@ -26,7 +26,6 @@ export default function Index(p) {
         link(rel="preconnect" href="https://fonts.googleapis.com")
         link(rel="preconnect" href="https://fonts.gstatic.com" crossOrigin)
         link(href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Denk+One&family=Bayon&display=swap" rel="stylesheet")
-        script(src="https://www.shadertoy.com/lib/piLibs.js?v=86") // Shadertoy dependency
 
       each Page, index in [Bio, ExpressYourYes, RickyForHouse, Acupuncture, Dqitwh, FlitAndLand, Psymail, Glyphite, Bjg, LetsBuild]
         Page(index=index key=index willAppear=${index === page.index + 1})

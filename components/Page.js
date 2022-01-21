@@ -22,14 +22,17 @@ export default function Page(p) {
     //   (p.index !== page.index && popupId)) {
     //   return 'hidden'
     // } else 
-    return 'visible'
+      return 'visible'
   }
 
   return (
     <VSnapItem {...p} id={p.id} onAppear={onAppear} style={{visibility: visibility()}} 
     className={p.className + ' w-full h-full relative flex flex-col items-center pb-nav md:pb-navBig'}>
 
-      <Shader className='pointer-events-none absolute-full' shaderId={p.shaderId} />
+      <iframe 
+        className='pointer-events-none absolute-full w-full h-full'
+        src={`/shader/shader.html?id=${p.shaderId}`}
+      />
       {p.children}
 
     </VSnapItem>
