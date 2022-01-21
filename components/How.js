@@ -160,6 +160,7 @@ var Item = p => {
 
 var Languages = [
   {
+    key: 'Javascript',
     name: 'Javascript',
     experience: 100,
     color: '#f7df1e',
@@ -169,6 +170,7 @@ var Languages = [
     `,
   },
   {
+    key: 'HTML / JSX / Pug',
     name: 'HTML / JSX / Pug',
     experience: 100,
     color: '#e34f26',
@@ -178,6 +180,7 @@ var Languages = [
     `,
   },
   {
+    key: 'CSS',
     name: 'CSS',
     experience: 100,
     color: '#3d5a80',
@@ -187,6 +190,7 @@ var Languages = [
     `,
   },
   {
+    key: 'Coffeescript',
     name: 'Coffeescript',
     experience: 90,
     color: '#244776',
@@ -196,6 +200,7 @@ var Languages = [
     `,
   },
   {
+    key: 'Objective-C',
     name: 'Objective-C',
     experience: 80,
     color: '#8a8a8a',
@@ -205,6 +210,7 @@ var Languages = [
     `,
   },
   {
+    key: 'Swift',
     name: 'Swift',
     experience: 60,
     color: '#ffac45',
@@ -214,6 +220,7 @@ var Languages = [
     `,
   },
   {
+    key: 'Java',
     name: 'Java',
     experience: 40,
     color: '#b07219',
@@ -223,6 +230,7 @@ var Languages = [
     `,
   },
   {
+    key: 'Ruby',
     name: 'Ruby',
     experience: 20,
     color: '#701516',
@@ -232,6 +240,7 @@ var Languages = [
     `,
     },
   {
+    key: 'PHP',
     name: 'PHP',
     experience: 20,
     color: '#4F5D95',
@@ -241,6 +250,7 @@ var Languages = [
     `,
   },
   {
+    key: 'C/C++',
     name: 'C/C++',
     experience: 10,
     color: '#6e6e6e',
@@ -250,6 +260,7 @@ var Languages = [
     `,
   },
   {
+    key: 'Haxe',
     name: 'Haxe',
     experience: 10,
     color: '#dfb81c',
@@ -262,6 +273,7 @@ var Languages = [
 
 var Frameworks = [
   {
+    key: 'React',
     name: 'React',
     experience: 100,
     color: '#61dafb',
@@ -271,6 +283,7 @@ var Frameworks = [
       `,
   },
   {
+    key: 'TailwindCSS',
     name: 'TailwindCSS',
     experience: 90,
     color: '#3a6186',
@@ -280,6 +293,7 @@ var Frameworks = [
       `,
   },
   {
+    key: 'Styled Components',
     name: 'Styled Components',
     experience: 90,
     color: '#e34f26',
@@ -289,6 +303,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'Redux',
     name: 'Redux',
     experience: 90,
     color: '#701516',
@@ -298,6 +313,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'Next.js',
     name: 'Next.js',
     experience: 80,
     color: '#e34f26',
@@ -307,6 +323,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'SwiftUI',
     name: 'SwiftUI',
     experience: 80,
     color: '#8a8a8a',
@@ -316,6 +333,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'SASS',
     name: 'SASS',
     experience: 80,
     color: '#b07219',
@@ -325,6 +343,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'Node.js',
     name: 'Node.js',
     experience: 60,
     color: '#8a8a8a',
@@ -334,6 +353,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'React Native',
     name: 'React Native',
     experience: 60,
     color: '#244776',
@@ -343,6 +363,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'Apple Core Data',
     name: 'Apple Core Data',
     experience: 40,
     color: '#701516',
@@ -352,6 +373,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'Apple Core ML',
     name: 'Apple Core ML',
     experience: 40,
     color: '#244776',
@@ -361,6 +383,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'Express',
     name: 'Express',
     experience: 40,
     color: '#3d5a80',
@@ -370,6 +393,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'AngularJS',
     name: 'AngularJS',
     experience: 20,
     color: '#e34f26',
@@ -379,6 +403,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'Ruby on Rails',
     name: 'Ruby on Rails',
     experience: 20,
     color: '#701516',
@@ -388,6 +413,7 @@ var Frameworks = [
     `,
   },
   {
+    key: 'Square Payments',
     name: 'Square Payments',
     experience: 10,
     color: '#3a6186',
@@ -400,6 +426,7 @@ var Frameworks = [
 
 var Tools = [
   {
+    key: 'Git',
     name: 'Git',
     experience: 100,
     time: '12 years',
@@ -408,6 +435,7 @@ var Tools = [
     `,
   },
   {
+    key: 'Webpack',
     name: 'Webpack',
     experience: 66.67,
     time: '8 years',
@@ -416,6 +444,7 @@ var Tools = [
     `,
   },
   {
+    key: 'Atom',
     name: 'Atom',
     experience: 41.67,
     time: '5 years',
@@ -424,6 +453,7 @@ var Tools = [
     `,
   },
   {
+    key: 'Wix',
     name: 'Wix',
     experience: 16.67,
     time: '2 years',
@@ -432,6 +462,7 @@ var Tools = [
     `,
   },
   {
+    key: 'Xcode',
     name: 'Xcode',
     experience: 12.5,
     time: '1.5 years',
@@ -440,6 +471,7 @@ var Tools = [
     `,
   },
   {
+    key: 'VSCode',
     name: 'VSCode',
     experience: 4.17,
     time: '6 months',
@@ -451,6 +483,7 @@ var Tools = [
 
 var Platforms = [
   {
+    key: 'AWS S3',
     name: 'AWS S3',
     experience: 90,
     time: '6 years',
@@ -459,6 +492,7 @@ var Platforms = [
     `,
   },
   {
+    key: 'AWS CloudFront',
     name: 'AWS CloudFront',
     experience: 80,
     time: '4 years',
@@ -467,6 +501,7 @@ var Platforms = [
     `,
   },
   {
+    key: 'iOS',
     name: 'iOS',
     experience: 50,
     time: '1.5 years',
@@ -475,6 +510,7 @@ var Platforms = [
     `,
   },
   {
+    key: 'Android',
     name: 'Android',
     experience: 50,
     time: '3 years',
@@ -483,6 +519,7 @@ var Platforms = [
     `,
   },
   {
+    key: 'AWS Lambda',
     name: 'AWS Lambda',
     experience: 40,
     time: '1 year',
@@ -491,6 +528,7 @@ var Platforms = [
     `,
   },
   {
+    key: 'Vercel',
     name: 'Vercel',
     experience: 20,
     time: '1 month',
@@ -502,6 +540,7 @@ var Platforms = [
 
 var Jobs = [
   {
+    key: 'Express Your Yes Foundation',
     name: 'Express Your Yes Foundation',
     experience: 100,
     time: '4 years',
@@ -510,6 +549,7 @@ var Jobs = [
     `,
   },
   {
+    key: 'Crendo Creations',
     name: 'Crendo Creations',
     experience: 100,
     time: '4 years',
@@ -518,6 +558,7 @@ var Jobs = [
     `,
   },
   {
+    key: 'Amazon.com',
     name: 'Amazon.com',
     experience: 50,
     time: '2 years',
@@ -526,6 +567,7 @@ var Jobs = [
     `,
   },
   {
+    key: 'Iodine.com',
     name: 'Iodine.com',
     experience: 25,
     time: '1 year',
@@ -534,6 +576,7 @@ var Jobs = [
     `,
   },
   {
+    key: 'Third & Loom',
     name: 'Third & Loom',
     experience: 25,
     time: '1 year',

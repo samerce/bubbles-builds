@@ -32,11 +32,11 @@ const extensions = {
     '10xl': '8rem',
   },
   fontFamily: {
-    head: 'denk one',
-    title: 'denk one',
+    head: 'denk one, sans-serif',
+    title: 'denk one, sans-serif',
     body: 'crimson pro',//'yanone kaffeesatz',
-    button: 'bayon',
-    header: 'bayon',
+    button: 'bayon, sans-serif',
+    header: 'bayon, sans-serif',
   },
   dropShadow: ({ theme }) => ({
     tpWhite: '1px 1px ' + theme('colors.tpWhite'),

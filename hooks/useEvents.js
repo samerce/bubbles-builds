@@ -19,11 +19,12 @@ export default function useEvents(listeners) {
         else listener(e)
       })
     }
-  }, () => {
-    for (const event in listeners) {
-      window.removeEventListener(event, listeners[event])
+    return () => {
+      for (const event in listeners) {
+        window.removeEventListener(event, listeners[event])
+      }
     }
-  })
+  }, [])
 
   return broadcast
 }

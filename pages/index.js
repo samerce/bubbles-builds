@@ -22,10 +22,10 @@ export default function Index(p) {
     VSnapStack.absolute.top-0.left-0.right-0.bottom-0.bg-accent
       Head
         title bubbles builds
-        link(rel="icon" href="/favicon.ico")
         link(rel="preconnect" href="https://fonts.googleapis.com")
         link(rel="preconnect" href="https://fonts.gstatic.com" crossOrigin)
         link(href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Denk+One&family=Bayon&display=swap" rel="stylesheet")
+        link(rel="icon" href="/favicon.ico")
 
       each Page, index in [Bio, ExpressYourYes, RickyForHouse, Acupuncture, Dqitwh, FlitAndLand, Psymail, Glyphite, Bjg, LetsBuild]
         Page(index=index key=index willAppear=${index === page.index + 1})
