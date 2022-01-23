@@ -58,7 +58,7 @@ var Items = [
 ]
 
 var HowConfig = [
-  'Wix', 'Iodine.com', 'Express Your Yes Foundation', 'Amazon.com', 'Clover Labs', 'Third & Loom', 'BSE Computer Science, University of Michigan', 'Javascript'
+  'Wix', 'Iodine.com', 'Express Your Yes Foundation', 'Amazon.com', 'Crendo Creations', 'Third & Loom', 'BSE Computer Science, University of Michigan', 'Javascript'
 ]
 
 var WhyConfig = {

@@ -28,7 +28,7 @@ export default function Thanks(p) {
         | A Trillion Thanks!
 
       div.w-full.grow.flex.flex-col.overflow-y-scroll.glass-dark(
-        class='pt-1 md:pt-2 md:pb-9 md:px-3'
+        class='md:pb-9 md:px-3'
         id=ScrollerId
       )
         ThanksSection 
@@ -36,7 +36,7 @@ export default function Thanks(p) {
             SectionTitle.rotate-2 friends & family
           Text My work and I are not possible without my loving family, including my partner Petals, my mom Priscilla, my brother Rameen, my sister Alyana, and some awesome friends who helped me brainstorm and test: Koki, T, and Abby.
 
-        ThanksSection
+        ThanksSection.mt-0
           div.flex.pb-2
             SectionTitle.rotate-3 shaders
           Text The gorgeous backgrounds on this site are shaders from creators on Shadertoy.com. Huge thanks to their painstaking work developing the equations that make these stunning pieces of art. It still blows my mind that they’re made with only math and sometimes some images of just “noise”. So grateful the following talented humans have offered their work for free:

@@ -18,7 +18,7 @@ export default function Dqitwh(p) { return pug`
 `}
 
 var HowConfig = [
-  'React', 'Javascript', 'Express', 'HTML / JSX / Pug', 'CSS', 'Styled Components', 'Coffeescript', 'SASS', 'Square Payments', 'AWS S3', 'Redux', 'Node.js', 'Git', 'Atom', 'Webpack', 'Express Your Yes Foundation', 'Iodine.com', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan', 'AWS CloudFront',
+  'React', 'Javascript', 'Express', 'HTML / JSX / Pug', 'CSS', 'Styled Components', 'Coffeescript', 'SASS', 'Square Payments', 'AWS S3', 'Redux', 'Node.js', 'Git', 'Atom', 'Webpack', 'Express Your Yes Foundation', 'Iodine.com', 'Crendo Creations', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan', 'AWS CloudFront',
 ]
 
 var WhyConfig = {

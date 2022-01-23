@@ -104,7 +104,7 @@ var Items = [
 ]
 
 var HowConfig = [
-  'Javascript', 'HTML / JSX / Pug', 'CSS', 'Webpack', 'Styled Components', 'React', 'Redux', 'Node.js', 'Coffeescript', 'Express Your Yes Foundation', 'Iodine.com', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'AWS Lambda', 'AWS S3', 'VSCode', 'Atom', 'Webpack', 'Git', 'Square Payments', 'Express', 'SASS', 'AWS CloudFront', 'BSE Computer Science, University of Michigan'
+  'Javascript', 'HTML / JSX / Pug', 'CSS', 'Webpack', 'Styled Components', 'React', 'Redux', 'Node.js', 'Coffeescript', 'Express Your Yes Foundation', 'Iodine.com', 'Crendo Creations', 'Third & Loom', 'Amazon.com', 'AWS Lambda', 'AWS S3', 'VSCode', 'Atom', 'Webpack', 'Git', 'Square Payments', 'Express', 'SASS', 'AWS CloudFront', 'BSE Computer Science, University of Michigan'
 ]
 
 var WhyConfig = {

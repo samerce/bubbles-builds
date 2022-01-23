@@ -48,7 +48,7 @@ var Items = [
 ]
 
 var HowConfig = [
-  'Java', 'Git', 'Atom', 'Clover Labs', 'Amazon.com', 'BSE Computer Science, University of Michigan', 'Android', 'Haxe', 'Objective-C',
+  'Java', 'Git', 'Atom', 'Crendo Creations', 'Amazon.com', 'BSE Computer Science, University of Michigan', 'Android', 'Haxe', 'Objective-C',
 ]
 
 var WhyConfig = {

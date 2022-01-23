@@ -1,7 +1,8 @@
 import useNav from "../model/useNav"
-import { PopupRoot, Subheader, Section, SectionTitle, DropdownButton, Button, Link, Text, } from "./Basics"
+import { 
+  PopupRoot, Subheader, Section, SectionTitle, DropdownButton, Button, Link, Text, 
+} from "./Basics"
 import React, { useLayoutEffect, useState } from "react"
-import useScreenSize from "../hooks/useScreenSize"
 import { Popups } from "../model/usePopup"
 import usePopupScrollReset from "../hooks/usePopupScrollReset"
 
@@ -81,7 +82,7 @@ export default function How(p) {
 
         Link.px-6.my-6.text-2xl.self-center.shrink-0(
           newTab href='https://github.com/samerce/bubbles-builds' 
-          secondary class='basis-[54px] pt-[3px]'
+          secondary className=${`basis-[54px] pt-[3px] ${page.id !== 'bio' && 'hidden'}`}
         ) See the code
   `
 }
@@ -103,7 +104,7 @@ var SectionHeader = p => pug`
 `
 
 var HowSection = p => pug`
-  Section.flex-center.pb-6.border-t.border-tpWhite(...p className='px-3 md:px-5 ' + p.className)
+  Section.flex-center.pb-6.border-t.border-tpWhite(...p className='px-2 md:px-4 ' + p.className)
 `
 
 var Name = p => {
@@ -120,7 +121,7 @@ var Name = p => {
 
 var ExperienceBar = p => {
   return (
-    <div className='grow h-[18px] px-4 overflow-hidden relative'>
+    <div className='grow h-[18px] pr-4 overflow-hidden relative'>
       <div className='h-full rounded-3xl bg-gradient-to-r from-accentBlack to-accent' style={{
         width: `${p.experience}%`,
       }} />
@@ -129,7 +130,6 @@ var ExperienceBar = p => {
 }
 
 var Item = p => {
-  // const {screenWidth} = useScreenSize()
   const [expanded, setExpanded] = useState(false)
 
   function toggle() {
@@ -144,12 +144,9 @@ var Item = p => {
     div.flex-center.flex-col.text-xl.font-body.rounded-2xl.leading-tight.w-full.relative
       
       div.flex-center.w-full.overflow-hidden.relative.cursor-pointer.select-none(onClick=toggle)
-        div(class='w-[172px]')
+        div(class='w-[166px] md:w-[181px]')
           Name #{p.name}
         ExperienceBar(...p)
-        // div.pl-3.pr-4(
-        //   style={display: screenWidth < [600]? 'none' : 'inherit'}
-        // ) #{p.time}
         DropdownButton.overflow-hidden.mr-2(
           expanded=expanded
           ariaLabel=${`expand the ${p.name} section`}
@@ -172,7 +169,7 @@ var Languages = [
     color: '#f7df1e',
     time: '12 years',
     description: `
-      I have been developing with Javascript for well over a decade and have reached 10,000-hour expert status.
+      I have been a Javascript developer for well over a decade and have reached 10,000-hour expert status!
     `,
   },
   {

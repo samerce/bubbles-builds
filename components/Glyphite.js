@@ -16,7 +16,7 @@ export default function Glyphite(p) { return pug`
 `}
 
 var HowConfig = [
-  'AngularJS', 'Javascript', 'Express', 'HTML / JSX / Pug', 'CSS', 'Coffeescript', 'SASS', 'AWS S3', 'Git', 'Webpack', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan', 'Node.js', 'Atom', 
+  'AngularJS', 'Javascript', 'Express', 'HTML / JSX / Pug', 'CSS', 'Coffeescript', 'SASS', 'AWS S3', 'Git', 'Webpack', 'Crendo Creations', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan', 'Node.js', 'Atom', 
 ]
 
 var WhyConfig = {

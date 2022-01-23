@@ -65,7 +65,7 @@ export const Section = p => pug`
 
 export const SectionTitle = p => pug`
   h3.font-header.text-shadow-duo.text-accentWhite.leading-tight.bg-accent.px-4.flex-center.rounded-xl.select-none.border-sexy(
-    ...p className=p.className + ' pt-[9px] pb-[7px] text-xl sm:text-3xl'
+    ...p className=p.className + ' pt-[9px] pb-[7px] text-xl sm:text-2xl'
   )
 `
 

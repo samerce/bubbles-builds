@@ -35,8 +35,8 @@
   }
   .text-shadow-6 {
     text-shadow: 
-      1px 1px #18082e, 2px 2px #18082e, 3px 3px #18082e, 
-      4px 4px #18082e, 5px 5px #18082e, 6px 6px #18082e;
+      1px 1px 1px #18082e, 2px 2px 1px #18082e, 3px 3px 1px #18082e, 
+      4px 4px 1px #18082e, 5px 5px 1px #18082e, 6px 6px 1px #18082e;
   }
   .text-shadow-duo {
     text-shadow: -1px -1px theme('colors.tpBlack'), 1px 1px theme('colors.tpWhite');

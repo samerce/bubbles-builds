@@ -70,7 +70,7 @@ var Items = [
 ]
 
 var HowConfig = [
-   'Objective-C', 'Swift', 'SwiftUI', 'Apple Core Data', 'Apple Core ML', 'Xcode', 'iOS', 'Git', 'Express Your Yes Foundation', 'Iodine.com', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan',
+   'Objective-C', 'Swift', 'SwiftUI', 'Apple Core Data', 'Apple Core ML', 'Xcode', 'iOS', 'Git', 'Express Your Yes Foundation', 'Iodine.com', 'Crendo Creations', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan',
 ]
 
 var WhyConfig = {

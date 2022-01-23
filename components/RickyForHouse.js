@@ -22,7 +22,7 @@ export default function RickyForHouse(p) {
 }
 
 var HowConfig = [
-  'Wix', 'Express Your Yes Foundation', 'Iodine.com', 'Clover Labs', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan', 'Javascript',
+  'Wix', 'Express Your Yes Foundation', 'Iodine.com', 'Crendo Creations', 'Third & Loom', 'Amazon.com', 'BSE Computer Science, University of Michigan', 'Javascript',
 ]
 
 var WhyConfig = {
