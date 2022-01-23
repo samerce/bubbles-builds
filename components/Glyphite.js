@@ -1,11 +1,11 @@
 import Page from './Page'
-import { Image, Header, PrimaryLink } from './Basics'
+import { Image, Header, PortfolioLink } from './Basics'
 import glyphite from '../public/images/glyphite.jpg'
 import NImage from 'next/image'
 
 export default function Glyphite(p) { return pug`
   Page(...p class='px-[18px]'
-    id='glyphite' index=p.index title='Glyphite' shaderId='7dfyzN'
+    id='glyphite' index=p.index title='Glyphite' shaderId='MdlXRS'
     how=HowConfig why=WhyConfig
   )
     Header.text-white Glyphite

@@ -1,5 +1,5 @@
 import Page from './Page'
-import { Image, Header, PrimaryLink } from './Basics'
+import { Image, Header, PortfolioLink } from './Basics'
 import { HSnapStack } from './Stack'
 import bjgBetting from '../public/images/bjg-betting.jpg'
 import bjgFullTable from '../public/images/bjg-full-table.jpg'
@@ -7,7 +7,7 @@ import bjgSuggestion from '../public/images/bjg-suggestion.jpg'
 
 export default function Bjg(p) { return pug`
   Page(...p
-    id='bjg' index=p.index title='Blackjack Genius' shaderId='sdsyRS'
+    id='bjg' index=p.index title='Blackjack Genius' shaderId='7dfyzN'
     how=HowConfig why=WhyConfig
   )
     Header.text-white Blackjack Genius

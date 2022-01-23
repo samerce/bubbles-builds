@@ -7648,59 +7648,6 @@ const Config = {
       ]
     }
   ],
-  '7dXczN': [
-    {
-      "ver": "0.1",
-      "info": {},
-      "renderpass": [
-        {
-          "inputs": [],
-          "outputs": [],
-          "code": "#define frequency 2.0\n\n//\tSource 1\n#define useSource1\n#define source1pos cos(1.0 * t), sin(2.31 * t)\n#define source1amp 2.0\n#define source1phase 0.0\n\n//\tSource 2\n#define useSource2\n#define source2pos cos(1.43 * t), sin(1.17 * t)\n#define source2amp 1.0\n#define source2phase 0.0\n\n//\tSource 3\n#define useSource3\n#define source3pos cos(0.65 * t), sin(0.72 * t)\n#define source3amp 1.0\n#define source3phase 0.5\n\n//\tSource 4\n//#define useSource4\n#define source4pos cos(1.89 * t), sin(0.92 * t)\n#define source4amp 1.0\n#define source4phase 0.25\n\n//\tMouse\n#define mouseAmp 4.0\n#define mousePhase 0.0\n\n//\tSource circles\n#define circleRadius 0.015\n#define circleColor 0.6, 0.0, 0.0\n\n//\tColor scheme\n#define colorGamma 4.0, 1.0, 0.3\n\n\nvec4 addSource(vec4 total, vec2 pos, vec2 sourcePos, float sourceAmp, float sourcePhase) {\n    float dist = distance(pos, sourcePos);\n    float amp = sourceAmp / (dist * dist);\n    float angle = dist * frequency + 6.2831853 * sourcePhase;\n    return vec4(total.xyz + vec3(amp * sin(angle), amp * cos(angle), amp), min(total.w, dist));\n}\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord) {\n    float screenHeight = iResolution.y / iResolution.x;\n    float border = 1.0 / iResolution.x;\n\tvec2 pos = (2.0 * fragCoord.xy - iResolution.xy) / iResolution.x;\n    \n    vec2 window = 0.8 * vec2(1.0, screenHeight);\n    \n    float t = iTime / 5.;\n    vec4 total = vec4(0.0, 0.0, 0.0, 2.0 * circleRadius);\n    \n    #ifdef useSource1\n    total = addSource(total, pos, window * vec2(source1pos), source1amp, source1phase);\n    #endif\n    \n    #ifdef useSource2\n    total = addSource(total, pos, window * vec2(source2pos), source2amp, source2phase);\n    #endif\n    \n    #ifdef useSource3\n    total = addSource(total, pos, window * vec2(source3pos), source3amp, source3phase);\n    #endif\n    \n    #ifdef useSource4\n    total = addSource(total, pos, window * vec2(source4pos), source4amp, source4phase);\n    #endif\n    \n    if (iMouse.z > 0.0) {\n        vec2 mousePos = vec2((2.0 * iMouse.xy - iResolution.xy) / iResolution.x);\n        total = addSource(total, pos, mousePos, mouseAmp, mousePhase);\n    }\n    \n    vec3 color = vec3(length(total.xy) / total.z);\n    color = pow(color, vec3(colorGamma));\n    \n    float circle = smoothstep(circleRadius + border,  circleRadius - border, total.w);\n    color = mix(color, vec3(circleColor), circle);\n    \n    fragColor = vec4(color, 1.0);\n}",
-          "name": "Image",
-          "description": "",
-          "type": "image"
-        }
-      ]
-    }
-  ],
-  fsfczH: [
-    {
-      "ver": "0.1",
-      "info": {},
-      "renderpass": [
-        {
-          "inputs": [
-            {
-              "id": "4dXGzn",
-              "filepath": "/shader/inputs/static.png",
-              "previewfilepath": "/shader/inputs/static.png",
-              "type": "texture",
-              "channel": 0,
-              "sampler": {
-                "filter": "mipmap",
-                "wrap": "repeat",
-                "vflip": "true",
-                "srgb": "false",
-                "internal": "byte"
-              },
-              "published": 1
-            }
-          ],
-          "outputs": [
-            {
-              "id": "4dfGRr",
-              "channel": 0
-            }
-          ],
-          "code": "float colormap_red(float x) {\n    if (x < 0.0) {\n        return 54.0 / 255.0;\n    } else if (x < 20049.0 / 82979.0) {\n        return (829.79 * x + 54.51) / 255.0;\n    } else {\n        return 1.0;\n    }\n}\n\nfloat colormap_green(float x) {\n    if (x < 20049.0 / 82979.0) {\n        return 0.0;\n    } else if (x < 327013.0 / 810990.0) {\n        return (8546482679670.0 / 10875673217.0 * x - 2064961390770.0 / 10875673217.0) / 255.0;\n    } else if (x <= 1.0) {\n        return (103806720.0 / 483977.0 * x + 19607415.0 / 483977.0) / 255.0;\n    } else {\n        return 1.0;\n    }\n}\n\nfloat colormap_blue(float x) {\n    if (x < 0.0) {\n        return 54.0 / 255.0;\n    } else if (x < 7249.0 / 82979.0) {\n        return (829.79 * x + 54.51) / 255.0;\n    } else if (x < 20049.0 / 82979.0) {\n        return 127.0 / 255.0;\n    } else if (x < 327013.0 / 810990.0) {\n        return (792.02249341361393720147485376583 * x - 64.364790735602331034989206222672) / 255.0;\n    } else {\n        return 1.0;\n    }\n}\n\nvec4 colormap(float x) {\n    return vec4(colormap_red(x), colormap_green(x), colormap_blue(x), 1.0);\n}\n\n// http://www.iquilezles.org/www/articles/warp/warp.htm\n/*float noise( in vec2 x )\n{\n    vec2 p = floor(x);\n    vec2 f = fract(x);\n    f = f*f*(3.0-2.0*f);\n    float a = textureLod(iChannel0,(p+vec2(0.5,0.5))/256.0,0.0).x;\n\tfloat b = textureLod(iChannel0,(p+vec2(1.5,0.5))/256.0,0.0).x;\n\tfloat c = textureLod(iChannel0,(p+vec2(0.5,1.5))/256.0,0.0).x;\n\tfloat d = textureLod(iChannel0,(p+vec2(1.5,1.5))/256.0,0.0).x;\n    return mix(mix( a, b,f.x), mix( c, d,f.x),f.y);\n}*/\n\n\nfloat rand(vec2 n) { \n    return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);\n}\n\nfloat noise(vec2 p){\n    vec2 ip = floor(p);\n    vec2 u = fract(p);\n    u = u*u*(3.0-2.0*u);\n\n    float res = mix(\n        mix(rand(ip),rand(ip+vec2(1.0,0.0)),u.x),\n        mix(rand(ip+vec2(0.0,1.0)),rand(ip+vec2(1.0,1.0)),u.x),u.y);\n    return res*res;\n}\n\nconst mat2 mtx = mat2( 0.80,  0.60, -0.60,  0.80 );\n\nfloat fbm( vec2 p )\n{\n    float f = 0.0;\n\n    f += 0.500000*noise( p + (iTime/36.)  ); p = mtx*p*4.02;\n    f += 0.031250*noise( p ); p = mtx*p*2.01;\n    f += 0.250000*noise( p ); p = mtx*p*2.03;\n    f += 0.125000*noise( p ); p = mtx*p*2.01;\n    f += 0.062500*noise( p ); p = mtx*p*2.04;\n    f += 0.015625*noise( p + sin(iTime) );\n\n    return f/0.96875;\n}\n\nfloat pattern( in vec2 p )\n{\n\treturn fbm( p + fbm( p + fbm( p ) ) );\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    vec2 uv = fragCoord/iResolution.x;\n\tfloat shade = pattern(uv);\n    fragColor = vec4(colormap(shade).rgb, shade);\n}\n\n/** SHADERDATA\n{\n\t\"title\": \"Base warp fBM\",\n\t\"description\": \"Noise but Pink\",\n\t\"model\": \"person\"\n}\n*/",
-          "name": "Image",
-          "description": "",
-          "type": "image"
-        }
-      ]
-    }
-  ],
   '7dlyDS': [
     {
       "ver": "0.1",
@@ -7846,6 +7793,96 @@ const Config = {
             }
           ],
           "code": "vec2 center = vec2(0.5,0.5);\nfloat speed = 0.01;\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    float invAr = iResolution.y / iResolution.x;\n\n    vec2 uv = fragCoord.xy / iResolution.xy;\n\t\t\n\tvec3 col = vec4(uv,1.5+1.5*sin(iTime / 10.),5.0).xyz;\n   \n     vec3 texcol;\n\t\t\t\n\tfloat x = (center.x-uv.x);\n\tfloat y = (center.y-uv.y) *invAr;\n\tfloat r = -(x*x + y*y);\n\tfloat z = 2.0 + 2.0*sin((r+iTime*speed)/0.05);\n\t\n\ttexcol.x = z;\n\ttexcol.y = z;\n\ttexcol.z = z;\n\t\n\tfragColor = vec4(col*texcol,1);\n}",
+          "name": "Image",
+          "description": "",
+          "type": "image"
+        }
+      ]
+    }
+  ],
+  '4sBSzK': [
+    {
+      "ver": "0.1",
+      "info": {},
+      "renderpass": [
+        {
+          "inputs": [],
+          "outputs": [],
+          "code": "const vec3 color1 = vec3(0.0, 0.5,  1.0);\nconst vec3 color2 = vec3(0.3,  0.7,  1.0);\nconst vec3 color3 = vec3(0.5,  0.8, 1.0);\n\nconst float animationSpeed = 20.0;\n\nfloat scale = 1.0;\n\nfloat patternHeight = 80.0;\n\nfloat sinus1Amplitude = 15.0;\nfloat sinus2Amplitude = 10.0;\nfloat sinus3Amplitude = 10.0;\n\nfloat sinus1Lambda = 40.0;\nfloat sinus2Lambda = 30.0;\nfloat sinus3Lambda = 33.0;\n\nfloat sinus1Y = (80.0 / 3.0) * 2.0;\nfloat sinus2Y = (80.0 / 3.0);\nfloat sinus3Y = 0.0;\n\nfloat sinusYRandomFactor = 0.000002;\n\nfloat sinus1Movement = -2.0;\nfloat sinus2Movement =  2.3;\nfloat sinus3Movement =  0.2;\n\nfloat layer1Distance = 2.0;\nfloat layer2Distance = 5.0;\nfloat layer3Distance = 13.0;\nfloat layer4Distance = 25.0;\nfloat layer5Distance = 40.0;\n\n\nfloat layerDarkenFactor = 0.1; // good for day night transformations..\n\n\n/**\n * Drakens the assigned color by the assigned amount.\n */\nvec3 darken(vec3 color, float amount) {\n    return vec3(color.x - amount, color.y -amount, color.z - amount);\n}\n\nfloat rand(vec2 co){\n    float rnd = fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    if(rnd < 0.35) {\n        rnd = 0.35;\n    }\n    return rnd;\n}\n\n\nfloat getLayerColorFactor(float distance) {\n   float factor = 1.0;\n   \n   factor -= layerDarkenFactor*smoothstep( -1.0, 1.0, distance-layer2Distance );\n   factor -= layerDarkenFactor*smoothstep( -1.0, 1.0, distance-layer3Distance );\n   factor -= layerDarkenFactor*smoothstep( -1.0, 1.0, distance-layer4Distance );\n   factor -= layerDarkenFactor*smoothstep( -1.0, 1.0, distance-layer5Distance );\n   factor = mix( factor, 1.3, 1.0-smoothstep( -1.0, 1.0, distance-layer1Distance ) );\n\n   return factor;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\n    vec3 appliedColor = vec3(0.0, 0.0, 0.0);\n    float tick = iTime * animationSpeed;\n     \n    float patternRelativeY  = mod(fragCoord.y, patternHeight);\n    float patternNumber = floor(fragCoord.y /  patternHeight);\n    bool isOddpattern = mod(fragCoord.y  / patternHeight, 2.0) > 1.0; \n    \n    float rnd =  rand(vec2(patternNumber, patternNumber));\n    float rnd0 = rand(vec2(patternNumber - 1.0, patternNumber - 1.0));\n\n\n    sinus1Movement *= tick * rnd;\n    sinus2Movement *= tick * rnd;\n    sinus3Movement *= tick;\n\n    \n    //sinus1Amplitude *= (rnd + 0.3);\n    //sinus2Amplitude *= (rnd + 0.3);\n    //sinus3Amplitude *= (rnd + 0.3);\n    \n    float sinus1 = sin( (fragCoord.x + sinus1Movement) / sinus1Lambda) * sinus1Amplitude;\n    float sinus2 = sin( (fragCoord.x + sinus2Movement) / sinus2Lambda) * sinus2Amplitude;\n    float sinus3 = sin( (fragCoord.x + sinus3Movement) / sinus3Lambda) * sinus3Amplitude;\n    \n\n    // shift to pattern relative position\n    sinus1 = sinus1 + sinus1Y + sin(tick / 8.0 * rnd) * 5.0 * rnd;\n    sinus2 = sinus2 + sinus2Y + sin(tick / 10.0 * rnd) * 5.0 * rnd;\n    sinus3 = sinus3 + sinus3Y;\n    \n    // expect to be in wave 1...\n    appliedColor = color2;\n    \n    float f = patternRelativeY - sinus3-patternHeight;\n    f = smoothstep( -1.0, 1.0, f );\n    appliedColor = mix( appliedColor, color3*getLayerColorFactor(sinus3 + patternHeight - patternRelativeY), 1.0-f );\n    \n    f = patternRelativeY - sinus1;\n    f = smoothstep( -1.0, 1.0, f );\n    appliedColor = mix( appliedColor, color1*getLayerColorFactor(sinus1 - patternRelativeY), 1.0-f );\n    \n    f = patternRelativeY - sinus2;\n    f = smoothstep( -1.0, 1.0, f );\n    appliedColor = mix( appliedColor, color2*getLayerColorFactor(sinus2 - patternRelativeY), 1.0-f );\n\n    f = patternRelativeY - sinus3;\n    f = smoothstep( -1.0, 1.0, f );\n    appliedColor = mix( appliedColor, color3*getLayerColorFactor(sinus3 - patternRelativeY), 1.0-f );\n    \n    fragColor = vec4( appliedColor, 1.0 );\n}\n\n\n\n\n",
+          "name": "Image",
+          "description": "",
+          "type": "image"
+        }
+      ]
+    }
+  ],
+  wlcGD4: [
+    {
+      "ver": "0.1",
+      "info": {},
+      "renderpass": [
+        {
+          "inputs": [],
+          "outputs": [
+            {
+              "id": "4dfGRr",
+              "channel": 0
+            }
+          ],
+          "code": "// Created by Robert Śmietana (Logos) - 14.12.2019\n// Bielsko-Biała, Poland, UE, Earth, Sol, Milky Way, Local Group, Laniakea :)\n\n\nvoid mainImage(out vec4 fragColor, in vec2 fragCoord)\n{\n\n    float time = iTime / 4.;//--- calculate point coordinates ---//\n    \n\tvec2 cartesian = (2.0*fragCoord - iResolution.xy) / iResolution.y;\n    vec2 polar     = vec2(atan(cartesian.y, cartesian.x) + 0.057*time, mod(log(length(cartesian)), 0.2));\n    \n    float l = length(cartesian);\n    float s = sin(12.0*polar.x);\n    \n    float d;\n\n    \n    //--- measure first sinus ---//\n    \n    vec2 sinus1 = polar;\n    sinus1.y   += 0.08 * s;\n    \n    d = abs(sinus1.y - 0.1);    \n    \n    \n    //--- measure second sinus ---//\n    \n    vec2 sinus2 = polar;\n    sinus2.y   -= 0.08 * s;\n    \n    d = min(d, abs(sinus2.y - 0.1));\n\n    \n    //--- measure eye --//\n    \n    vec2 eye = polar;\n    eye.x    = mod(eye.x, 3.1415926535 / 12.0);\n    \n    d = min(d, length(eye - vec2(0.135, 0.1)) - 0.035  - 0.025*sin(time - 6.0*l));\n\n\n    //--- calculate final pixel color ---//\n                  \n    vec3 outputColor = vec3(0.5 - 0.50*cos(polar.x + time), \n                       \t\t0.6 - 0.07*sin(polar.x - 0.22*time),\n                            0.5 - 0.50*sin(polar.x - 0.90*time));\n\n\toutputColor *= 1.0 - exp(-45.0*abs(d));\n    outputColor *= 0.8 + 0.2*cos(240.0*d);\n    outputColor  = l * mix(vec3(1.0), outputColor, smoothstep(0.0, 0.0142, abs(d)));\n\n    fragColor = vec4(outputColor, 1.0);\n                  \n}\n",
+          "name": "Image",
+          "description": "",
+          "type": "image"
+        }
+      ]
+    }
+  ],
+  tlVyWh: [
+    {
+      "ver": "0.1",
+      "info": {},
+      "renderpass": [
+        {
+          "inputs": [],
+          "outputs": [
+            {
+              "id": "4dfGRr",
+              "channel": 0
+            }
+          ],
+          "code": "float cro( in vec2 a, in vec2 b ) { return a.x*b.y - a.y*b.x; }\n\n// .x = f(p)\n// .y = ∂f(p)/∂x\n// .z = ∂f(p)/∂y\n// .yz = ∇f(p) with ‖∇f(p)‖ = 1\nvec3 sdgTriangle( in vec2 p, in vec2 v[3] )\n{\n    float gs = cro(v[0]-v[2],v[1]-v[0]);\n    vec4 res;\n    \n    // edge 0\n    {\n    vec2  e = v[1]-v[0];\n    vec2  w = p-v[0];\n    vec2  q = w-e*clamp(dot(w,e)/dot(e,e),0.0,1.0);\n    float d = dot(q,q);\n    float s = gs*cro(w,e);\n    res = vec4(d,q,s);\n    }\n    \n    // edge 1\n    {\n\tvec2  e = v[2]-v[1];\n    vec2  w = p-v[1];\n    vec2  q = w-e*clamp(dot(w,e)/dot(e,e),0.0,1.0);\n    float d = dot(q,q);\n    float s = gs*cro(w,e);\n    res = vec4( (d<res.x) ? vec3(d,q) : res.xyz,\n                (s>res.w) ?      s    : res.w );\n    }\n    \n    // edge 2\n    {\n\tvec2  e = v[0]-v[2];\n    vec2  w = p-v[2];\n    vec2  q = w-e*clamp(dot(w,e)/dot(e,e),0.0,1.0);\n    float d = dot(q,q);\n    float s = gs*cro(w,e);\n    res = vec4( (d<res.x) ? vec3(d,q) : res.xyz,\n                (s>res.w) ?      s    : res.w );\n    }\n    \n    // distance and sign\n    float d = sqrt(res.x)*sign(res.w);\n    \n    return vec3(d,res.yz/d);\n\n}\n\n#define AA 2\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n    vec3 tot = vec3(0.0);\n    \n    #if AA>1\n    for( int m=0; m<AA; m++ )\n    for( int n=0; n<AA; n++ )\n    {\n        // pixel coordinates\n        vec2 o = vec2(float(m),float(n)) / float(AA) - 0.5;\n        vec2 p = (-iResolution.xy + 2.0*(fragCoord+o))/iResolution.y;\n        #else    \n        vec2 p = (-iResolution.xy + 2.0*fragCoord)/iResolution.y;\n        #endif\n\n        // animate\n        float time = iTime/10.;\n        vec2 v[3] = vec2[3](\n            vec2(-0.8,-0.3) + 0.5*cos( 0.5*time + vec2(0.0,1.9) + 4.0 ),\n            vec2( 0.8,-0.3) + 0.5*cos( 0.7*time + vec2(0.0,1.7) + 2.0 ),\n            vec2( 0.0, 0.3) + 0.5*cos( 0.9*time + vec2(0.0,1.3) + 1.0 ) );\n\n        // corner radious\n        float ra = 0.1*(0.5+0.5*sin(iTime*1.2));\n\n        // sdf(p) and gradient(sdf(p))\n        vec3  dg = sdgTriangle(p,v);\n        float d = dg.x-ra;\n        vec2  g = dg.yz;\n\n        // central differenes based gradient, for comparison\n        // g = vec2(dFdx(d),dFdy(d))/(2.0/iResolution.y);\n\n        // coloring\n        vec3 col = (d>0.0) ? vec3(0.9,0.6,0.3) : vec3(0.4,0.7,0.85);\n        col *= 1.0 + vec3(0.5*g,0.0);\n      //col = vec3(0.5+0.5*g,1.0);\n        col *= 1.0 - 0.7*exp(-8.0*abs(d));\n        col *= 0.9 + 0.1*cos(150.0*d);\n        col = mix( col, vec3(1.0), 1.0-smoothstep(0.0,0.01,abs(d)) );\n\n \t    tot += col;\n    #if AA>1\n    }\n    tot /= float(AA*AA);\n    #endif\n\n\tfragColor = vec4( tot, 1.0 );\n}",
+          "name": "Image",
+          "description": "",
+          "type": "image"
+        }
+      ]
+    }
+  ],
+  MdlXRS: [
+    {
+      "ver": "0.1",
+      "info": {},
+      "renderpass": [
+        {
+          "inputs": [
+            {
+              "id": "4dXGzn",
+              "filepath": "/shader/inputs/static.png",
+              "previewfilepath": "/shader/inputs/static.png",
+              "type": "texture",
+              "channel": 0,
+              "sampler": {
+                "filter": "mipmap",
+                "wrap": "repeat",
+                "vflip": "false",
+                "srgb": "false",
+                "internal": "byte"
+              },
+              "published": 1
+            }
+          ],
+          "outputs": [],
+          "code": "#define time iTime*0.03\n#define tau 6.2831853\n\nmat2 makem2(in float theta){float c = cos(theta);float s = sin(theta);return mat2(c,-s,s,c);}\nfloat noise( in vec2 x ){return texture(iChannel0, x*.01).x;}\nmat2 m2 = mat2( 0.80,  0.60, -0.60,  0.80 );\n\nfloat grid(vec2 p)\n{\n\tfloat s = sin(p.x)*cos(p.y);\n\treturn s;\n}\n\nfloat flow(in vec2 p)\n{\n\tfloat z=2.;\n\tfloat rz = 0.;\n\tvec2 bp = p;\n\tfor (float i= 1.;i < 7.;i++ )\n\t{\n\t\tbp += time*1.5;\n\t\tvec2 gr = vec2(grid(p*3.-time*2.),grid(p*3.+4.-time*2.))*0.4;\n\t\tgr = normalize(gr)*0.4;\n\t\tgr *= makem2((p.x+p.y)*.3+time*10.);\n\t\tp += gr*0.5;\n\t\t\n\t\trz+= (sin(noise(p)*8.)*0.5+0.5) /z;\n\t\t\n\t\tp = mix(bp,p,.5);\n\t\tz *= 1.7;\n\t\tp *= 2.5;\n\t\tp*=m2;\n\t\tbp *= 2.5;\n\t\tbp*=m2;\n\t}\n\treturn rz;\t\n}\n\nfloat spiral(vec2 p,float scl) \n{\n\tfloat r = length(p);\n\tr = log(r);\n\tfloat a = atan(p.y, p.x);\n\treturn abs(mod(scl*(r-2./scl*a),tau)-1.)*2.;\n}\n\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 p = fragCoord.xy / iResolution.xy-0.5;\n\tp.x *= iResolution.x/iResolution.y;\n\tp*= 3.;\n\tfloat rz = flow(p);\n\tp /= exp(mod(time*3.,2.1));\n\trz *= (6.-spiral(p,3.))*.9;\n\tvec3 col = vec3(.2,0.07,0.01)/rz;\n\tcol=pow(abs(col),vec3(1.01));\n\tfragColor = vec4(col,1.0);\n}",
           "name": "Image",
           "description": "",
           "type": "image"

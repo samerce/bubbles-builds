@@ -1,5 +1,5 @@
 import React from "react"
-import { PopupRoot, Subheader, SectionTitle } from "./Basics"
+import { PopupRoot, Subheader, Button } from "./Basics"
 import usePopup, { Popups } from "../model/usePopup"
 import usePopupScrollReset from "../hooks/usePopupScrollReset"
 
@@ -15,7 +15,7 @@ export default function SiteMenu(p) {
       Subheader.border-b.border-tpWhite.bg-accent.rounded-t-2xl
         span(class='text-xl xs:text-2xl sm:text-3xl') Bubbles Builds!
 
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.overflow-x-hidden.bg-accentBlack.rounded-b-2xl.py-3(id=ScrollerId class='w-[303px]')
+      div.w-full.grow.flex.flex-col.overflow-y-scroll.overflow-x-hidden.bg-accentBlack.rounded-b-2xl.py-5.px-5(id=ScrollerId)
         
         MenuButton(id='bio' rotate=3 onClick=${() => {
           setTimeout(() => showPopup(Popups.WhoIsBubbles), 400)
@@ -53,14 +53,14 @@ var MenuButton = p => {
   }
 
   return pug`
-    button(
-      class='basis-[81px] shrink-0 cursor-pointer w-full flex-center'
+    div.w-full.flex-center.cursor-pointer.shrink-0(
+      class='basis-[72px]'
       onClick=() => onClick(p.id)
     )
-      SectionTitle.h-12(style=${{
+      Button.h-12.px-6.text-2xl(
+      secondary class='pt-[3px]'
+      style=${{
         transform: `rotate(${p.rotate}deg)`,
-        fontSize: '1.875rem'
-      }})
-        | #{p.children}
+      }}) #{p.children}
   `
 }

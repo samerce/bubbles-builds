@@ -5,7 +5,7 @@ import useScreenSize from "../hooks/useScreenSize"
 import { Popups } from "../model/usePopup"
 import usePopupScrollReset from "../hooks/usePopupScrollReset"
 
-const Highlighted = ' bg-accentWhite border-sexy text-accent text-shadow-tpWhite '
+const Highlighted = ' bg-accent border-sexy text-accentWhite text-shadow-duo '
 const Dim = ' text-accentWhite text-opacity-60 '
 const ScrollerId = 'how-scroller'
 
@@ -79,16 +79,19 @@ export default function How(p) {
           SectionHeader.-rotate-2(noButton expanded=false) Education
           Name.flex-center.text-center(class='w-[216px] xs:w-auto') BSE Computer Science, University of Michigan
 
-        Link.px-6.pt-1.my-6.glass.text-2xl(
-        href='https://github.com/samerce/bubbles-builds' newTab
-        class='basis-[54px] self-center shrink-0'
-      ) See the code
+        Link.px-6.my-6.text-2xl.self-center.shrink-0(
+          newTab href='https://github.com/samerce/bubbles-builds' 
+          secondary class='basis-[54px] pt-[3px]'
+        ) See the code
   `
 }
 
 var SectionHeader = p => pug`
-  Button.w-full.justify-between.items-center.px-3.py-2.glass.rounded-4xl.bg-accent.mb-2(
+  Button.w-full.justify-between.items-center.px-2.py-2.bg-transparent.rounded-4xl.mb-2.border-none(
     onClick=p.onClick
+    style={
+      pointerEvents: p.noButton? 'none' : 'auto',
+    }
   )
     SectionTitle(className=p.className) #{p.children}
     DropdownButton(
@@ -98,7 +101,7 @@ var SectionHeader = p => pug`
 `
 
 var HowSection = p => pug`
-  Section.flex-center.pb-5(...p className='px-3 md:px-5 ' + p.className)
+  Section.flex-center.pb-6.border-b.border-tpWhite(...p className='px-3 md:px-5 ' + p.className)
 `
 
 var Name = p => {
@@ -106,8 +109,8 @@ var Name = p => {
   const classes = p.className + (page.how?.includes(p.children) ? Highlighted : Dim)
 
   return pug`
-    div.inline-block.px-3.py-2.m-2.font-body.rounded-2xl.leading-tight(
-      className=classes + ' text-lg md:text-xl'
+    div.inline-block.px-3.m-2.font-body.rounded-xl.leading-tight(
+      className=classes + ' text-lg md:text-xl pb-[6px] pt-[2px]'
     )
       | #{p.children}
   `

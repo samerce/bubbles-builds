@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+Bubbles' portfolio!
+
+Creative Commons Attribution-ShareAlike 4.0 International License

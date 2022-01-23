@@ -5,18 +5,27 @@ import React, { useState, useLayoutEffect, useMemo } from 'react'
 import useResizeAware from 'react-resize-aware'
 import usePopup from '../model/usePopup'
 
-export const ButtonClasses = ' rounded-3xl border-sexy text-shadow-duo font-button uppercase leading-none select-none flex-center text-accent hover:text-accentLite transition duration-300 '
+export const ButtonCs = ' rounded-3xl border-sexy text-shadow-duo font-button leading-none select-none flex-center transition duration-300 '
+export const ButtonPrimaryCs = ' text-accent hover:text-accentLite '
+export const ButtonSecondaryCs = ' bg-accentWhite text-accent hover:text-accentLite '
 
-export const Button = (p) => (
-  <animated.button {...p} className={ButtonClasses + p.className}>
-  </animated.button>
-)
+export const Button = (p) => {
+  const cs = p.secondary? ButtonSecondaryCs : ButtonPrimaryCs
+  return pug`
+    button(...p className=ButtonCs + cs + p.className)
+  `
+}
 
-export const Link = p => pug`
-  a(...p className='no-underline' + ButtonClasses + p.className target=p.newTab? '_blank' : null)
-`
+export const Link = p => {
+  const cs = ButtonCs + 'no-underline' + 
+    (p.secondary? ButtonSecondaryCs : ButtonPrimaryCs) + p.className
 
-export const PrimaryLink = p => pug`
+  return pug`
+    a(...p className=cs target=p.newTab? '_blank' : null)
+  `
+}
+
+export const PortfolioLink = p => pug`
   Link(...p 
     className='glass grow-0 shrink-0 basis-[54px] h-54 pl-7 pr-5 mx-4 mt-6 mb-3 text-3xl pt-[3px] flex-center ' + p.className)
     | #{p.children}
@@ -50,14 +59,14 @@ export const Section = p => pug`
 `
 
 export const SectionTitle = p => pug`
-  h3.font-header.text-shadow-duo.text-accent.leading-tight.bg-white.px-3.h-9.flex-center.rounded-xl.select-none(
-    ...p className=p.className + ' pt-[3px] text-xl sm:text-2xl'
+  h3.font-header.text-shadow-duo.text-accentWhite.leading-tight.bg-accent.px-4.flex-center.rounded-xl.select-none(
+    ...p className=p.className + ' pt-[9px] pb-[7px] text-xl sm:text-3xl'
   )
 `
 
 export const DropdownButton = p => pug`
   Icon.bg-accentWhite(...p name='down-caret' size='27' 
-  className=p.className + ButtonClasses + (p.expanded && 'bg-accentWhite')
+  className=p.className + ButtonCs + (p.expanded && 'bg-accentWhite')
   style=${{
     transform: p.expanded? 'rotate(180deg)' : 'rotate(0deg)',
     padding: p.expanded? '0' : '1px 0 0 1px',
@@ -78,7 +87,7 @@ export const PopupCloseButton = p => {
   return pug`
     Button.border-b-0.border-x-0.bg-accent.rounded-b-2xl.rounded-t-none.w-full.text-accentWhite.text-2xl.shrink-0(
       onClick=hidePopup 
-      class='basis-[42px] sm:basis-[54px] hover:text-accentLite'
+      class='basis-[42px] sm:basis-[54px] hover:bg-accentWhite'
     ) Close
   `
 }

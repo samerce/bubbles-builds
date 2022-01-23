@@ -1,16 +1,16 @@
 import React from 'react'
 import Page from './Page'
-import { Header, Image, PrimaryLink } from './Basics'
+import { Header, Image, PortfolioLink } from './Basics'
 import dqitwh from '../public/images/dqitwh.jpg'
 
 export default function Dqitwh(p) { return pug`
   Page(...p
-    id='dqitwh' index=p.index title='Drag Queen in the White House' shaderId='fsfczH'
+    id='dqitwh' index=p.index title='Drag Queen in the White House' shaderId='wlcGD4'
     how=HowConfig why=WhyConfig
   )
     Header.text-white Drag Queen in the White House
     Image(src=dqitwh width=1280 height=828 framed priority=p.willAppear)
-    PrimaryLink(href='https://dragqueeninthewhitehouse.com' newTab)
+    PortfolioLink(href='https://dragqueeninthewhitehouse.com' newTab)
       | See It
 `}
 

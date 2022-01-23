@@ -46,10 +46,10 @@ export default function Contact(p) {
       | Let's Talk
 
     div.grow.flex.flex-col.overflow-y-scroll.relative.p-4.w-full
-      Link.bg-white.flex-center.text-xl.mx-auto.mt-2(
+      Link.text-xl.mx-auto.mt-2(
         href='mailto:bubbles@expressyouryes.com' class='h-54 px-6 pt-[1px]'
-      )
-        | Use your mail app
+        secondary
+      ) Use your mail app
 
       div.mt-6.mb-5.flex-center
         hr.border-tpWhite.w-full
@@ -110,15 +110,16 @@ var SendButton = p => {
   const iconStyle = (p.mode === Mode.sending)? iconSendingAnim : {}
 
   return pug`
-    Button.bg-white.rounded-full.flex-center.absolute.z-10.overflow-hidden(
-      class='w-[32px] h-[32px] right-[5px] bottom-[5px] -mt-[1px]'
+    Button.rounded-full.absolute.z-10.overflow-hidden(
       onClick=p.onClick
+      secondary
+      class='w-[32px] h-[32px] right-[5px] bottom-[5px] -mt-[1px]'
       style={
         pointerEvents: (p.mode === Mode.waiting || p.mode === Mode.error)? 'auto' : 'none',
       }
     )
       Anim(style=iconStyle)
-        Icon.text-accent(
+        Icon(
           name=${SendIcons[p.mode]} 
           size='24' style={transform: SendIconTransform[p.mode]}
         )
