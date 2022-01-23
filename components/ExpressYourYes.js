@@ -1,7 +1,9 @@
 import Page from './Page'
 import { HSnapStack } from './Stack'
 import { Header, Image, PortfolioLink, } from './Basics'
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
+import useNav from "../model/useNav"
+import usePopup, { Popups } from "../model/usePopup"
 
 import eyy from '../public/images/eyy-site.jpg'
 import eym from '../public/images/eym.jpg'
@@ -9,13 +11,29 @@ import eymBubbles from '../public/images/eym-bubbles.jpg'
 import quark from '../public/images/quark.jpg'
 import purpleRepublic from '../public/images/purple-republic.jpg'
 
-export default function ExpressYourYes(p) { return pug`
-  Page(
-    id='expressyouryes' index=p.index title='Express Your Yes' shaderId='fdscR8'
-    how=HowConfig why=WhyConfig
-  )
-    HSnapStack(items=Items)
-`}
+const PageId = 'expressyouryes'
+const HasSeenIntroKey = 'bubblesBuilds.hasSeenIntro'
+
+export default function ExpressYourYes(p) { 
+  const {page} = useNav()
+  const {showPopup} = usePopup()
+
+  useEffect(() => {
+    const hasSeenIntro = localStorage[HasSeenIntroKey]
+    if (page.id === PageId && !hasSeenIntro) {
+      showPopup(Popups.NavIntro)
+      localStorage[HasSeenIntroKey] = 'true'
+    }
+  }, [page.id])
+
+  return pug`
+    Page(
+      id=PageId index=p.index title='Express Your Yes' shaderId='fdscR8'
+      how=HowConfig why=WhyConfig
+    )
+      HSnapStack(items=Items)
+  `
+}
 
 var Items = [
   {

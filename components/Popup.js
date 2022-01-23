@@ -8,6 +8,7 @@ import Music from './Music'
 import SiteMenu from './SiteMenu'
 import WhoIsBubbles from './WhoIsBubbles'
 import Thanks from './Thanks'
+import NavIntro from './NavIntro'
 
 const Anim = animated.div
 
@@ -59,6 +60,9 @@ export default function Popup(p) {
 
         PopupContent.justify-center(id=Popups.Thanks)
           Thanks.pointer-events-auto
+          
+        PopupContent.justify-end.origin-bottom(id=Popups.NavIntro)
+          NavIntro.pointer-events-auto
   `
 }
 
