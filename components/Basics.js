@@ -9,7 +9,7 @@ export const ButtonCs = ' rounded-3xl border-sexy text-shadow-duo font-button le
 export const ButtonPrimaryCs = ' text-accent hover:text-accentLite '
 export const ButtonSecondaryCs = ' bg-accentWhite text-accent hover:text-accentLite '
 
-export const Button = (p) => {
+export const Button = p => {
   const cs = p.secondary? ButtonSecondaryCs : ButtonPrimaryCs
   return pug`
     button(...p className=ButtonCs + cs + p.className)
@@ -26,29 +26,34 @@ export const Link = p => {
 }
 
 export const PortfolioLink = p => pug`
-  Link(...p 
-    className='glass grow-0 shrink-0 basis-[54px] h-54 pl-7 pr-5 mx-4 mt-6 mb-3 text-3xl pt-[3px] flex-center ' + p.className)
-    | #{p.children}
-    Icon(name='external-fill' size=36 class='mb-[3px] ml-[6px]')
+  Link.flex-center.glass.grow-0.shrink-0.h-54.pl-5.pr-3.mx-4.mt-6.mb-3.text-3xl(
+    ...p 
+    className='basis-[54px] pt-[3px] ' + p.className
+  ) #{p.children}
+    Icon(name='external-fill' size=36 class='mb-[3px] ml-[6px]' ariaHidden)
 `
 
-export const Header = (p) => (
-  <h1 {...p}
-  className={'font-head mx-auto pt-6 pb-4 text-2xl sm:text-3xl md:text-4xl text-center text-shadow-6 drop-shadow-2xl uppercase text-accentWhite leading-tight ' + p.className}>
-  </h1>
-)
+export const Header = p => pug`
+  h1.font-head.mx-auto.pt-6.pb-4.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight(
+    ...p
+    className='text-2xl sm:text-3xl md:text-4xl ' + p.className
+  )
+`
 
 export const Subheader = p => pug`
-  h2.font-head.w-full.flex-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight.px-6.text-center(...p className='text-xl sm:text-3xl py-3 md:py-5 shrink-0 ' + p.className)
+  h2.font-head.w-full.flex-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight.px-6.text-center.shrink-0(
+    ...p
+    className='text-xl sm:text-3xl py-3 md:py-5 ' + p.className
+  )
 `
 
-export const Icon = (p) => (
-  <SIcon {...p} glyph={p.name} />
-)
+export const Icon = p => pug`
+  SIcon(...p glyph=p.name)
+`
 
-export const Box = (p) => (
-  <div {...p} className={'text-accentWhite text-shadow-tpBlack rounded-2xl border-sexy ' + p.className}></div>
-)
+export const Box = p => pug`
+  div.text-accentWhite.text-shadow-tpBlack.rounded-2xl.border-sexy(...p className=p.className)
+`
 
 export const Text = p => pug`
   p(...p className='px-4 sm:px-6 py-3 sm:py-5 text-[18px] sm:text-[21px] max-w-[777px] leading-[1.5] font-body ' + p.className)
@@ -59,13 +64,13 @@ export const Section = p => pug`
 `
 
 export const SectionTitle = p => pug`
-  h3.font-header.text-shadow-duo.text-accentWhite.leading-tight.bg-accent.px-4.flex-center.rounded-xl.select-none(
+  h3.font-header.text-shadow-duo.text-accentWhite.leading-tight.bg-accent.px-4.flex-center.rounded-xl.select-none.border-sexy(
     ...p className=p.className + ' pt-[9px] pb-[7px] text-xl sm:text-3xl'
   )
 `
 
 export const DropdownButton = p => pug`
-  Icon.bg-accentWhite(...p name='down-caret' size='27' 
+  Icon.bg-accentWhite.text-accent(...p name='down-caret' size='27' 
   className=p.className + ButtonCs + (p.expanded && 'bg-accentWhite')
   style=${{
     transform: p.expanded? 'rotate(180deg)' : 'rotate(0deg)',
@@ -86,7 +91,7 @@ export const PopupCloseButton = p => {
 
   return pug`
     Button.border-b-0.border-x-0.bg-accent.rounded-b-2xl.rounded-t-none.w-full.text-accentWhite.text-2xl.shrink-0(
-      onClick=hidePopup 
+      onClick=hidePopup ariaLabel='close popup'
       class='basis-[42px] sm:basis-[54px] hover:bg-accentWhite'
     ) Close
   `
@@ -104,9 +109,9 @@ export const Image = p => {
 
   useLayoutEffect(() => {
     const parentAspectRatio = bounds.width / bounds.height
-    const fillWidth = parentAspectRatio <= aspectRatio
+    const shouldFillWidth = parentAspectRatio <= aspectRatio
 
-    if (fillWidth) {
+    if (shouldFillWidth) {
       setImgSize({
         width: bounds.width,
         height: Math.floor(bounds.width / aspectRatio),

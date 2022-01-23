@@ -20,7 +20,10 @@ export default function WhoIsBubbles(p) {
     PopupRoot(...p className=p.className + ' mt-[90px]')
 
       div(class='absolute right-0 w-[160px] h-[90px] -translate-y-full pointer-events-none')
-        Image(src='https://s3.us-east-2.amazonaws.com/purplerepublic.us/commons/bubbles-hi.gif' width=160 height=90 quality=90)
+        Image(
+          src='https://s3.us-east-2.amazonaws.com/purplerepublic.us/commons/bubbles-hi.gif' width=160 height=90 quality=90
+          alt='an animated gif of bubbles waving'
+        )
 
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | Who is Bubbles? 

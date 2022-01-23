@@ -19,21 +19,30 @@ var Items = [
     id: 'bjg-full-table',
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
-        Image(src=bjgFullTable width=1280 height=720 framed priority=p.willAppear)
+        Image(
+          src=bjgFullTable width=1280 height=720 framed priority=p.willAppear
+          alt='portfolio screenshot of the casino table in Blackjack Genius'
+        )
     `,
   },
   {
     id: 'bjg-suggestion',
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
-        Image(src=bjgSuggestion width=1280 height=720 framed priority=p.willAppear)
+        Image(
+          src=bjgSuggestion width=1280 height=720 framed priority=p.willAppear
+          alt='portfolio screenshot of a genius suggestion in Blackjack Genius'
+        )
     `,
   },
   {
     id: 'bjg-betting',
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
-        Image(src=bjgBetting width=1280 height=720 framed priority=p.willAppear)
+        Image(
+          src=bjgBetting width=1280 height=720 framed priority=p.willAppear
+          alt='portfolio screenshot of the betting interface in Blackjack Genius'
+        )
     `,
   },
 ]

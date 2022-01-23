@@ -5,7 +5,7 @@ import useScreenSize from "../hooks/useScreenSize"
 import { Popups } from "../model/usePopup"
 import usePopupScrollReset from "../hooks/usePopupScrollReset"
 
-const Highlighted = ' bg-accent border-sexy text-accentWhite text-shadow-duo '
+const Highlighted = ' border border-accent text-accentLite text-shadow-duo '
 const Dim = ' text-accentWhite text-opacity-60 '
 const ScrollerId = 'how-scroller'
 
@@ -17,7 +17,7 @@ export default function How(p) {
     setExpanded({
       [id]: !expanded[id],
     })
-    setTimeout(() => document.getElementById(id).scrollIntoView({behavior: 'smooth'}), 50)
+    // setTimeout(() => document.getElementById(id).scrollIntoView({behavior: 'smooth'}), 50)
   }
 
   usePopupScrollReset(ScrollerId, Popups.How)
@@ -32,7 +32,7 @@ export default function How(p) {
         id=ScrollerId
       )
 
-        Text.text-center
+        Text.text-center.mb-3
           | Highlighted below are the technologies and experience used to create ${page.title}.
 
         HowSection(id='languages')
@@ -87,8 +87,9 @@ export default function How(p) {
 }
 
 var SectionHeader = p => pug`
-  Button.w-full.justify-between.items-center.px-2.py-2.bg-transparent.rounded-4xl.mb-2.border-none(
-    onClick=p.onClick
+  Button.w-full.justify-between.items-center.px-2.py-2.bg-transparent.rounded-4xl.mb-4.border-none(
+    onClick=p.onClick 
+    ariaLabel=${`expand the ${p.children} section`}
     style={
       pointerEvents: p.noButton? 'none' : 'auto',
     }
@@ -97,11 +98,12 @@ var SectionHeader = p => pug`
     DropdownButton(
       style={display: p.noButton? 'none' : 'inherit'}
       expanded=p.expanded
+      ariaHidden
     )
 `
 
 var HowSection = p => pug`
-  Section.flex-center.pb-6.border-b.border-tpWhite(...p className='px-3 md:px-5 ' + p.className)
+  Section.flex-center.pb-6.border-t.border-tpWhite(...p className='px-3 md:px-5 ' + p.className)
 `
 
 var Name = p => {
@@ -142,7 +144,7 @@ var Item = p => {
     div.flex-center.flex-col.text-xl.font-body.rounded-2xl.leading-tight.w-full.relative
       
       div.flex-center.w-full.overflow-hidden.relative.cursor-pointer.select-none(onClick=toggle)
-        div(class='w-[164px]')
+        div(class='w-[172px]')
           Name #{p.name}
         ExperienceBar(...p)
         // div.pl-3.pr-4(
@@ -150,6 +152,7 @@ var Item = p => {
         // ) #{p.time}
         DropdownButton.overflow-hidden.mr-2(
           expanded=expanded
+          ariaLabel=${`expand the ${p.name} section`}
         )
 
       Text(style={

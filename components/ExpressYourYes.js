@@ -23,7 +23,10 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your yes
-        Image(src=eyy width=1280 height=808 framed priority)
+        Image(
+          src=eyy width=1280 height=808 framed priority 
+          alt='portfolio screenshot of the expressyouryes.com'
+        )
         PortfolioLink(href='https://www.expressyouryes.com' newTab)
           | Check It Out
     `,
@@ -33,7 +36,10 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your mess
-        Image(src=eym width=1280 height=824 framed priority)
+        Image(
+          src=eym width=1280 height=824 framed priority 
+          alt='portfolio screenshot of the immersive version of expressyourmess.com'
+        )
         PortfolioLink(href='https://eym-parchment.herokuapp.com' newTab)
           | Go There
     `,
@@ -43,7 +49,10 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your mess — bubbles
-        Image(src=eymBubbles width=1280 height=817 framed priority)
+        Image(
+          src=eymBubbles width=1280 height=817 framed priority
+          alt='portfolio screenshot of an early version of expressyourmess.com with bubbles'
+        )
         PortfolioLink(href='https://eym-bubbleverse.herokuapp.com' newTab)
           | Experience It
     `,
@@ -53,7 +62,10 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white express your mess — quark
-        Image(src=quark width=1280 height=813 framed priority)
+        Image(
+          src=quark width=1280 height=813 framed priority
+          alt='portfolio screenshot of the immersive storytelling version of expressyourmess.com'
+        )
         PortfolioLink(href='https://purplerepublic-quark.herokuapp.com' newTab)
           | Hop on the Ride
     `,
@@ -63,7 +75,10 @@ var Items = [
     Content: p => pug`
       Fragment
         Header.text-white purple republic
-        Image(src=purpleRepublic width=1280 height=800 framed)
+        Image(
+          src=purpleRepublic width=1280 height=800 framed
+          alt='portfolio screenshot of purplerepublic.com, the first iteration of our nonprofit'
+        )
         PortfolioLink(href='https://purplerepublic-linear.herokuapp.com' newTab)
           | View It
     `,

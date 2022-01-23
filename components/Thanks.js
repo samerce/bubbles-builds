@@ -83,5 +83,5 @@ var ItemGroup = p => pug`
 `
 
 var Item = p => pug`
-  Link.py-3.px-4.m-2.text-lg(...p secondary)
+  Link.px-4.m-2.text-lg(...p secondary className='pt-[9px] pb-[6px]')
 `

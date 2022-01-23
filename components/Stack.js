@@ -74,18 +74,20 @@ var HSnapNav = p => {
 
   return pug`
     div.flex-center.w-full.pointer-events-none.z-10.pt-2
-      Button.glass.transition(
+      Button.glass(
         onClick=() => onClickNav(p.nav.left) 
         style=${buttonStyle(p.nav.left)}
+        ariaLabel='go to previous image in gallery'
       )
-        Icon(name='view-back' className=IconCx)
+        Icon(name='view-back' className=IconCx ariaHidden)
 
       div.w-3
 
-      Button.glass.transition(
+      Button.glass(
         onClick=() => onClickNav(p.nav.right)
         style=${buttonStyle(p.nav.right)}
+        ariaLabel='go to next image in gallery'
       )
-        Icon(name='view-forward' className=IconCx)
+        Icon(name='view-forward' className=IconCx ariaHidden)
   `
 }

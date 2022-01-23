@@ -35,14 +35,23 @@ export default function Psymail(p) {
 `}
 
 var Commerce = p => pug`
-  Image(src=psymailCommerce width=591 height=1280 framed priority=p.willAppear)
+  Image(
+    src=psymailCommerce width=591 height=1280 framed priority=p.willAppear
+    alt='portfolio screenshot of the inbox view of Psymail, an iOS email app prototype'
+  )
 `
 var Drawer = p => pug`
-  Image(src=psymailDrawer width=591 height=1280 framed priority=p.willAppear)
+  Image(
+    src=psymailDrawer width=591 height=1280 framed priority=p.willAppear
+    alt='portfolio screenshot of the drawer view of Psymail, an iOS email app prototype'
+  )
 `
 
 var MessageDrawer = p => pug`
-  Image(src=psymailMessageDrawer width=591 height=1280 framed priority=p.willAppear)
+  Image(
+    src=psymailMessageDrawer width=591 height=1280 framed priority=p.willAppear
+    alt='portfolio screenshot of the message view of Psymail, an iOS email app prototype'
+  )
 `
 
 var Items = [

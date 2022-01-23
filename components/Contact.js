@@ -62,6 +62,8 @@ export default function Contact(p) {
         type='email' placeholder='email / phone number / astral signature' 
         value=from onChange=e => setFrom(e.target.value)
         className=InputClasses
+        autocomplete='email'
+        ariaLabel='email or phone number or astral signature'
       )
 
       div.h-4
@@ -71,6 +73,7 @@ export default function Contact(p) {
           id='contact-message' placeholder='what can we build together?' 
           value=message onChange=e => setMessage(e.target.value)
           className=InputClasses + ' pr-[42px] leading-[1.5] pt-[6px] h-[108px] relative'
+          ariaLabel='what can we build together?'
         )
         SendButton(onClick=sendMessage mode=mode)
 `}

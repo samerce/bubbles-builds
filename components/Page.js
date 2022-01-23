@@ -31,6 +31,7 @@ export default function Page(p) {
       <iframe 
         className='pointer-events-none absolute-full w-full h-full'
         src={`/shader/shader.html?id=${p.shaderId}`}
+        ariaHidden
       />
       {p.children}
 
