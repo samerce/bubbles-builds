@@ -2,6 +2,7 @@ import React from "react"
 import { PopupRoot, Subheader, Button } from "./Basics"
 import usePopup, { Popups } from "../model/usePopup"
 import usePopupScrollReset from "../hooks/usePopupScrollReset"
+import useNav from "../model/useNav"
 
 const ScrollerId = 'site-menu-scroller'
 
@@ -43,8 +44,15 @@ export default function SiteMenu(p) {
 
 var MenuButton = p => {
   const {hidePopup} = usePopup()
+  const {page} = useNav()
+  let cs = 'pt-[3px] '
 
-  function onClick(id) { 
+  if (p.id === page.id) 
+    cs += '!bg-accent text-accentWhite cursor-default hover:text-accentWhite'
+
+  function onClick(id) {
+    if (p.id === page.id) return
+
     hidePopup()
     setTimeout(() => {
       document.getElementById(id).scrollIntoView()
@@ -53,14 +61,13 @@ var MenuButton = p => {
   }
 
   return pug`
-    div.w-full.flex-center.cursor-pointer.shrink-0(
-      class='basis-[72px]'
-      onClick=() => onClick(p.id)
-    )
+    div.w-full.flex-center.shrink-0(class='basis-[72px]')
       Button.h-12.px-6.text-2xl(
-      secondary class='pt-[3px]'
-      style=${{
-        transform: `rotate(${p.rotate}deg)`,
-      }}) #{p.children}
+        onClick=() => onClick(p.id)
+        secondary className=cs
+        style=${{
+          transform: `rotate(${p.rotate}deg)`
+        }}
+      ) #{p.children}
   `
 }
