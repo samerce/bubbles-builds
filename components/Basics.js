@@ -90,9 +90,9 @@ export const PopupCloseButton = p => {
   const {hidePopup} = usePopup()
 
   return pug`
-    Button.border-b-0.border-x-0.bg-accent.rounded-b-2xl.rounded-t-none.w-full.text-accentWhite.text-2xl.shrink-0(
+    Button.border-b-0.border-x-0.bg-accent.rounded-b-2xl.rounded-t-none.w-full.text-2xl.shrink-0(
       onClick=(p.onClick || hidePopup) aria-label='close popup'
-      class='basis-[54px] hover:bg-accentWhite'
+      class='basis-[54px] hover:bg-accentWhite text-accentWhite'
     ) #{p.children || 'Close'}
   `
 }

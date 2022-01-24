@@ -26,7 +26,7 @@ var AlertContent = {
   DesktopOnly: p => pug`
     Fragment
       Text Time has not been kind to the mobile friendliness of this site, but I'm working to fix it!
-      Text For now, please use a desktop computer to view it.
+      Text For now, please use a desktop computer.
   `,
   ImpairedSite: p => pug`
     Fragment
