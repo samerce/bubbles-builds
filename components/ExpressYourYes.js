@@ -1,9 +1,13 @@
+import React from 'react'
 import Page from './Page'
 import { HSnapStack } from './Stack'
-import { Header, Image, PortfolioLink, } from './Basics'
+import { Header, Image, PortfolioLink, Button } from './Basics'
 import { Fragment, useEffect } from 'react'
+import { Alerts } from './Alert'
 import useNav from "../model/useNav"
 import usePopup, { Popups } from "../model/usePopup"
+import useScreenSize from '../hooks/useScreenSize'
+import { openInNewTab } from '../utils/nav'
 
 import eyy from '../public/images/eyy-site-new.jpg'
 import eym from '../public/images/eym.jpg'
@@ -13,6 +17,7 @@ import purpleRepublic from '../public/images/purple-republic.jpg'
 
 const PageId = 'expressyouryes'
 const HasSeenIntroKey = 'bubblesBuilds.hasSeenIntro'
+const MobileScreenWidth = 640
 
 export default function ExpressYourYes(p) { 
   const {page} = useNav()
@@ -64,44 +69,96 @@ var Items = [
   },
   {
     id: 'expressyourmess-bubbles',
-    Content: p => pug`
-      Fragment
-        Header.text-white express your mess — bubbles
-        Image(
-          src=eymBubbles width=1280 height=817 framed
-          alt='portfolio screenshot of an early version of expressyourmess.com with bubbles'
-        )
-        PortfolioLink(href='https://eym-bubbleverse.herokuapp.com' newTab)
-          | Experience It
-    `,
+    Content: p => {
+      const {screenWidth} = useScreenSize()
+      const {hidePopup} = usePopup()
+
+      return pug`
+        Fragment
+          Header.text-white express your mess — bubbles
+          Image(
+            src=eymBubbles width=1280 height=817 framed
+            alt='portfolio screenshot of an early version of expressyourmess.com with bubbles'
+          )
+          if screenWidth <= MobileScreenWidth
+            DesktopOnlyButton
+          else
+            AlertButton(
+              title='Impaired Site'
+              contentId=Alerts.ImpairedSite 
+              button={
+                text: 'Got it, let’s go!',
+                onClick: () => {
+                  hidePopup()
+                  openInNewTab('https://eym-bubbleverse.herokuapp.com')
+                }
+              }
+            ) Experience It
+      `
+    },
   },
   {
     id: 'expressyourmess-quark',
-    Content: p => pug`
-      Fragment
-        Header.text-white express your mess — quark
-        Image(
-          src=quark width=1280 height=813 framed
-          alt='portfolio screenshot of the immersive storytelling version of expressyourmess.com'
-        )
-        PortfolioLink(href='https://purplerepublic-quark.herokuapp.com' newTab)
-          | Hop on the Ride
-    `,
+    Content: p => {
+      const {screenWidth} = useScreenSize()
+
+      return pug`
+        Fragment
+          Header.text-white express your mess — quark
+          Image(
+            src=quark width=1280 height=813 framed
+            alt='portfolio screenshot of the immersive storytelling version of expressyourmess.com'
+          )
+          if screenWidth <= MobileScreenWidth
+            DesktopOnlyButton
+          else
+            PortfolioLink(href='https://purplerepublic-quark.herokuapp.com' newTab)
+              | Hop on the Ride
+      `
+    },
   },
   {
     id: 'purplerepublic',
-    Content: p => pug`
-      Fragment
-        Header.text-white purple republic
-        Image(
-          src=purpleRepublic width=1280 height=800 framed
-          alt='portfolio screenshot of purplerepublic.com, the first iteration of our nonprofit'
-        )
-        PortfolioLink(href='https://purplerepublic-linear.herokuapp.com' newTab)
-          | View It
-    `,
+    Content: p => {
+      const {screenWidth} = useScreenSize()
+
+      return pug`
+        Fragment
+          Header.text-white purple republic
+          Image(
+            src=purpleRepublic width=1280 height=800 framed
+            alt='portfolio screenshot of purplerepublic.com, the first iteration of our nonprofit'
+          )
+          if screenWidth <= MobileScreenWidth
+            DesktopOnlyButton
+          else
+            PortfolioLink(href='https://purplerepublic-linear.herokuapp.com' newTab)
+              | View It
+      `
+    },
   },
 ]
+
+var AlertButton = p => pug`
+  - const {showPopup} = usePopup()
+  Button.glass.h-54.px-5.mt-6.mb-3.grow-0.shrink-0(
+    ...p
+    class='text-2xl sm:text-3xl pt-[3px]'
+    onClick=() => showPopup(Popups.Alert, {
+      title: p.title,
+      contentId: p.contentId, 
+      button: p.button
+    })
+  )
+`
+
+var DesktopOnlyButton = p => pug`
+  AlertButton(
+    title='Use a Computer'
+    contentId=Alerts.DesktopOnly 
+    button={text: 'Will Do!'}
+  )
+`
 
 var HowConfig = [
   'Javascript', 'HTML / JSX / Pug', 'CSS', 'Webpack', 'Styled Components', 'React', 'Redux', 'Node.js', 'Coffeescript', 'Express Your Yes Foundation', 'Iodine.com', 'Crendo Creations', 'Third & Loom', 'Amazon.com', 'AWS Lambda', 'AWS S3', 'VSCode', 'Atom', 'Webpack', 'Git', 'Square Payments', 'Express', 'SASS', 'AWS CloudFront', 'BSE Computer Science, University of Michigan'

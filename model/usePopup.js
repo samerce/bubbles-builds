@@ -3,17 +3,19 @@ import { useSelector, useDispatch } from 'react-redux'
 import { makeEnum } from '../utils/lang'
 
 export const Popups = makeEnum(
-  'How', 'Why', 'Contact', 'Music', 'SiteMenu', 'WhoIsBubbles', 'Thanks', 'NavIntro',
+  'How', 'Why', 'Contact', 'Music', 'SiteMenu', 'WhoIsBubbles', 'Thanks', 'NavIntro', 'Alert'
 )
 
 const slice = createSlice({
   name: 'popup',
   initialState: {
-    popupId: null,
+    popupId: undefined,
+    popupProps: undefined,
   },
   reducers: {
-    setPopupId: (state, action) => {
-      state.popupId = action.payload
+    setPopup: (state, action) => {
+      state.popupId = action.payload.id
+      state.popupProps = action.payload.props
     },
   },
 })
@@ -27,7 +29,7 @@ export default function usePopup() {
 
   return { 
     ...popup,
-    showPopup: (id) => dispatch(a.setPopupId(id)),
-    hidePopup: () => dispatch(a.setPopupId(null)),
+    showPopup: (id, props) => dispatch(a.setPopup({id, props})),
+    hidePopup: () => dispatch(a.setPopup({})),
   }
 }

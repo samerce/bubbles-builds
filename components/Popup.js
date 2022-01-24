@@ -9,6 +9,7 @@ import SiteMenu from './SiteMenu'
 import WhoIsBubbles from './WhoIsBubbles'
 import Thanks from './Thanks'
 import NavIntro from './NavIntro'
+import Alert from './Alert'
 
 const Anim = animated.div
 
@@ -63,12 +64,15 @@ export default function Popup(p) {
           
         PopupContent.justify-end.origin-bottom(id=Popups.NavIntro)
           NavIntro.pointer-events-auto
+          
+        PopupContent.justify-center(id=Popups.Alert)
+          Alert.pointer-events-auto
   `
 }
 
 var Background = p => {
   const {popupId, hidePopup} = usePopup()
-  const visible = popupId !== null
+  const visible = !!popupId
 
   const style = {
     ...opacityAnim(visible),

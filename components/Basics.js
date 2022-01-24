@@ -26,11 +26,11 @@ export const Link = p => {
 }
 
 export const PortfolioLink = p => pug`
-  Link.flex-center.glass.grow-0.shrink-0.h-54.pl-5.pr-3.mx-4.mt-6.mb-3.text-3xl(
+  Link.flex-center.glass.grow-0.shrink-0.h-54.pl-5.pr-3.mx-4.mt-6.mb-3(
     ...p 
-    className='basis-[54px] pt-[3px] ' + p.className
+    className='basis-[54px] pt-[3px] text-2xl sm:text-3xl ' + p.className
   ) #{p.children}
-    Icon(name='external-fill' size=36 class='mb-[3px] ml-[6px]' aria-hidden)
+    Icon(name='external-fill' class='mb-[3px] ml-[6px] w-[27px] sm:w-[36px]' aria-hidden)
 `
 
 export const Header = p => pug`
@@ -43,7 +43,7 @@ export const Header = p => pug`
 export const Subheader = p => pug`
   h2.font-head.w-full.flex-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight.px-6.text-center.shrink-0(
     ...p
-    className='text-xl sm:text-3xl py-3 md:py-5 ' + p.className
+    className='text-xl sm:text-3xl py-3 md:py-5 min-h-[54px] ' + p.className
   )
 `
 
@@ -91,9 +91,9 @@ export const PopupCloseButton = p => {
 
   return pug`
     Button.border-b-0.border-x-0.bg-accent.rounded-b-2xl.rounded-t-none.w-full.text-accentWhite.text-2xl.shrink-0(
-      onClick=hidePopup aria-label='close popup'
-      class='basis-[42px] sm:basis-[54px] hover:bg-accentWhite'
-    ) Close
+      onClick=(p.onClick || hidePopup) aria-label='close popup'
+      class='basis-[54px] hover:bg-accentWhite'
+    ) #{p.children || 'Close'}
   `
 }
 
