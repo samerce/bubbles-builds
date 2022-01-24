@@ -1,5 +1,5 @@
 import {useState, useLayoutEffect} from 'react'
-import {throttle} from 'lodash'
+import throttle from 'lodash/throttle'
 import useEvents from './useEvents.js'
 
 export default function useScreenSize() {
