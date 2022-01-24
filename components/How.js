@@ -13,6 +13,7 @@ const ScrollerId = 'how-scroller'
 export default function How(p) {
   const {page} = useNav()
   const [expanded, setExpanded] = useState({})
+  const isBio = page.id === 'bio'
 
   function toggle(id) {
     setExpanded({
@@ -68,7 +69,7 @@ export default function How(p) {
           each platform in Platforms
             Item(...platform expanded=expanded.platforms)
 
-        HowSection.flex-center(id='jobs')
+        HowSection(id='jobs')
           SectionHeader.rotate-3(
             onClick=() => toggle('jobs')
             expanded=expanded.jobs
@@ -76,13 +77,14 @@ export default function How(p) {
           each job in Jobs
             Item(...job expanded=expanded.jobs)
 
-        HowSection
+        HowSection(className=${isBio? 'border-b' : ''})
           SectionHeader.-rotate-2(noButton expanded=false) Education
           Name.flex-center.text-center(class='w-[216px] xs:w-auto') BSE Computer Science, University of Michigan
 
-        Link.px-6.my-6.text-2xl.self-center.shrink-0(
+        Link.px-5.my-6.self-center.shrink-0(
           newTab href='https://github.com/samerce/bubbles-builds' 
-          secondary className=${`basis-[54px] pt-[3px] ${page.id !== 'bio' && 'hidden'}`}
+          secondary 
+          className=${`text-xl md:text-2xl basis-[54px] pt-[3px] ${isBio && 'hidden'}`}
         ) See the code
   `
 }

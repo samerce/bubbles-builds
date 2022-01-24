@@ -3,11 +3,12 @@ import { PopupRoot, Subheader, Button, Link, Text, PopupCloseButton } from "./Ba
 import Image from 'next/image'
 import usePopup, { Popups } from '../model/usePopup'
 import usePopupScrollReset from "../hooks/usePopupScrollReset"
+import bubblesHi from '../public/images/bubbles-hi.gif'
 
 const ScrollerId = 'who-is-bubbles-scroller'
 
 export default function WhoIsBubbles(p) { 
-  const {hidePopup} = usePopup()
+  const {hidePopup, popupId} = usePopup()
 
   function goToAnchor(id) {
     hidePopup()
@@ -21,8 +22,9 @@ export default function WhoIsBubbles(p) {
 
       div(class='absolute right-0 w-[160px] h-[90px] -translate-y-full pointer-events-none')
         Image(
-          src='https://s3.us-east-2.amazonaws.com/purplerepublic.us/commons/bubbles-hi.gif' width=160 height=90 quality=90
-          alt='an animated gif of bubbles waving'
+          src=bubblesHi width=160 height=90 quality=90
+          className=${popupId !== Popups.WhoIsBubbles && 'hidden'}
+          alt='an video of bubbles waving'
         )
 
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
