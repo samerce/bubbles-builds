@@ -16,23 +16,14 @@ export default function Nav(p) {
   const {page} = useNav()
   const {popupId, showPopup, hidePopup} = usePopup()
 
-  function isVisible(id) {
-    return popupId === id
-  }
-
-  function onClickPopupButton(id) {
-    if (id === Popups[id]) hidePopup()
-    else showPopup(id)
-  }
-  
   function onClickBackdrop() {
-    setActiveMenu(null)
     hidePopup()
   }
 
   return pug`
     nav.sticky.flex-center.bottom-0.left-0.px-2.h-nav.w-full.z-20.pointer-events-none(
       class='md:h-navBig origin-bottom scale-[.8] 2xs:scale-[.94] xs:scale-100'
+      style=${{position: popupId? 'fixed' : 'sticky'}}
     )
 
       NavButton.origin-right(
