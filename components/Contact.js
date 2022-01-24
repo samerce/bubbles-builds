@@ -48,7 +48,7 @@ export default function Contact(p) {
     div.grow.flex.flex-col.overflow-y-scroll.relative.p-4.w-full
       Link.text-xl.mx-auto.mt-2(
         href='mailto:bubbles@expressyouryes.com' class='h-54 px-6 pt-[1px]'
-        secondary
+        type='secondary'
       ) Use your mail app
 
       div.mt-6.mb-5.flex-center
@@ -115,7 +115,7 @@ var SendButton = p => {
   return pug`
     Button.rounded-full.absolute.z-10.overflow-hidden(
       onClick=p.onClick
-      secondary
+      type='secondary'
       class='w-[32px] h-[32px] right-[5px] bottom-[5px] -mt-[1px]'
       style={
         pointerEvents: (p.mode === Mode.waiting || p.mode === Mode.error)? 'auto' : 'none',

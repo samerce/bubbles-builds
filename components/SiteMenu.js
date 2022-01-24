@@ -64,7 +64,7 @@ var MenuButton = p => {
     div.w-full.flex-center.shrink-0(class='basis-[72px]')
       Button.h-12.px-6.text-2xl(
         onClick=() => onClick(p.id)
-        secondary className=cs
+        type='secondary' className=cs
         style=${{
           transform: `rotate(${p.rotate}deg)`
         }}

@@ -22,7 +22,7 @@ export default function NavIntro(p) {
           aria-label='arrow pointing to how button'
         )
         Button.px-6.py-3.text-xl(
-          secondary onClick=hidePopup aria-label='close popup'
+          type='secondary' onClick=hidePopup aria-label='close popup'
         ) Got It
         Icon.text-shadow-duo(
           name='enter' class='rotate-[90deg]' size=54 

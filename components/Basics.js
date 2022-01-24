@@ -5,21 +5,26 @@ import React, { useState, useLayoutEffect, useMemo } from 'react'
 import useResizeAware from 'react-resize-aware'
 import usePopup from '../model/usePopup'
 
-export const ButtonCs = ' rounded-3xl border-sexy text-shadow-duo font-button leading-none select-none flex-center transition duration-300 '
+export const ButtonBaseCs = ' rounded-3xl border-sexy text-shadow-duo font-button leading-none select-none flex-center transition duration-300 '
 export const ButtonPrimaryCs = ' text-accent hover:text-accentLite '
 export const ButtonSecondaryCs = ' bg-accentWhite text-accent hover:text-accentLite '
+export const ButtonTertiaryCs = ' bg-accent text-accentWhite hover:text-accentLite hover:bg-accentWhite '
+
+const ButtonCs = {
+  primary: ButtonBaseCs + ButtonPrimaryCs,
+  secondary: ButtonBaseCs + ButtonSecondaryCs,
+  tertiary: ButtonBaseCs + ButtonTertiaryCs,
+}
 
 export const Button = p => {
-  const cs = p.secondary? ButtonSecondaryCs : ButtonPrimaryCs
+  const cs = p.type? ButtonCs[p.type] : ButtonCs.primary
   return pug`
-    button(...p className=ButtonCs + cs + p.className)
+    button(...p className=cs + p.className)
   `
 }
 
 export const Link = p => {
-  const cs = ButtonCs + 'no-underline' + 
-    (p.secondary? ButtonSecondaryCs : ButtonPrimaryCs) + p.className
-
+  const cs = 'no-underline' + (p.type? ButtonCs[p.type] : ButtonCs.primary) + p.className
   return pug`
     a(...p className=cs target=(p.newTab? '_blank' : null) rel='noopener')
   `
@@ -70,13 +75,15 @@ export const SectionTitle = p => pug`
 `
 
 export const DropdownButton = p => pug`
-  Icon.bg-accentWhite.text-accent(...p name='down-caret' size='27' 
-  className=p.className + ButtonCs + (p.expanded && 'bg-accentWhite')
-  style=${{
-    transform: p.expanded? 'rotate(180deg)' : 'rotate(0deg)',
-    padding: p.expanded? '0' : '1px 0 0 1px',
-    ...p.style
-  }})
+  Icon(
+    ...p name='down-caret' size='27' 
+    className=p.className + ButtonCs.secondary
+    style=${{
+      transform: p.expanded? 'rotate(180deg)' : 'rotate(0deg)',
+      padding: p.expanded? '0' : '1px 0 0 1px',
+      ...p.style
+    }}
+  )
 `
 
 export const PopupRoot = p => pug`
@@ -90,9 +97,9 @@ export const PopupCloseButton = p => {
   const {hidePopup} = usePopup()
 
   return pug`
-    Button.border-b-0.border-x-0.bg-accent.rounded-b-2xl.rounded-t-none.w-full.text-2xl.shrink-0(
+    Button.border-b-0.border-x-0.rounded-b-2xl.rounded-t-none.w-full.text-2xl.shrink-0(
       onClick=(p.onClick || hidePopup) aria-label='close popup'
-      class='basis-[54px] hover:bg-accentWhite text-accentWhite'
+      type='tertiary' class='basis-[54px] text-xl sm:text-2xl'
     ) #{p.children || 'Close'}
   `
 }
