@@ -77,17 +77,17 @@ var HSnapNav = p => {
       Button.glass(
         onClick=() => onClickNav(p.nav.left) 
         style=${buttonStyle(p.nav.left)}
-        ariaLabel='go to previous image in gallery'
+        aria-label='go to previous image in gallery'
       )
-        Icon(name='view-back' className=IconCx ariaHidden)
+        Icon(name='view-back' className=IconCx aria-hidden)
 
       div.w-3
 
       Button.glass(
         onClick=() => onClickNav(p.nav.right)
         style=${buttonStyle(p.nav.right)}
-        ariaLabel='go to next image in gallery'
+        aria-label='go to next image in gallery'
       )
-        Icon(name='view-forward' className=IconCx ariaHidden)
+        Icon(name='view-forward' className=IconCx aria-hidden)
   `
 }

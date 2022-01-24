@@ -19,14 +19,14 @@ export default function NavIntro(p) {
       div.flex.items-center.justify-between.w-full.px-3.pb-3
         Icon.text-shadow-duo(
           name='enter' class='rotate-[90deg]' size=54
-          ariaLabel='arrow pointing to how button'
+          aria-label='arrow pointing to how button'
         )
         Button.px-6.py-3.text-xl(
-          secondary onClick=hidePopup ariaLabel='close popup'
+          secondary onClick=hidePopup aria-label='close popup'
         ) Got It
         Icon.text-shadow-duo(
           name='enter' class='rotate-[90deg]' size=54 
-          ariaLabel='arrow pointing to why button'
+          aria-label='arrow pointing to why button'
         )
   `
 }

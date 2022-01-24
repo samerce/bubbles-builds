@@ -17,8 +17,8 @@ export default function LetsBuild(p) {
         
       Button.glass.text-3xl.h-54.px-8.pt-1.mt-auto(
         onClick=() => showPopup(Popups.Thanks)
-        ariaLabel='open the gratitude page'
+        aria-label='open the gratitude page'
       )
-        Icon(name='like-fill' size=36 ariaHidden)
+        Icon(name='like-fill' size=36 aria-hidden)
   `
 }

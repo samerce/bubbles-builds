@@ -30,7 +30,7 @@ export const PortfolioLink = p => pug`
     ...p 
     className='basis-[54px] pt-[3px] ' + p.className
   ) #{p.children}
-    Icon(name='external-fill' size=36 class='mb-[3px] ml-[6px]' ariaHidden)
+    Icon(name='external-fill' size=36 class='mb-[3px] ml-[6px]' aria-hidden)
 `
 
 export const Header = p => pug`
@@ -91,7 +91,7 @@ export const PopupCloseButton = p => {
 
   return pug`
     Button.border-b-0.border-x-0.bg-accent.rounded-b-2xl.rounded-t-none.w-full.text-accentWhite.text-2xl.shrink-0(
-      onClick=hidePopup ariaLabel='close popup'
+      onClick=hidePopup aria-label='close popup'
       class='basis-[42px] sm:basis-[54px] hover:bg-accentWhite'
     ) Close
   `

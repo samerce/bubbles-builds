@@ -92,7 +92,7 @@ export default function How(p) {
 var SectionHeader = p => pug`
   Button.w-full.justify-between.items-center.px-2.py-2.bg-transparent.rounded-4xl.mb-4.border-none(
     onClick=p.onClick 
-    ariaLabel=${`expand the ${p.children} section`}
+    aria-label=${`expand the ${p.children} section`}
     style={
       pointerEvents: p.noButton? 'none' : 'auto',
     }
@@ -101,7 +101,7 @@ var SectionHeader = p => pug`
     DropdownButton(
       style={display: p.noButton? 'none' : 'inherit'}
       expanded=p.expanded
-      ariaHidden
+      aria-hidden
     )
 `
 
@@ -151,7 +151,7 @@ var Item = p => {
         ExperienceBar(...p)
         DropdownButton.overflow-hidden.mr-2(
           expanded=expanded
-          ariaLabel=${`expand the ${p.name} section`}
+          aria-label=${`expand the ${p.name} section`}
         )
 
       Text(style={
