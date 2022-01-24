@@ -4,9 +4,8 @@ import usePopup from '../model/usePopup'
 import { useEffect, useState } from 'react'
 
 export default function Page(p) {
-  const [hasLoaded, setHasLoaded] = useState(false)
+  const [canLoad, setCanLoad] = useState(false)
   const {page, pageDidAppear} = useNav()
-  const {popupId} = usePopup()
   
   function onAppear() {
     pageDidAppear({
@@ -18,15 +17,16 @@ export default function Page(p) {
     })
   }
 
-  function canLoad() {
-    return hasLoaded || p.index === page.index + 1 || p.index === 0
-  }
-
   useEffect(() => {
-    if (canLoad() && !hasLoaded) {
-      setHasLoaded(true)
+    if (!canLoad) {
+      setCanLoad(p.index === page.index || p.index === page.index + 1)
     }
   }, [page.index])
+
+  useEffect(() => {
+    // get a good time-to-first-byte, then load rest of frames
+    setTimeout(() => setCanLoad(true), 1000)
+  }, [])
 
   return (
     <VSnapItem {...p} id={p.id} onAppear={onAppear} 
@@ -34,7 +34,7 @@ export default function Page(p) {
 
       <iframe 
         className='pointer-events-none absolute-full w-full h-full'
-        src={canLoad()? `/shader/shader.html?id=${p.shaderId}` : ''}
+        src={canLoad? `/shader/shader.html?id=${p.shaderId}` : ''}
         ariaHidden
       />
       {p.children}
