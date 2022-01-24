@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from "react"
 import { PopupRoot, Subheader } from "./Basics"
+import usePopup, { Popups } from "../model/usePopup"
 
 export default function Music(p) { 
-  const [canLoad, setCanLoad] = useState(false)
+  const {popupId} = usePopup()
+  const [hasOpenedOnce, setHasOpenedOnce] = useState(false)
 
-  useEffect(() => setTimeout(() => setCanLoad(true), 1000), [])
+  useEffect(() => {
+    if (!hasOpenedOnce) {
+      setHasOpenedOnce(popupId === Popups.Music)
+    } 
+  }, [popupId])
   
   return pug`
-    PopupRoot(...p)
+    PopupRoot(...p className='w-[383px] ' + p.className)
       Subheader.border-b.border-tpWhite.bg-accent.rounded-t-2xl
         | The Sound of Bubbles
 
-      div(class='w-full flex-[432px]')
+      div(class='w-full flex-[432px] pointer-events-auto')
         iframe.rounded-b-2xl(
-          width="100%" height="432px" scrolling="no" frameBorder="no" 
-          src=${canLoad? SoundCloudUrl : ''}
+          width="100%" height="100%" scrolling="yes" frameBorder="no" 
+          src=${hasOpenedOnce? SoundCloudUrl : ''}
         )
   `
 }
