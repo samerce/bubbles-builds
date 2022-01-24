@@ -84,7 +84,7 @@ export default function How(p) {
         Link.px-5.my-6.self-center.shrink-0(
           newTab href='https://github.com/samerce/bubbles-builds' 
           secondary 
-          className=${`text-xl md:text-2xl basis-[54px] pt-[3px] ${isBio && 'hidden'}`}
+          className=${`text-xl md:text-2xl basis-[54px] pt-[3px] ${isBio? '' : 'hidden'}`}
         ) See the code
   `
 }
