@@ -35,6 +35,7 @@ export default function Page(p) {
       <iframe 
         className='pointer-events-none absolute-full w-full h-full'
         src={canLoad? `/shader/shader.html?id=${p.shaderId}` : ''}
+        title='animated background'
         ariaHidden
       />
       {p.children}

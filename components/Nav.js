@@ -55,7 +55,7 @@ export default function Nav(p) {
       NavButton(
         icon='music' popupId=Popups.Music 
         className=CenterClasses + 'md:basis-[54px]'
-        ariaLabel='music'
+        ariaLabel='open the music player'
       )
 
       NavButton.origin-left(

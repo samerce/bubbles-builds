@@ -20,6 +20,7 @@ export default function Music(p) {
       div(class='w-full flex-[432px] pointer-events-auto')
         iframe.rounded-b-2xl(
           width="100%" height="100%" scrolling="yes" frameBorder="no" 
+          title='soundcloud widget'
           src=${hasOpenedOnce? SoundCloudUrl : ''}
         )
   `
