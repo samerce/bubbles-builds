@@ -27,6 +27,9 @@ export default function Index(p) {
         link(href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Denk+One&family=Bayon&display=swap" rel="stylesheet")
         link(rel="icon" href="/favicon.ico")
 
+        meta(name='theme-color' content='#92017a')
+        meta(name='description' content='portfolio website for bubbles sandcastle, aka samer chahine, a former corporate software engineer who now works with creatives, healers, nonprofits, and other socially & environmentally conscious agents.')
+
       each Page, index in [Bio, ExpressYourYes, RickyForHouse, Acupuncture, Dqitwh, FlitAndLand, Psymail, Glyphite, Bjg, LetsBuild]
         Page(index=index key=index willAppear=${index === page.index + 1})
 

@@ -21,7 +21,7 @@ export const Link = p => {
     (p.secondary? ButtonSecondaryCs : ButtonPrimaryCs) + p.className
 
   return pug`
-    a(...p className=cs target=p.newTab? '_blank' : null)
+    a(...p className=cs target=(p.newTab? '_blank' : null) rel='noopener')
   `
 }
 
