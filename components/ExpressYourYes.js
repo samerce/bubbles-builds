@@ -5,7 +5,7 @@ import { Fragment, useEffect } from 'react'
 import useNav from "../model/useNav"
 import usePopup, { Popups } from "../model/usePopup"
 
-import eyy from '../public/images/eyy-site.jpg'
+import eyy from '../public/images/eyy-site-new.jpg'
 import eym from '../public/images/eym.jpg'
 import eymBubbles from '../public/images/eym-bubbles.jpg'
 import quark from '../public/images/quark.jpg'
