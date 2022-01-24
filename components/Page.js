@@ -17,6 +17,13 @@ export default function Page(p) {
     })
   }
 
+  function visibility() {
+    if (p.index < page.index - 1 || p.index > page.index + 1)
+      return 'hidden'
+    else 
+      return 'visible'
+  }
+
   useEffect(() => {
     if (!canLoad) {
       setCanLoad(p.index === page.index || p.index === page.index + 1)
@@ -30,10 +37,11 @@ export default function Page(p) {
 
   return (
     <VSnapItem {...p} id={p.id} onAppear={onAppear} 
-    className={p.className + ' w-full h-full relative flex flex-col items-center pb-nav md:pb-navBig'}>
+    className={p.className + ' w-full h-full relative flex flex-col items-center pb-nav md:pb-navBig content-auto'}>
 
       <iframe 
         className='pointer-events-none absolute-full w-full h-full'
+        style={{visibility: visibility()}}
         src={canLoad? `/shader/shader.html?id=${p.shaderId}` : ''}
         title='animated background'
         aria-hidden

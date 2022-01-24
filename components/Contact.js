@@ -62,7 +62,7 @@ export default function Contact(p) {
         type='email' placeholder='email / phone number / astral signature' 
         value=from onChange=e => setFrom(e.target.value)
         className=InputClasses
-        autocomplete='email'
+        autoComplete='email'
         aria-label='email or phone number or astral signature'
       )
 
