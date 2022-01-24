@@ -9,6 +9,7 @@ const ScrollerId = 'who-is-bubbles-scroller'
 
 export default function WhoIsBubbles(p) { 
   const {hidePopup, popupId} = usePopup()
+  const visible = popupId === Popups.WhoIsBubbles
 
   function goToAnchor(id) {
     hidePopup()
@@ -21,11 +22,11 @@ export default function WhoIsBubbles(p) {
     PopupRoot(...p className=p.className + ' mt-[90px]')
 
       div(class='absolute right-0 w-[160px] h-[90px] -translate-y-full pointer-events-none')
-        Image(
-          src=bubblesHi width=160 height=90 quality=90
-          className=${popupId !== Popups.WhoIsBubbles && 'hidden'}
-          alt='an video of bubbles waving'
-        )
+        if visible 
+          Image(
+            src=bubblesHi width=160 height=90 quality=90
+            alt='an video of bubbles waving'
+          )
 
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
         | Who is Bubbles? 
