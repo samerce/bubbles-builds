@@ -9,7 +9,7 @@ export default function FlitAndLand(p) { return pug`
   )
     Header.text-white Prototype: Flit & Land
     Image(
-      src=flitandland width=1280 height=799 framed priority=p.willAppear
+      src=flitandland width=1280 height=799 framed
       alt='portfolio screenshot of the Flit & Land website'
     )
     PortfolioLink(href='https://flitandland-beta.herokuapp.com' newTab)

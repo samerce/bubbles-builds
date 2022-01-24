@@ -20,7 +20,7 @@ var Items = [
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
         Image(
-          src=bjgFullTable width=1280 height=720 framed priority=p.willAppear
+          src=bjgFullTable width=1280 height=720 framed 
           alt='portfolio screenshot of the casino table in Blackjack Genius'
         )
     `,
@@ -30,7 +30,7 @@ var Items = [
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
         Image(
-          src=bjgSuggestion width=1280 height=720 framed priority=p.willAppear
+          src=bjgSuggestion width=1280 height=720 framed 
           alt='portfolio screenshot of a genius suggestion in Blackjack Genius'
         )
     `,
@@ -40,7 +40,7 @@ var Items = [
     Content: p => pug`
       div.w-full.h-full.flex-center(class='p-[18px]')
         Image(
-          src=bjgBetting width=1280 height=720 framed priority=p.willAppear
+          src=bjgBetting width=1280 height=720 framed 
           alt='portfolio screenshot of the betting interface in Blackjack Genius'
         )
     `,

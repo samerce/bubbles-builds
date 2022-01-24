@@ -10,7 +10,7 @@ export default function Dqitwh(p) { return pug`
   )
     Header.text-white Drag Queen in the White House
     Image(
-      src=dqitwh width=1280 height=828 framed priority=p.willAppear
+      src=dqitwh width=1280 height=828 framed 
       alt='portfolio screenshot of dragqueeninthewhitehouse.com'
     )
     PortfolioLink(href='https://dragqueeninthewhitehouse.com' newTab)

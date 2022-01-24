@@ -10,7 +10,7 @@ export default function Glyphite(p) { return pug`
   )
     Header.text-white Glyphite
     Image(
-      src=glyphite width=1280 height=767 framed priority=p.willAppear
+      src=glyphite width=1280 height=767 framed
       alt='portfolio screenshot of the Glyphite font-building web-app'
     )
 `}

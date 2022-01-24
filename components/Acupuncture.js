@@ -22,7 +22,7 @@ var Items = [
       Fragment
         Header.text-white Elemental Healing with Abby
         Image(
-          src=abby width=1280 height=800 framed priority=p.willAppear
+          src=abby width=1280 height=800 framed 
           alt='portfolio screenshot of the Elemental Healing with Abby website'
         )
         PortfolioLink(href='https://bubblepillow.wixsite.com/website-3' newTab)
@@ -35,7 +35,7 @@ var Items = [
       Fragment
         Header.text-white The Lotus Center
         Image(
-          src=brodie width=1280 height=800 framed priority=p.willAppear
+          src=brodie width=1280 height=800 framed 
           alt='portfolio screenshot of the The Lotus Center website'
         )
         PortfolioLink(href='https://www.annarboracupuncture.com' newTab)
@@ -48,7 +48,7 @@ var Items = [
       Fragment
         Header.text-white Heather Sloan Acupuncture
         Image(
-          src=heather width=1280 height=800 framed priority=p.willAppear
+          src=heather width=1280 height=800 framed 
           alt='portfolio screenshot of the Heather Sloan Acupuncture website'
         )
         PortfolioLink(href='https://www.heather-sloan.com' newTab)

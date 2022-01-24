@@ -13,7 +13,7 @@ export default function RickyForHouse(p) {
     )
       Header.text-white Ricky for House
       Image(
-        src=rickyforhouse width=1280 height=742 framed priority=p.willAppear
+        src=rickyforhouse width=1280 height=742 framed
         alt='portfolio screenshot of rickyforhouse.com'
       )
       PortfolioLink(href='https://ricky301.wixsite.com/rickyforhouse' newTab)

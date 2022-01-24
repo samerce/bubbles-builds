@@ -42,8 +42,8 @@ var Items = [
       Fragment
         Header.text-white express your yes
         Image(
-          src=eyy width=1280 height=808 framed priority 
-          alt='portfolio screenshot of the expressyouryes.com'
+          src=eyy width=1280 height=808 framed 
+          alt='portfolio screenshot of expressyouryes.com'
         )
         PortfolioLink(href='https://www.expressyouryes.com' newTab)
           | Check It Out
@@ -55,7 +55,7 @@ var Items = [
       Fragment
         Header.text-white express your mess
         Image(
-          src=eym width=1280 height=824 framed priority 
+          src=eym width=1280 height=824 framed 
           alt='portfolio screenshot of the immersive version of expressyourmess.com'
         )
         PortfolioLink(href='https://eym-parchment.herokuapp.com' newTab)
@@ -68,7 +68,7 @@ var Items = [
       Fragment
         Header.text-white express your mess — bubbles
         Image(
-          src=eymBubbles width=1280 height=817 framed priority
+          src=eymBubbles width=1280 height=817 framed
           alt='portfolio screenshot of an early version of expressyourmess.com with bubbles'
         )
         PortfolioLink(href='https://eym-bubbleverse.herokuapp.com' newTab)
@@ -81,7 +81,7 @@ var Items = [
       Fragment
         Header.text-white express your mess — quark
         Image(
-          src=quark width=1280 height=813 framed priority
+          src=quark width=1280 height=813 framed
           alt='portfolio screenshot of the immersive storytelling version of expressyourmess.com'
         )
         PortfolioLink(href='https://purplerepublic-quark.herokuapp.com' newTab)
