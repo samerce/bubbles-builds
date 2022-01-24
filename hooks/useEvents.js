@@ -1,7 +1,7 @@
 import {useEffect, useLayoutEffect} from 'react'
 
-export default function useEvents(listeners) {
-  const broadcast = (eventName, props) => {
+export default function useEvents(listenerMap) {
+  function broadcast(eventName, props) {
     let event = null
     
     if (props) {
@@ -12,16 +12,16 @@ export default function useEvents(listeners) {
   }
 
   useLayoutEffect(() => {
-    for (const event in listeners) {
-      const listener = listeners[event]
+    for (const event in listenerMap) {
+      const listener = listenerMap[event]
       window.addEventListener(event, (e) => {
         if (e.detail) listener(e.detail, e)
         else listener(e)
       })
     }
     return () => {
-      for (const event in listeners) {
-        window.removeEventListener(event, listeners[event])
+      for (const event in listenerMap) {
+        window.removeEventListener(event, listenerMap[event])
       }
     }
   }, [])

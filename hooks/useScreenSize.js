@@ -16,10 +16,10 @@ export default function useScreenSize() {
   }, [])
 
   useEvents({
-    resize: () => throttle(() => {
+    resize: throttle(() => {
       setWidth(window.innerWidth)
       setHeight(window.innerHeight)
-    }, 100)
+    }, 200)
   })
   
   return {screenWidth, screenHeight, shape}

@@ -157,7 +157,7 @@ var DesktopOnlyButton = p => pug`
     title='Use a Computer'
     contentId=Alerts.DesktopOnly 
     button={text: 'Will Do!'}
-  )
+  ) Desktop Only
 `
 
 var HowConfig = [
