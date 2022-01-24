@@ -76,5 +76,5 @@ var ItemGroup = p => pug`
 `
 
 var Item = p => pug`
-  Link.px-4.m-2.text-lg(...p secondary className='pt-[9px] pb-[6px]')
+  Link.px-4.m-2.text-lg(...p newTab secondary className='pt-[9px] pb-[6px]')
 `
