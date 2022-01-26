@@ -48,7 +48,7 @@ var MenuButton = p => {
   let cs = 'pt-[3px] '
 
   if (p.id === page.id) 
-    cs += '!bg-accent text-accentWhite cursor-default hover:text-accentWhite'
+    cs += '!bg-accent !text-accentWhite cursor-default !hover:text-accentWhite'
 
   function onClick(id) {
     if (p.id === page.id) return
