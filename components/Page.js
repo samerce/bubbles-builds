@@ -8,6 +8,7 @@ export default function Page(p) {
   const playShaderTimer = useRef()
   const [canLoad, setCanLoad] = useState(false)
   const {page, pageDidAppear} = useNav()
+  const {popupId} = usePopup()
   
   function onAppear() {
     pageDidAppear({
@@ -49,6 +50,13 @@ export default function Page(p) {
       playShaderTimer.current = setTimeout(playShader, 100)
     }
   }, [p.scrolling])
+
+  useEffect(() => {
+    if (!!popupId && p.index === page.index) {
+      pauseShader()
+      playShaderTimer.current = setTimeout(playShader, 500)
+    }
+  }, [popupId])
 
   return (
     <VSnapItem {...p} id={p.id} onAppear={onAppear}
