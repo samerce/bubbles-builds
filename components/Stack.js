@@ -2,10 +2,16 @@ import VisibilitySensor from 'react-visibility-sensor'
 import { Icon, Button } from './Basics'
 import { useState } from 'react'
 
+const VisibilityOffset = 324
+
 export const HSnapItem = p => pug`
-  VisibilitySensor(onChange=isVisible => {
-    if (isVisible && p.onAppear) p.onAppear()
-  })
+  VisibilitySensor(
+    partialVisibility resizeThrottle=100
+    offset={left: VisibilityOffset, right: VisibilityOffset}
+    onChange=isVisible => {
+      if (isVisible && p.onAppear) p.onAppear()
+    }
+  )
     div.snap-start.snap-always.inline-flex(...p className=p.className)
 `
 
@@ -49,9 +55,13 @@ export const VSnapStack = (p) => pug`
 `
 
 export const VSnapItem = p => pug`
-  VisibilitySensor(onChange = visible => {
-    if (visible && p.onAppear) p.onAppear()
-  })
+  VisibilitySensor(
+    partialVisibility resizeThrottle=100
+    offset={top: VisibilityOffset, bottom: VisibilityOffset}
+    onChange = visible => {
+      if (visible && p.onAppear) p.onAppear()
+    }
+  )
     div.snap-start.snap-always.w-full.h-full.relative(...p className=p.className)
 `
 
