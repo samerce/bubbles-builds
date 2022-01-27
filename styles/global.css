@@ -11,6 +11,10 @@
     text-decoration: underline;
   }
 
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
   .flex-center {
     @apply flex;
     @apply justify-center;

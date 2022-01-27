@@ -107,7 +107,7 @@ var PopupContent = p => {
   }, [popupId])
 
   return pug`
-    Anim.absolute.h-full.flex-col.flex(
+    Anim.absolute.h-full.flex-col(
       ...p
       className=p.className
       style=${{
