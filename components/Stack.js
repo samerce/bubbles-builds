@@ -24,7 +24,7 @@ export const HSnapStack = p => {
   }
 
   return (
-    <div className={'flex flex-col flex-1 w-full h-full relative overflow-hidden ' + p.className}>
+    <div className={'flex flex-col flex-1 w-full h-full relative overflow-hidden content-auto ' + p.className}>
       <div className='grow w-full max-h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory'>
         
         {p.items.map(({id, Content, className}, index) => (
@@ -44,7 +44,11 @@ export const HSnapStack = p => {
 }
 
 export const VSnapStack = (p) => pug`
-  div.snap-y.snap-mandatory.overflow-x-visible.overflow-y-scroll(...p className=p.className)
+  div.snap-y.snap-mandatory.overflow-x-visible.overflow-y-scroll.content-auto(
+    ...p 
+    className=p.className
+    ref=p.forwardRef
+  )
 `
 
 export const VSnapItem = p => pug`
@@ -57,7 +61,7 @@ const IconCx = 'w-[54px] h-[54px]'
 
 var SnapItem = p => {
   const [ref, visible] = useVisibility({
-    threshold: .54,
+    threshold: .92,
     trackVisibility: true,
     delay: 250,
   })
@@ -67,7 +71,7 @@ var SnapItem = p => {
   }, [visible])
 
   return pug`
-    div.snap-start.snap-always(...p className=p.className ref=ref)
+    div.snap-start.snap-always.content-auto(...p className=p.className ref=ref)
   `
 }
 

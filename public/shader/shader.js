@@ -7879,8 +7879,13 @@ function loadShader() {
   if (shader) shaderToy.compileAndStart(shader)
   else console.warn('no shader found for:', shaderId)
 
-  addEventListener('play', () => shaderToy.play())
-  addEventListener('pause', () => shaderToy.pause())
+  window.onmessage = e => {
+    if (e.data === 'play') {
+        shaderToy.play()
+    } else if (e.data === 'pause') {
+        shaderToy.pause()
+    }
+  } 
 }
 
 function getQueryVar(key) {
