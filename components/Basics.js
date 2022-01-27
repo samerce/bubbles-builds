@@ -1,6 +1,5 @@
 import SIcon from 'supercons'
 import NImage from 'next/image'
-import { animated } from 'react-spring'
 import React, { useState, useLayoutEffect, useMemo } from 'react'
 import useResizeAware from 'react-resize-aware'
 import usePopup from '../model/usePopup'

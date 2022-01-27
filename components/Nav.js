@@ -1,7 +1,6 @@
 import { Button, Icon } from "./Basics"
 import How from "./How"
 import Why from "./Why"
-import { useSpring, config } from 'react-spring'
 import { scrollTo } from "../utils/scroll"
 import { FaHeadphonesAlt } from 'react-icons/fa';
 
