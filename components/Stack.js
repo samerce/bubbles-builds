@@ -1,18 +1,11 @@
-import VisibilitySensor from 'react-visibility-sensor'
+import { useInView as useVisibility} from 'react-intersection-observer'
 import { Icon, Button } from './Basics'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 const VisibilityOffset = 324
 
 export const HSnapItem = p => pug`
-  VisibilitySensor(
-    partialVisibility resizeThrottle=100
-    offset={left: VisibilityOffset, right: VisibilityOffset}
-    onChange=isVisible => {
-      if (isVisible && p.onAppear) p.onAppear()
-    }
-  )
-    div.snap-start.snap-always.inline-flex(...p className=p.className)
+  SnapItem.inline-flex(...p className=p.className)
 `
 
 export const HSnapStack = p => {
@@ -36,7 +29,7 @@ export const HSnapStack = p => {
         
         {p.items.map(({id, Content, className}, index) => (
           <HSnapItem className={'flex-100 h-full max-w-full max-h-full flex-col items-center relative px-[9px] ' + className}
-            id={id} key={id} onAppear={() => onAppearItem(id, index)}>
+          id={id} key={id} onAppear={() => onAppearItem(id, index)}>
 
             <Content {...p.itemProps} />
 
@@ -55,19 +48,28 @@ export const VSnapStack = (p) => pug`
 `
 
 export const VSnapItem = p => pug`
-  VisibilitySensor(
-    partialVisibility resizeThrottle=100
-    offset={top: VisibilityOffset, bottom: VisibilityOffset}
-    onChange = visible => {
-      if (visible && p.onAppear) p.onAppear()
-    }
-  )
-    div.snap-start.snap-always.w-full.h-full.relative(...p className=p.className)
+  SnapItem.w-full.h-full.relative(...p className=p.className)
 `
 
 // Helpers
 
 const IconCx = 'w-[54px] h-[54px]'
+
+var SnapItem = p => {
+  const [ref, visible] = useVisibility({
+    threshold: .54,
+    trackVisibility: true,
+    delay: 250,
+  })
+
+  useEffect(() => {
+    if (visible && p.onAppear) p.onAppear()
+  }, [visible])
+
+  return pug`
+    div.snap-start.snap-always(...p className=p.className ref=ref)
+  `
+}
 
 var HSnapNav = p => {
   function buttonStyle(btn) {
