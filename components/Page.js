@@ -60,7 +60,7 @@ export default function Page(p) {
 
   return (
     <VSnapItem {...p} id={p.id} onAppear={onAppear}
-    className={p.className + ' w-full h-full relative flex flex-col items-center pb-nav md:pb-navBig content-auto'}>
+    className={p.className + ' w-full h-full relative flex flex-col items-center pb-nav md:pb-navBig'}>
 
       <iframe 
         className='pointer-events-none absolute-full w-full h-full content-auto'
