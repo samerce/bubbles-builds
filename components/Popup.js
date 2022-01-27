@@ -99,7 +99,7 @@ var PopupContent = p => {
   })
 
   useEffect(() => {
-    if (!visible) {
+    if (popupId !== p.id) {
       setTimeout(() => {
         document.getElementById(p.id).style.display = 'none'
       }, 300)

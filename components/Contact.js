@@ -92,7 +92,7 @@ const SendIconTransform = {
 }
 
 var SendButton = p => {
-  const backdropSendingAnim = useSpring({
+  const backdropStyle = (p.mode === Mode.sending)? useSpring({
     loop: {reverse: true},
     from: { scale: .18 },
     to: { scale: 1.2 },
@@ -100,8 +100,9 @@ var SendButton = p => {
       ...config.stiff,
       mass: .9,
     }
-  })
-  const iconSendingAnim = useSpring({
+  }) : (p.mode ===  Mode.sent)? {transform: 'none'} : {transform: 'scale(0)'}
+
+  const iconStyle = (p.mode === Mode.sending)? useSpring({
     loop: {reverse: true},
     from: { scale: 1.2 },
     to: { scale: .6 },
@@ -109,8 +110,7 @@ var SendButton = p => {
       ...config.stiff,
       mass: 1,
     }
-  })
-  const iconStyle = (p.mode === Mode.sending)? iconSendingAnim : {}
+  }) : {}
 
   return pug`
     Button.rounded-full.absolute.z-10.overflow-hidden(
@@ -129,11 +129,7 @@ var SendButton = p => {
     
     Anim.absolute.h-full.w-full.rounded-full.bg-accent.z-0(
       class='w-[36px] h-[36px] right-[3px] bottom-[3px]'
-      style=${
-        p.mode === Mode.sending? 
-          backdropSendingAnim : p.mode ===  Mode.sent?
-          {transform: 'none'} : {transform: 'scale(0)'}
-      }
+      style=backdropStyle
     )
   `
 }
