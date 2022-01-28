@@ -37,7 +37,7 @@ export default function Thanks(p) {
           Text The gorgeous backgrounds on this site are shaders from creators on Shadertoy.com. Huge thanks to their painstaking work developing the equations that make these stunning pieces of art. It still blows my mind that they’re made with only math and sometimes some images of just “noise”. So grateful the following talented humans have offered their work for free:
           ItemGroup
             Item(href='https://www.shadertoy.com/user/FabriceNeyret2') Fabrice Neyret 2 (Landing)
-            Item(href='https://www.shadertoy.com/user/PyThrrrown') PyThrrrown (Express Your Yes)
+            Item(href='https://www.shadertoy.com/user/CyanSprite') CyanSprite (Express Your Yes)
             Item(href='https://www.shadertoy.com/user/LucaHofmann') Luca  Hoffman (Ricky for House)
             Item(href='https://www.shadertoy.com/user/glkt') GLKT (Acupuncture)
             Item(href='https://www.shadertoy.com/user/Logos') Logos (DQITWH)
