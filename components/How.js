@@ -6,7 +6,7 @@ import React, { useLayoutEffect, useState } from "react"
 import { Popups } from "../model/usePopup"
 import usePopupScrollReset from "../hooks/usePopupScrollReset"
 
-const Highlighted = ' border border-accent text-accentLite text-shadow-duo '
+const Highlighted = ' border border-accentLite text-accentWhite text-shadow-duo '
 const Dim = ' text-accentWhite text-opacity-60 '
 const ScrollerId = 'how-scroller'
 

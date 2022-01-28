@@ -33,7 +33,7 @@ export default function Thanks(p) {
           Text My work and I are not possible without my loving family, including my partner Petals, my mom Priscilla, my brother Rameen, my sister Alyana, and some awesome friends who helped me brainstorm and test: Koki, T, and Abby.
 
         ThanksSection.mt-0
-          SectionTitle.rotate-3.mb-2 shaders
+          SectionTitle.-rotate-3.mb-2 shaders
           Text The gorgeous backgrounds on this site are shaders from creators on Shadertoy.com. Huge thanks to their painstaking work developing the equations that make these stunning pieces of art. It still blows my mind that they’re made with only math and sometimes some images of just “noise”. So grateful the following talented humans have offered their work for free:
           ItemGroup
             Item(href='https://www.shadertoy.com/user/FabriceNeyret2') Fabrice Neyret 2 (Landing)
@@ -48,7 +48,7 @@ export default function Thanks(p) {
             Item(href='https://www.shadertoy.com/user/Nicolas2') Nicolas 2 (Let's Build)
 
         ThanksSection
-          SectionTitle.-rotate-1.mb-2 fonts
+          SectionTitle.rotate-1.mb-2 fonts
           Text Anyone who knows me, knows I obsess over fonts. They can make or break a design and I spent several hours picking and re-picking fonts for this site. Many thanks to the following designers (and Google Fonts) who offer their impeccable fonts for free:
           ItemGroup
             Item(href='https://github.com/Fonthausen/CrimsonPro') Jacques Le Bailly (Crimson Pro)
@@ -56,7 +56,7 @@ export default function Thanks(p) {
             Item(href='https://fonts.google.com/specimen/Bayon?query=Bayon#about') Danh Hong (Bayon)
 
         ThanksSection
-          SectionTitle.-rotate-1.mb-2 icons
+          SectionTitle.-rotate-2.mb-2 icons
           Text The icons are generously provided by:
           ItemGroup
             Item(href='https://github.com/react-icons/react-icons') Font Awesome via React Icons

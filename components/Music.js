@@ -5,12 +5,17 @@ import usePopup, { Popups } from "../model/usePopup"
 export default function Music(p) { 
   const {popupId} = usePopup()
   const [hasOpenedOnce, setHasOpenedOnce] = useState(false)
+  const [canLoad, setCanLoad] = useState(false)
 
   useEffect(() => {
     if (!hasOpenedOnce) {
       setHasOpenedOnce(popupId === Popups.Music)
     } 
   }, [popupId])
+
+  useEffect(() => {
+    setTimeout(() => setCanLoad(true), 4000)
+  }, [])
   
   return pug`
     PopupRoot(...p className='w-[383px] ' + p.className)
@@ -21,7 +26,7 @@ export default function Music(p) {
         iframe.rounded-b-2xl(
           width="100%" height="100%" scrolling="yes" frameBorder="no" 
           title='soundcloud widget'
-          src=${hasOpenedOnce? SoundCloudUrl : ''}
+          src=${(hasOpenedOnce || canLoad)? SoundCloudUrl : ''}
         )
   `
 }

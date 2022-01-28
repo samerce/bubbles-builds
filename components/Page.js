@@ -52,9 +52,9 @@ export default function Page(p) {
   }, [p.scrolling])
 
   useEffect(() => {
-    if (!!popupId && p.index === page.index) {
+    if (p.index === page.index) {
       pauseShader()
-      playShaderTimer.current = setTimeout(playShader, 500)
+      playShaderTimer.current = setTimeout(playShader, 200)
     }
   }, [popupId])
 
