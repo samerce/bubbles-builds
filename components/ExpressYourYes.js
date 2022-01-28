@@ -33,7 +33,7 @@ export default function ExpressYourYes(p) {
 
   return pug`
     Page(
-      id=PageId index=p.index title='Express Your Yes' shaderId='fdscR8'
+      id=PageId index=p.index title='Express Your Yes' shaderId='Ns2yWR'
       how=HowConfig why=WhyConfig
     )
       HSnapStack(items=Items)

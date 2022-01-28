@@ -7862,7 +7862,26 @@ const Config = {
           }
         ]
       }
-    ]
+    ],
+    Ns2yWR: [
+        {
+          "ver":"0.1",
+          "info":{},
+          "renderpass":[{
+              "inputs":[ ],
+              "outputs":[{
+                  "id":"4dfGRr",
+                  "channel":0
+                }
+              ],
+              "code":"\nvoid mainImage( out vec4 fragColor, in vec2 fragCoord )\n{\n\tvec2 p = vec2(fragCoord.xy \/ iResolution.xy);\n\tvec2 r =  2.0*vec2(fragCoord.xy - 0.5*iResolution.xy)\/iResolution.y;\n\tfloat t = iTime\/10.;\n    r = r * 5.;\n    float x = -2.6 + cos(t) * 5.2;\n    float y = 0.0;\n    float dx = 4.0 + cos(t) * .01;\n    float dy = 4.0 + sin(t) * .01;\n    \n    float angle = t*1.;\n\n         \n    float v1 = sin(r.x +t*.5);\n    float v2 = sin(r.y +t*-.5);\n    float v3 = sin(r.x+r.y +t);\n    float v4 = sin(length(r) +.7*t);\n    \n    float v5 = cos(r.x +t*-.5);\n    float v6 = cos(r.y +t*.5);\n    float v7 = cos(r.x+r.y +t);\n    float v8 = cos(length(r) -.7*t);\n    \n    float v9  = tan(r.x +t);\n    float v10 = tan(r.y +t);\n    float v11 = tan(r.x+r.y +t);\n    float v12 = tan(length(r) +1.7*t);\n\n    \n\tfloat v = v1+v2+v3+v4;\n    \n    v = v1+v2+v3+v4;\n    v2 = v5+v6+v7+v8;\n    v3 = v9+v10+v11+v12;\n    \n    v3=smoothstep(v3,v2,0.5);\n    \n\tvec3 ret;\n\t\n\tret = vec3(sin(v), sin(v+v2), sin(v+v3));\n    \n\tret = fract(ret) * 1.3;\n\t\n    vec3 pixel = ret;\n    fragColor = vec4(pixel, 1.);\n}",
+              "name":"Image",
+              "description":"",
+              "type":"image"
+            }
+          ]
+        }
+      ]
   }
 
 function loadShader() {
