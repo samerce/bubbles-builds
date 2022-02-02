@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon } from './Basics'
+import { Button, PortfolioLink } from './Basics'
 import Page from './Page'
 import usePopup, { Popups } from '../model/usePopup'
 
@@ -7,7 +7,7 @@ export default function Bio(p) {
   const {showPopup} = usePopup()
 
   return pug`
-    Page.flex.items-center(
+    Page(
       id='bio' index=p.index title='Bubbles Builds' shaderId='sdscWS'
       how=HowConfig why=WhyConfig
     )
@@ -16,9 +16,21 @@ export default function Bio(p) {
           class='md:text-10xl'
         ) Bubbles #[br] Builds
         
-      Button.glass.text-3xl.h-54.px-5.pt-1.mt-auto(
-        onClick=() => showPopup(Popups.WhoIsBubbles)
-      ) Who is Bubbles?
+      div.flex-center.absolute.w-full.bottom-0.left-0(
+        class='flex-col xs:flex-row pb-nav md:pb-navBig'
+      )
+        Button.glass.h-54.px-5.pt-1(
+          class='text-2xl sm:text-3xl'
+          onClick=() => showPopup(Popups.WhoIsBubbles)
+        ) Who is Bubbles?
+
+        div.shrink-0.grow-0(class='basis-3 sm:basis-6')
+
+        PortfolioLink(
+          class='!m-0 basis-auto'
+          newTab
+          href='https://s3.us-east-2.amazonaws.com/purplerepublic.us/bubbles-portfolio/Samer-Chahine-Resume.pdf'
+        ) See Resume
   `
 }
 

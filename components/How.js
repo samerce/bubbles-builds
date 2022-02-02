@@ -304,7 +304,7 @@ var Frameworks = [
     color: '#e34f26',
     time: '5 years',
     description: `
-      Before TailwindCSS, I used Styled Components for all my web projects. It is the best way to use all the power of Javascript to write CSS. It has a bit of a learning curve and I haven't used it in over a year, so I might be a little rusty, but I wouldn't mind picking it up again. Though, I would recommend TailwindCSS for to anyone.
+      Before TailwindCSS, I used Styled Components for all my web projects. It is the best way to use all the power of Javascript to write CSS. It has a bit of a learning curve and I haven't used it in over a year, so I might be a little rusty, but I wouldn't mind picking it up again. Though, I would recommend TailwindCSS to anyone.
     `,
   },
   {
@@ -344,7 +344,7 @@ var Frameworks = [
     color: '#b07219',
     time: '5 years',
     description: `
-      Before Styled Components blew mind, SASS was my go-to CSS framework. Obvious and super powerful additions like nesting and mixins were the main draws. I haven't used it in a while, but wouldn't mind using it again.
+      Before Styled Components blew my mind, SASS was my go-to CSS framework. Obvious and super powerful additions like nesting and mixins were the main draws. I haven't used it in a while, but wouldn't mind using it again.
     `,
   },
   {

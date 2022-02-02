@@ -32,7 +32,7 @@ export const Link = p => {
 export const PortfolioLink = p => pug`
   Link.flex-center.glass.grow-0.shrink-0.h-54.pl-5.pr-3.mx-4.mt-6.mb-3(
     ...p 
-    className='basis-[54px] pt-[3px] text-2xl sm:text-3xl ' + p.className
+    className='basis-[54px] pt-[4px] text-2xl sm:text-3xl ' + p.className
   ) #{p.children}
     Icon(name='external-fill' class='mb-[3px] ml-[6px] w-[27px] sm:w-[36px]' aria-hidden)
 `
