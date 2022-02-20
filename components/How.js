@@ -552,6 +552,14 @@ var Jobs = [
     description: `
       The non-profit I co-founded and run with my partner, Petals. Through three name changes—Purple Republic to express your mess to Express Your Yes—we opened queer art galleries in the south, built avant-garde web experiments, and rippled love with art popups across the nation.
     `,
+  },{
+    key: 'Express Your Mess',
+    name: 'Express Your Mess',
+    experience: 100,
+    time: '4 years',
+    description: `
+    An artistic, entrepreneurial, self-reflective startup I co-founded with my partner, Petals. We traveled the world popping up art installations, doing performance art, spreading joy at art markets and on the streets. Meanwhile, I developed a whole set of new skills, including arts production & sales, videography, music production, graphic design, book editing, design & publishing, painting, and flow arts.
+    `,
   },
   {
     key: 'Crendo Creations',
@@ -559,7 +567,7 @@ var Jobs = [
     experience: 100,
     time: '4 years',
     description: `
-      The startup I co-founded in 2014 with my previous partner, Chris. We produced Glyphite.com, a web-app to build stylized fonts for games, and Blackjack Genius, an Android game that trained you to play for mathematically better odds.
+      The startup I co-founded in 2010 with my previous partner, Chris. We produced Glyphite.com, a web-app to build stylized fonts for games, and Blackjack Genius, an Android game that trained you to play for mathematically better odds.
     `,
   },
   {

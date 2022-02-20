@@ -25,7 +25,7 @@ var Items = [
           src=abby width=1280 height=800 framed 
           alt='portfolio screenshot of the Elemental Healing with Abby website'
         )
-        PortfolioLink(href='https://bubblepillow.wixsite.com/website-3' newTab)
+        PortfolioLink(href='https://www.abbyhumphreyacupuncture.com' newTab)
           | Go There
     `,
   },
