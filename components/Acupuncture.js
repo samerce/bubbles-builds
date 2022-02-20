@@ -51,7 +51,7 @@ var Items = [
           src=heather width=1280 height=800 framed 
           alt='portfolio screenshot of the Heather Sloan Acupuncture website'
         )
-        PortfolioLink(href='https://www.heather-sloan.com' newTab)
+        PortfolioLink(href='https://bubblepillow.wixsite.com/website-2-1' newTab)
           | Visit
     `,
   }
