@@ -11,8 +11,6 @@
     "@reduxjs/toolkit": "^1.7.1",
     "lodash": "^4.17.21",
     "next": "^12.0.8",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^7.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -22,10 +20,14 @@
     "react-spring": "^9.3.3",
     "react-use": "^17.3.2",
     "sharp": "^0.29.3",
-    "supercons": "^0.0.1",
-    "tailwindcss": "^3.0.8"
+    "supercons": "^0.0.1"
   },
   "devDependencies": {
-    "babel-plugin-transform-react-pug": "^7.0.1"
+    "autoprefixer": "^10.4.2",
+    "babel-plugin-transform-react-pug": "^7.0.1",
+    "postcss": "^8.4.6",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^7.3.2",
+    "tailwindcss": "^3.0.22"
   }
 }
