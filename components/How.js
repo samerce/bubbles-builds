@@ -114,7 +114,7 @@ var Name = p => {
   const classes = p.className + (page.how?.includes(p.children) ? Highlighted : Dim)
 
   return pug`
-    div.inline-block.px-3.m-2.font-body.rounded-xl.leading-tight(
+    h4.inline-block.px-3.m-2.font-body.rounded-xl.leading-tight(
       className=classes + ' text-lg md:text-xl pb-[6px] pt-[2px]'
     )
       | #{p.children}
@@ -143,9 +143,9 @@ var Item = p => {
   }, [p.expanded])
 
   if (p.expanded) return pug`
-    div.flex-center.flex-col.text-xl.font-body.rounded-2xl.leading-tight.w-full.relative
+    section.flex-col.text-xl.font-body.rounded-2xl.leading-tight.w-full.relative
       
-      div.flex-center.w-full.overflow-hidden.relative.cursor-pointer.select-none(onClick=toggle)
+      button.flex-center.text-left.w-full.overflow-hidden.relative.cursor-pointer.select-none(onClick=toggle)
         div(class='w-[166px] md:w-[181px]')
           Name #{p.name}
         ExperienceBar(...p)

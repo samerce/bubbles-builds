@@ -71,7 +71,7 @@ var SnapItem = p => {
   }, [visible])
 
   return pug`
-    div.snap-start.snap-always(...p className=p.className ref=ref)
+    section.snap-start.snap-always(...p className=p.className ref=ref)
   `
 }
 

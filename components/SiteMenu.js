@@ -16,7 +16,7 @@ export default function SiteMenu(p) {
       Subheader.border-b.border-tpWhite.bg-accent.rounded-t-2xl
         span(class='text-xl xs:text-2xl sm:text-3xl') Bubbles Builds!
 
-      div.w-full.grow.flex.flex-col.overflow-y-scroll.overflow-x-hidden.bg-accentBlack.rounded-b-2xl.py-5.px-5(id=ScrollerId)
+      nav.w-full.grow.flex.flex-col.overflow-y-scroll.overflow-x-hidden.bg-accentBlack.rounded-b-2xl.py-5.px-5(id=ScrollerId aria-label='site nav')
         
         MenuButton(id='bio' rotate=3 onClick=${() => {
           setTimeout(() => showPopup(Popups.WhoIsBubbles), 400)

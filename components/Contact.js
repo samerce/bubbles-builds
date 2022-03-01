@@ -47,7 +47,7 @@ export default function Contact(p) {
 
     div.grow.flex.flex-col.overflow-y-scroll.relative.p-4.w-full
       Link.text-xl.mx-auto.mt-2(
-        href='mailto:bubbles@expressyouryes.com' class='h-54 px-6 pt-[1px]'
+        href='mailto:bubbles@expressyouryes.org' class='h-54 px-6 pt-[1px]'
         type='secondary'
       ) Use your mail app
 

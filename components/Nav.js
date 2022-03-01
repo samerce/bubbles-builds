@@ -23,6 +23,7 @@ export default function Nav(p) {
     nav.sticky.flex-center.bottom-0.left-0.px-2.h-nav.w-full.z-20.pointer-events-none(
       class='md:h-navBig origin-bottom scale-[.8] 2xs:scale-[.94] xs:scale-100'
       style=${{position: popupId? 'fixed' : 'sticky'}}
+      aria-label='page nav'
     )
 
       NavButton.origin-right(

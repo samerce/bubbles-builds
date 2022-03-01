@@ -38,14 +38,14 @@ export const PortfolioLink = p => pug`
 `
 
 export const Header = p => pug`
-  h1.font-head.mx-auto.pt-6.pb-4.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight(
+  h2.font-head.mx-auto.pt-6.pb-4.text-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight(
     ...p
     className='text-2xl sm:text-3xl md:text-4xl ' + p.className
   )
 `
 
 export const Subheader = p => pug`
-  h2.font-head.w-full.flex-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight.px-6.text-center.shrink-0(
+  h3.font-head.w-full.flex-center.text-shadow-6.drop-shadow-2xl.uppercase.text-accentWhite.leading-tight.px-6.text-center.shrink-0(
     ...p
     className='text-xl sm:text-3xl py-3 md:py-5 min-h-[54px] ' + p.className
   )
@@ -64,11 +64,11 @@ export const Text = p => pug`
 `
 
 export const Section = p => pug`
-  div.flex.flex-wrap.pt-6.relative(...p className=p.className)
+  section.flex.flex-wrap.pt-6.relative(...p className=p.className)
 `
 
 export const SectionTitle = p => pug`
-  h3.font-header.text-shadow-duo.text-accentWhite.leading-tight.bg-accent.px-4.flex-center.rounded-xl.select-none.border-sexy(
+  h4.font-header.text-shadow-duo.text-accentWhite.leading-tight.bg-accent.px-4.flex-center.rounded-xl.select-none.border-sexy(
     ...p className=p.className + ' pt-[9px] pb-[7px] text-xl sm:text-2xl'
   )
 `
@@ -86,7 +86,7 @@ export const DropdownButton = p => pug`
 `
 
 export const PopupRoot = p => pug`
-  Box.flex.flex-col.overflow-hidden(
+  section.flex.flex-col.overflow-hidden.text-accentWhite.text-shadow-tpBlack.rounded-2xl.border-sexy(
     ...p 
     className='max-w-full max-h-full lg:max-w-[777px] ' + p.className
   )
