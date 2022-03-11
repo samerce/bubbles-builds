@@ -10,7 +10,7 @@ import Thanks from './Thanks'
 import NavIntro from './NavIntro'
 import Alert from './Alert'
 
-const ease = 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+const ease = 'cubic-bezier(0.34,1.56,0.64,1)'
 
 export default function Popup(p) {
   const {popupId} = usePopup()
@@ -90,7 +90,6 @@ function Background(p) {
 function PopupContent(p) {
   const {popupId} = usePopup()
   const visible = popupId === p.id
-  console.log('popupid', popupId, p.id, visible)
 
   return pug`
     div.absolute.h-full.flex-col.transition.duration-300(
