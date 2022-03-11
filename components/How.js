@@ -511,7 +511,7 @@ var Platforms = [
     experience: 50,
     time: '1.5 years',
     description: `
-      A year at Amazon in Objective-C. Six months in Swifth on Psymail.
+      A year at Amazon in Objective-C. Six months in Swift on Psymail.
     `,
   },
   {

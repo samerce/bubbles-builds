@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import usePopup, {Popups} from '../model/usePopup'
-import { animated, useSpring, config } from 'react-spring'
 import How from './How'
 import Why from './Why'
 import Contact from './Contact'
@@ -11,7 +10,7 @@ import Thanks from './Thanks'
 import NavIntro from './NavIntro'
 import Alert from './Alert'
 
-const Anim = animated.div
+const ease = 'cubic-bezier(0.34, 1.56, 0.64, 1)'
 
 export default function Popup(p) {
   const {popupId} = usePopup()
@@ -70,62 +69,38 @@ export default function Popup(p) {
   `
 }
 
-var Background = p => {
+function Background(p) {
   const {popupId, hidePopup} = usePopup()
   const visible = !!popupId
 
   const style = {
-    ...opacityAnim(visible),
+    opacity: visible? 1 : 0,
     pointerEvents: visible? 'auto' : 'none',
   }
 
   return pug`
-    Anim.absolute.top-0.left-0.w-full.h-full.bg-black.bg-opacity-80.opacity-0(
+    div.absolute.top-0.left-0.w-full.h-full.bg-black.bg-opacity-80.opacity-0.transition.duration-300(
       onClick=hidePopup
       style=style
+      className=${`ease-[${ease}]`}
     )
   `
 }
 
-var PopupContent = p => {
+function PopupContent(p) {
   const {popupId} = usePopup()
   const visible = popupId === p.id
-  const scale = useSpring({
-    scale: visible? 1 : 0,
-    config: {
-      ...config.stiff,
-      mass: .69,
-    }
-  })
-
-  useEffect(() => {
-    if (popupId !== p.id) {
-      setTimeout(() => {
-        document.getElementById(p.id).style.display = 'none'
-      }, 300)
-    }
-  }, [popupId])
+  console.log('popupid', popupId, p.id, visible)
 
   return pug`
-    Anim.absolute.h-full.flex-col(
+    div.absolute.h-full.flex-col.transition.duration-300(
       ...p
-      className=p.className
+      className=${p.className + ` ease-[${ease}]`}
       style=${{
         ...p.style, 
-        ...scale, 
-        ...opacityAnim(visible),
-        display: visible? 'flex' : 'inherit',
+        transform: `scale(${visible? 1 : 0})`,
+        opacity: visible? 1 : 0,
       }}
     )
   `
-}
-
-function opacityAnim(visible) {
-  return useSpring({
-    opacity: visible? 1 : 0,
-    config: {
-      ...config.stiff,
-      mass: .12,
-    }
-  })
 }

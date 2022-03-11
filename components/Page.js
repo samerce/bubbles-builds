@@ -51,13 +51,6 @@ export default function Page(p) {
     }
   }, [p.scrolling])
 
-  useEffect(() => {
-    if (p.index === page.index) {
-      pauseShader()
-      playShaderTimer.current = setTimeout(playShader, 200)
-    }
-  }, [popupId])
-
   return (
     <VSnapItem {...p} id={p.id} onAppear={onAppear}
     className={p.className + ' w-full h-full relative flex flex-col items-center pb-nav md:pb-navBig'}>
