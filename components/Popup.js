@@ -10,7 +10,7 @@ import Thanks from './Thanks'
 import NavIntro from './NavIntro'
 import Alert from './Alert'
 
-const ease = 'cubic-bezier(0.34,1.56,0.64,1)'
+const ease = 'ease-[cubic-bezier(0.34,1.56,0.64,1)]'
 
 export default function Popup(p) {
   const {popupId} = usePopup()
@@ -82,7 +82,7 @@ function Background(p) {
     div.absolute.top-0.left-0.w-full.h-full.bg-black.bg-opacity-80.opacity-0.transition.duration-300(
       onClick=hidePopup
       style=style
-      className=${`ease-[${ease}]`}
+      className=ease
     )
   `
 }
@@ -94,7 +94,7 @@ function PopupContent(p) {
   return pug`
     div.absolute.h-full.flex-col.transition.duration-300(
       ...p
-      className=${p.className + ` ease-[${ease}]`}
+      className=${p.className + ' ' + ease}
       style=${{
         ...p.style, 
         transform: `scale(${visible? 1 : 0})`,
