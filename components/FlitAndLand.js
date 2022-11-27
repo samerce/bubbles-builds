@@ -12,7 +12,7 @@ export default function FlitAndLand(p) { return pug`
       src=flitandland width=1280 height=799 framed
       alt='portfolio screenshot of the Flit & Land website'
     )
-    PortfolioLink(href='https://flitandland-beta.herokuapp.com' newTab)
+    PortfolioLink(href='https://flitandland-static.onrender.com' newTab)
       | See It
 `}
 
