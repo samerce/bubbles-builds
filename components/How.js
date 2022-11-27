@@ -181,7 +181,7 @@ var Languages = [
     color: '#e34f26',
     time: '12 years',
     description: `
-      I have been subjected to HTML for just as long as its sister, Javascript. Inevitably, as an avid React user, I am very familiar with JSX. Recently, I discovered Pug and used it throughout this website instead of JSX because I find its syntax easier to read than XML-based languages.
+      I have been subjected to HTML for just as long as its cousin, Javascript. Inevitably, as an avid React user, I am very familiar with JSX. Recently, I discovered Pug and used it throughout this website instead of JSX because I find its syntax easier to read than XML-based languages.
     `,
   },
   {
@@ -195,9 +195,19 @@ var Languages = [
     `,
   },
   {
+    key: 'Typescript',
+    name: 'Typescript',
+    experience: 80,
+    color: '#f7df1e',
+    time: '~ 1 year',
+    description: `
+      I've just spent the last 9 months working with Typescript.
+    `,
+  },
+  {
     key: 'Coffeescript',
     name: 'Coffeescript',
-    experience: 90,
+    experience: 70,
     color: '#244776',
     time: '8 years',
     description: `
@@ -205,23 +215,23 @@ var Languages = [
     `,
   },
   {
-    key: 'Objective-C',
-    name: 'Objective-C',
-    experience: 80,
-    color: '#8a8a8a',
-    time: '2 years',
-    description: `
-      At Amazon.com, I worked on the Amazon app for iPhone in Objective-C for just under 2 years. I've also built several prototypes in the language.
-    `,
-  },
-  {
     key: 'Swift',
     name: 'Swift',
-    experience: 60,
+    experience: 70,
     color: '#ffac45',
     time: '6 months',
     description: `
       In early 2021, I built Psymail, a prototype email app in Swift.
+    `,
+  },
+  {
+    key: 'Objective-C',
+    name: 'Objective-C',
+    experience: 60,
+    color: '#8a8a8a',
+    time: '2 years',
+    description: `
+      At Amazon.com, I worked on the Amazon app for iPhone in Objective-C for just under 2 years. I've also built several prototypes in the language.
     `,
   },
   {
@@ -552,7 +562,17 @@ var Jobs = [
     description: `
       The non-profit I co-founded and run with my partner, Petals. Through three name changes—Purple Republic to express your mess to Express Your Yes—we opened queer art galleries in the south, built avant-garde web experiments, and rippled love with art popups across the nation.
     `,
-  },{
+  },
+  {
+    key: 'Iron Ox',
+    name: 'Iron Ox',
+    experience: 10,
+    time: '9 months',
+    description: `
+      A robotic farming company focused on creating sustainable food for all by optimizing food growth & nutrition through with scientific research and robotically-controlled greenhouses.
+    `,
+  },
+  {
     key: 'Express Your Mess',
     name: 'Express Your Mess',
     experience: 100,

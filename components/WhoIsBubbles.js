@@ -20,7 +20,7 @@ export default function WhoIsBubbles(p) {
         if visible 
           Image(
             src=bubblesHi width=160 height=90 quality=90
-            alt='an video of bubbles waving'
+            alt='a video of bubbles waving'
           )
 
       Subheader.border-b.border-b-tpWhite.bg-accent.rounded-t-2xl
