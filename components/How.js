@@ -569,7 +569,7 @@ var Jobs = [
     experience: 10,
     time: '9 months',
     description: `
-      A robotic farming company focused on creating sustainable food for all by optimizing food growth & nutrition through with scientific research and robotically-controlled greenhouses.
+      A robotic farming company focused on creating sustainable food for all by optimizing food growth & nutrition with scientific research and robotically-controlled greenhouses.
     `,
   },
   {
